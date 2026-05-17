@@ -1,0 +1,39 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli @shopify/theme
+
+      - name: Push theme to production
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          shopify theme push \
+            --store ${{ secrets.SHOPIFY_STORE }} \
+            --theme ${{ secrets.PROD_THEME_ID }} \
+            --allow-live \
+            --nodelete
+
+      - name: Publish theme (make it live)
+        env:
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
+        run: |
+          shopify theme publish \
+            --store ${{ secrets.SHOPIFY_STORE }} \
+            --theme ${{ secrets.PROD_THEME_ID }} \
+            --force
