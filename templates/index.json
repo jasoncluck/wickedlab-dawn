@@ -9,62 +9,22 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -72,13 +32,24 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "custom_liquid_hL33xq": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div style=\"padding: 80px 0; max-width: 640px;\">\n  <p style=\"font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5AB3E8; margin-bottom: 18px;\">\n    York, PA · In-house printing since 2015\n  </p>\n  <h1 style=\"font-size: 60px; font-weight: 300; line-height: 1.05; letter-spacing: -0.03em; color: #111827; margin-bottom: 20px;\">\n    Every gift, <strong style=\"font-weight: 600;\">made just for you</strong>\n  </h1>\n  <p style=\"font-size: 16px; color: #374151; line-height: 1.75; margin-bottom: 32px;\">\n    No set-up fee. No minimum order. Custom-printed in-house — mugs, apparel, puzzles, laser engraving, and more. Ships in 5–7 business days.\n  </p>\n  <div style=\"display: flex; gap: 12px; flex-wrap: wrap;\">\n    <a href=\"/collections/all\" style=\"background: #5AB3E8; color: #F7F8FA; padding: 14px 28px; border-radius: 4px; font-size: 16px; font-weight: 500; text-decoration: none;\">Shop all gifts</a>\n    <a href=\"/pages/contact\" style=\"background: transparent; color: #2E7FBB; border: 1.5px solid #5AB3E8; padding: 13px 28px; border-radius: 4px; font-size: 16px; font-weight: 500; text-decoration: none;\">Get a promo quote</a>\n  </div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "custom_liquid_hL33xq"
   ]
 }
