@@ -129,38 +129,131 @@
         "autoplay_speed": 5
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "wl_category_grid_D6id9H": {
+      "type": "wl-category-grid",
+      "blocks": {
+        "category_RmNn8i": {
+          "type": "category",
+          "settings": {
+            "title": "Personalized Gifts",
+            "subtitle": "Mugs, puzzles, ornaments, photo gifts",
+            "badge": "~45 items",
+            "link_label": "Shop gifts",
+            "url": "",
+            "image": "shopify://shop_images/puzzletin.png",
+            "bg_color": "#e8edf2",
+            "highlight": false
+          }
+        },
+        "category_Mnxw8e": {
+          "type": "category",
+          "settings": {
+            "title": "Drinkware",
+            "subtitle": "Mugs, shot glasses, pint glasses, tumblers",
+            "badge": "~52 items",
+            "link_label": "Shop drinkware",
+            "url": "",
+            "image": "shopify://shop_images/wicked-stickerz-custom-frosted-glass-beer-stein.jpg",
+            "bg_color": "#f0f2f5",
+            "highlight": false
+          }
+        },
+        "category_hCcwAE": {
+          "type": "category",
+          "settings": {
+            "title": "Apparel",
+            "subtitle": "T-shirts, hoodies, tote bags, hats",
+            "badge": "~90 items",
+            "link_label": "Shop apparel",
+            "url": "",
+            "image": "shopify://shop_images/dog3_bff032d8-757c-4d75-9263-5c8a71324583.jpg",
+            "bg_color": "#eee8f2",
+            "highlight": false
+          }
+        },
+        "category_hNDC7J": {
+          "type": "category",
+          "settings": {
+            "title": "Home & Décor",
+            "subtitle": "Coasters, slates, clocks, pillows, blankets",
+            "badge": "~18 items",
+            "link_label": "Shop home",
+            "url": "",
+            "bg_color": "#f0f2f5",
+            "highlight": false
+          }
+        },
+        "category_mjezbN": {
+          "type": "category",
+          "settings": {
+            "title": "Stickers & Decals",
+            "subtitle": "Vinyl, printed, custom sizes & shapes",
+            "badge": "~8 items",
+            "link_label": "Shop decals",
+            "url": "",
+            "bg_color": "#e8eaec",
+            "highlight": false
+          }
+        },
+        "category_NzWxh9": {
+          "type": "category",
+          "settings": {
+            "title": "Occasions & Events",
+            "subtitle": "Wedding favors, baby gifts, party supplies",
+            "badge": "~15 items",
+            "link_label": "Shop occasions",
+            "url": "",
+            "bg_color": "#f2eaea",
+            "highlight": false
+          }
+        },
+        "category_x8DpWK": {
+          "type": "category",
+          "settings": {
+            "title": "Pet Lovers",
+            "subtitle": "Pet blankets, bowls, magnets, slates",
+            "badge": "~8 items",
+            "link_label": "Shop pet gifts",
+            "url": "",
+            "bg_color": "#f0f2f5",
+            "highlight": false
+          }
+        },
+        "category_Dgh3qW": {
+          "type": "category",
+          "settings": {
+            "title": "Promotional Products",
+            "subtitle": "1M+ items for businesses via our network",
+            "badge": "1M+ items",
+            "link_label": "Get a quote",
+            "url": "",
+            "bg_color": "#f0f2f5",
+            "highlight": true
+          }
+        }
+      },
+      "block_order": [
+        "category_RmNn8i",
+        "category_Mnxw8e",
+        "category_hCcwAE",
+        "category_hNDC7J",
+        "category_mjezbN",
+        "category_NzWxh9",
+        "category_x8DpWK",
+        "category_Dgh3qW"
+      ],
+      "name": "WL Category Grid",
       "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "eyebrow": "Browse the store",
+        "title": "Shop by category",
+        "all_link_label": "All categories →",
+        "all_link_url": ""
       }
     }
   },
   "order": [
     "wl_hero_NaLCDk",
     "wl_feat_carousel_6tJWVV",
-    "featured_collection"
+    "wl_category_grid_D6id9H"
   ]
 }
