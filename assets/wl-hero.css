@@ -1,10 +1,15 @@
 /* ── WL Hero ─────────────────────────────────────── */
 
+/* Outer shell: vertical padding only — page-width handles horizontal */
+.wl-hero-section {
+  padding: 80px 0;
+}
+
+/* Inner flex row: no padding, page-width controls the margins */
 .wl-hero {
   display: flex;
   gap: 64px;
   align-items: center;
-  padding: 80px 5rem;
 }
 
 /* ── Left column ── */
@@ -190,10 +195,13 @@
 
 /* ── Responsive ── */
 @media screen and (max-width: 989px) {
+  .wl-hero-section {
+    padding: 48px 0;
+  }
+
   .wl-hero {
     flex-direction: column;
     gap: 40px;
-    padding: 48px 1.5rem;
   }
 
   .wl-hero__h1 {

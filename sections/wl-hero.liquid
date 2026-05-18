@@ -1,65 +1,67 @@
 {{ 'wl-hero.css' | asset_url | stylesheet_tag }}
 
-<div class="wl-hero">
+<div class="wl-hero-section">
+  <div class="wl-hero page-width">
 
-  {%- comment -%} ── LEFT: text column ── {%- endcomment -%}
-  <div class="wl-hero__text">
+    {%- comment -%} ── LEFT: text column ── {%- endcomment -%}
+    <div class="wl-hero__text">
 
-    <p class="wl-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      <p class="wl-hero__eyebrow">{{ section.settings.eyebrow }}</p>
 
-    <h1 class="wl-hero__h1">
-      <span class="wl-hero__h1-line1">{{ section.settings.heading_line1 }}</span>
-      <span class="wl-hero__h1-line2">{{ section.settings.heading_line2 }}</span>
-    </h1>
+      <h1 class="wl-hero__h1">
+        <span class="wl-hero__h1-line1">{{ section.settings.heading_line1 }}</span>
+        <span class="wl-hero__h1-line2">{{ section.settings.heading_line2 }}</span>
+      </h1>
 
-    <p class="wl-hero__body">{{ section.settings.body }}</p>
+      <p class="wl-hero__body">{{ section.settings.body }}</p>
 
-    <div class="wl-hero__btns">
-      {%- if section.settings.btn_primary_label != blank -%}
-        <a href="{{ section.settings.btn_primary_url }}" class="wl-btn-primary">
-          {{ section.settings.btn_primary_label }}
-        </a>
-      {%- endif -%}
-      {%- if section.settings.btn_secondary_label != blank -%}
-        <a href="{{ section.settings.btn_secondary_url }}" class="wl-btn-secondary">
-          {{ section.settings.btn_secondary_label }}
-        </a>
-      {%- endif -%}
+      <div class="wl-hero__btns">
+        {%- if section.settings.btn_primary_label != blank -%}
+          <a href="{{ section.settings.btn_primary_url }}" class="wl-btn-primary">
+            {{ section.settings.btn_primary_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.btn_secondary_label != blank -%}
+          <a href="{{ section.settings.btn_secondary_url }}" class="wl-btn-secondary">
+            {{ section.settings.btn_secondary_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="wl-hero__trust">
+        {%- for i in (1..4) -%}
+          {%- assign key = 'trust_' | append: i -%}
+          {%- if section.settings[key] != blank -%}
+            <div class="wl-trust-item">
+              <span class="wl-trust-dot"></span>
+              {{ section.settings[key] }}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
     </div>
 
-    <div class="wl-hero__trust">
-      {%- for i in (1..4) -%}
-        {%- assign key = 'trust_' | append: i -%}
-        {%- if section.settings[key] != blank -%}
-          <div class="wl-trust-item">
-            <span class="wl-trust-dot"></span>
-            {{ section.settings[key] }}
+    {%- comment -%} ── RIGHT: product panel ── {%- endcomment -%}
+    <div class="wl-hero__panel">
+
+      <p class="wl-panel__label">{{ section.settings.panel_label }}</p>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product_row' -%}
+          <div class="wl-panel__row" {{ block.shopify_attributes }}>
+            <div>
+              <div class="wl-panel__tag">{{ block.settings.tag }}</div>
+              <div class="wl-panel__name">{{ block.settings.name }}</div>
+            </div>
+            <div class="wl-panel__price">{{ block.settings.price }}</div>
           </div>
         {%- endif -%}
       {%- endfor -%}
+
     </div>
 
   </div>
-
-  {%- comment -%} ── RIGHT: product panel ── {%- endcomment -%}
-  <div class="wl-hero__panel">
-
-    <p class="wl-panel__label">{{ section.settings.panel_label }}</p>
-
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'product_row' -%}
-        <div class="wl-panel__row" {{ block.shopify_attributes }}>
-          <div>
-            <div class="wl-panel__tag">{{ block.settings.tag }}</div>
-            <div class="wl-panel__name">{{ block.settings.name }}</div>
-          </div>
-          <div class="wl-panel__price">{{ block.settings.price }}</div>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-
-  </div>
-
 </div>
 
 {% schema %}
