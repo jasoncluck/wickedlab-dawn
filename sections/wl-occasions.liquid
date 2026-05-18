@@ -1,0 +1,147 @@
+{{ 'wl-occasions.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-occ-section">
+  <div class="page-width">
+
+    <div class="wl-occ__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wl-occ__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="wl-occ__title">{{ section.settings.title }}</h2>
+      </div>
+    </div>
+
+    <div class="wl-occ__grid">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.url }}"
+           class="wl-occ-card"
+           {{ block.shopify_attributes }}>
+
+          <div class="wl-occ-card__image-wrap"
+               style="background-color: {{ block.settings.bg_color }};">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag:
+                 loading: 'lazy',
+                 class: 'wl-occ-card__img',
+                 alt: block.settings.name | escape }}
+            {%- else -%}
+              <span class="wl-occ-card__placeholder">Occasion image</span>
+            {%- endif -%}
+          </div>
+
+          <div class="wl-occ-card__body">
+            <p class="wl-occ-card__name">{{ block.settings.name }}</p>
+            {%- if block.settings.subtitle != blank -%}
+              <p class="wl-occ-card__sub">{{ block.settings.subtitle }}</p>
+            {%- endif -%}
+            {%- if block.settings.link_label != blank -%}
+              <span class="wl-occ-card__link">{{ block.settings.link_label }} →</span>
+            {%- endif -%}
+          </div>
+
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - Occasions",
+  "tag": "section",
+  "class": "wl-occ-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "Shop by occasion"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "The perfect gift for every moment"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "occasion",
+      "name": "Occasion card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Occasion name",
+          "default": "Occasion"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Short description of this occasion"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Collection URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Occasion image"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Image background colour",
+          "default": "#F7F8FA"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Occasions",
+      "blocks": [
+        {
+          "type": "occasion",
+          "settings": {
+            "name": "Weddings & Events",
+            "subtitle": "Favors, gifts, keepsakes & décor for the big day",
+            "link_label": "Shop wedding gifts",
+            "bg_color": "#F0EDF5"
+          }
+        },
+        {
+          "type": "occasion",
+          "settings": {
+            "name": "Baby & New Parents",
+            "subtitle": "Personalized blankets, announcements & keepsake sets",
+            "link_label": "Shop baby gifts",
+            "bg_color": "#EDF4F0"
+          }
+        },
+        {
+          "type": "occasion",
+          "settings": {
+            "name": "Graduation & Milestones",
+            "subtitle": "Celebrate achievements with something they'll keep forever",
+            "link_label": "Shop grad gifts",
+            "bg_color": "#EDF1F5"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

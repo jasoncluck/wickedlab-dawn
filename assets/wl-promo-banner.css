@@ -1,0 +1,99 @@
+/* ── WL Promo Banner ─────────────────────────────── */
+
+.wl-promo {
+  background: #EEF3FD;
+  border-top: 1px solid #D1D5DB;
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.wl-promo__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-top: 52px;
+  padding-bottom: 52px;
+}
+
+/* ── Text column ── */
+.wl-promo__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.wl-promo__eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin: 0 0 10px;
+}
+
+.wl-promo__title {
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+.wl-promo__title strong {
+  font-weight: 600;
+}
+
+.wl-promo__body {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ── Button ── */
+.wl-promo__btn {
+  display: inline-block;
+  background: #5AB3E8;
+  color: #F7F8FA;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 32px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.wl-promo__btn:hover {
+  background: #2E7FBB;
+  color: #F7F8FA;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .wl-promo__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .wl-promo__title {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .wl-promo__title {
+    font-size: 22px;
+  }
+
+  .wl-promo__btn {
+    width: 100%;
+    text-align: center;
+  }
+}

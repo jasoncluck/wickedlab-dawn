@@ -119,7 +119,7 @@
         "slide_Px3aLC",
         "slide_wKGpd4"
       ],
-      "name": "WL — Featured Carousel",
+      "name": "WL Featured Carousel",
       "settings": {
         "eyebrow": "Featured collections",
         "heading": "Something for everyone",
@@ -249,11 +249,218 @@
         "all_link_label": "All categories →",
         "all_link_url": ""
       }
+    },
+    "wl_featured_products_kp6edE": {
+      "type": "wl-featured-products",
+      "blocks": {
+        "product_t6ipeD": {
+          "type": "product",
+          "settings": {
+            "product": "1st-grade-squad-coffee-mug",
+            "description": "Printed in-house on quality ceramic. Your photo, your message.",
+            "bg_color": "#e8edf2",
+            "featured": true,
+            "badge": "Best seller",
+            "badge_style": "hot"
+          }
+        },
+        "product_PC9Rtp": {
+          "type": "product",
+          "settings": {
+            "product": "personalized-photo-puzzle-500-pieces-design-your-own-puzzle",
+            "description": "300 or 500 pieces. Perfect birthday or anniversary gift.",
+            "bg_color": "#ede8f2",
+            "featured": false,
+            "badge": "Popular",
+            "badge_style": "soft"
+          }
+        },
+        "product_fVxFFH": {
+          "type": "product",
+          "settings": {
+            "product": "custom-personalized-heart-shaped-photo-slates",
+            "description": "Custom photo. Great for parties & weddings.",
+            "bg_color": "#e8f2ed",
+            "featured": false,
+            "badge": "",
+            "badge_style": "hot"
+          }
+        },
+        "product_f4aPVN": {
+          "type": "product",
+          "settings": {
+            "product": "wooden-mini-liquor-holder-ornament",
+            "description": "Laser engraved natural slate. A timeless keepsake.",
+            "bg_color": "#f2eee8",
+            "featured": false,
+            "badge": "",
+            "badge_style": "hot"
+          }
+        }
+      },
+      "block_order": [
+        "product_t6ipeD",
+        "product_PC9Rtp",
+        "product_fVxFFH",
+        "product_f4aPVN"
+      ],
+      "name": "WL Featured Products",
+      "settings": {
+        "eyebrow": "Hand-picked for you",
+        "title": "Featured products",
+        "all_link_label": "See all products →",
+        "all_link_url": ""
+      }
+    },
+    "wl_promo_banner_z7fc8G": {
+      "type": "wl-promo-banner",
+      "name": "WL Promo Banner",
+      "settings": {
+        "eyebrow": "For businesses & organizations",
+        "title": "Over 1 million promotional products",
+        "body": "No set-up fee. No minimum order. From branded apparel and drinkware to trade show giveaways — we source it, brand it, and ship it for you.",
+        "btn_label": "Get a free quote",
+        "btn_url": ""
+      }
+    },
+    "wl_how_it_works_h6PUTV": {
+      "type": "wl-how-it-works",
+      "blocks": {
+        "step_zFUDyn": {
+          "type": "step",
+          "settings": {
+            "title": "Pick your product",
+            "body": "Browse hundreds of in-house items — mugs, puzzles, apparel, decals, laser-engraved pieces and more."
+          }
+        },
+        "step_cPQtLX": {
+          "type": "step",
+          "settings": {
+            "title": "Send us your image or idea",
+            "body": "Upload a high-resolution photo on the product page or contact us. No design skills needed — we handle the layout."
+          }
+        },
+        "step_MrxmBM": {
+          "type": "step",
+          "settings": {
+            "title": "We print, pack & ship",
+            "body": "Every item is custom-printed in our shop and shipped within 5–7 business days. Tracked shipping on every order."
+          }
+        }
+      },
+      "block_order": [
+        "step_zFUDyn",
+        "step_cPQtLX",
+        "step_MrxmBM"
+      ],
+      "name": "WL How It Works",
+      "settings": {
+        "eyebrow": "The process",
+        "title": "How it works",
+        "subtitle": "Every item made to order, printed in our shop in York, PA."
+      }
+    },
+    "wl_occasions_W4c3XK": {
+      "type": "wl-occasions",
+      "blocks": {
+        "occasion_6MRXfB": {
+          "type": "occasion",
+          "settings": {
+            "name": "Weddings & Events",
+            "subtitle": "Favors, gifts, keepsakes & décor for the big day",
+            "link_label": "Shop wedding gifts",
+            "url": "",
+            "image": "shopify://shop_images/wedding-gown-and-bouquet-near-beach.jpg",
+            "bg_color": "#f0edf5"
+          }
+        },
+        "occasion_KaJRwB": {
+          "type": "occasion",
+          "settings": {
+            "name": "Baby & New Parents",
+            "subtitle": "Personalized blankets, announcements & keepsake sets",
+            "link_label": "Shop baby gifts",
+            "url": "",
+            "image": "shopify://shop_images/baby-nursery-supplies.jpg",
+            "bg_color": "#edf4f0"
+          }
+        },
+        "occasion_aKAYUd": {
+          "type": "occasion",
+          "settings": {
+            "name": "Graduation & Milestones",
+            "subtitle": "Celebrate achievements with something they'll keep forever",
+            "link_label": "Shop grad gifts",
+            "url": "",
+            "image": "shopify://shop_images/grad-students-throwing-hats-in-the-air.jpg",
+            "bg_color": "#edf1f5"
+          }
+        }
+      },
+      "block_order": [
+        "occasion_6MRXfB",
+        "occasion_KaJRwB",
+        "occasion_aKAYUd"
+      ],
+      "name": "WL Occasions",
+      "settings": {
+        "eyebrow": "Shop by occasion",
+        "title": "The perfect gift for every moment"
+      }
+    },
+    "wl_reviews_m7WCgW": {
+      "type": "wl-reviews",
+      "blocks": {
+        "review_W9Qedf": {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "10 stars! Nice customer service, super fast shipping and quality product. Will definitely be back for more gifts.",
+            "author": "Satisfied customer",
+            "source": "Etsy · Verified purchase"
+          }
+        },
+        "review_DkPEW7": {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "The shot glasses were adorable and were a hit! Made in time for Christmas. Thank you for quick shipping!",
+            "author": "Holiday shopper",
+            "source": "Etsy · Verified purchase"
+          }
+        },
+        "review_xT8Ggb": {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "Absolutely love my custom mug. The photo quality is amazing and it arrived faster than expected. Will order again!",
+            "author": "Repeat customer",
+            "source": "Google · Verified review"
+          }
+        }
+      },
+      "block_order": [
+        "review_W9Qedf",
+        "review_DkPEW7",
+        "review_xT8Ggb"
+      ],
+      "name": "WL Reviews",
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "title": "What people are saying",
+        "aggregate_score": "5.0",
+        "aggregate_count": "200+"
+      }
     }
   },
   "order": [
     "wl_hero_NaLCDk",
     "wl_feat_carousel_6tJWVV",
-    "wl_category_grid_D6id9H"
+    "wl_category_grid_D6id9H",
+    "wl_featured_products_kp6edE",
+    "wl_promo_banner_z7fc8G",
+    "wl_how_it_works_h6PUTV",
+    "wl_occasions_W4c3XK",
+    "wl_reviews_m7WCgW"
   ]
 }

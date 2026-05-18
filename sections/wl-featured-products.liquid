@@ -1,0 +1,224 @@
+{{ 'wl-featured-products.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-feat-section">
+  <div class="page-width">
+
+    <div class="wl-feat__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wl-feat__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="wl-feat__title">{{ section.settings.title }}</h2>
+      </div>
+      {%- if section.settings.all_link_label != blank and section.settings.all_link_url != blank -%}
+        <a href="{{ section.settings.all_link_url }}" class="wl-feat__all-link">
+          {{ section.settings.all_link_label }} →
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="wl-feat__grid">
+      {%- for block in section.blocks -%}
+        {%- assign product = block.settings.product -%}
+        <div class="wl-prod-card{% if block.settings.featured %} wl-prod-card--featured{% endif %}"
+             {{ block.shopify_attributes }}>
+
+          {%- comment -%} ── Image area ── {%- endcomment -%}
+          <a href="{{ product.url }}" class="wl-prod-card__image-link">
+            <div class="wl-prod-card__image-wrap"
+                 style="background-color: {{ block.settings.bg_color }};">
+              {%- if product.featured_image != blank -%}
+                {{ product.featured_image | image_url: width: 600 | image_tag:
+                   loading: 'lazy',
+                   class: 'wl-prod-card__img',
+                   alt: product.featured_image.alt | escape }}
+              {%- else -%}
+                <span class="wl-prod-card__placeholder">Product image</span>
+              {%- endif -%}
+
+              {%- if block.settings.badge != blank -%}
+                <span class="wl-prod-card__badge wl-prod-card__badge--{{ block.settings.badge_style }}">
+                  {{ block.settings.badge }}
+                </span>
+              {%- endif -%}
+            </div>
+          </a>
+
+          {%- comment -%} ── Card body ── {%- endcomment -%}
+          <div class="wl-prod-card__body">
+            {%- if product.type != blank -%}
+              <p class="wl-prod-card__cat">{{ product.type }}</p>
+            {%- endif -%}
+            <a href="{{ product.url }}" class="wl-prod-card__name-link">
+              <p class="wl-prod-card__name">{{ product.title }}</p>
+            </a>
+            {%- if block.settings.description != blank -%}
+              <p class="wl-prod-card__desc">{{ block.settings.description }}</p>
+            {%- elsif product.description != blank -%}
+              <p class="wl-prod-card__desc">{{ product.description | strip_html | truncate: 80 }}</p>
+            {%- endif -%}
+
+            <div class="wl-prod-card__footer">
+              <span class="wl-prod-card__price">
+                {{ product.price | money }}
+              </span>
+
+              {%- comment -%}
+                Add-to-cart: uses the first available variant.
+                If the product has options (size, colour, etc.) this links
+                through to the product page instead, since variant selection
+                is required before adding to cart.
+              {%- endcomment -%}
+              {%- if product.variants.size == 1 and product.available -%}
+                <form action="/cart/add" method="post">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="wl-prod-card__btn">
+                    Add to cart
+                  </button>
+                </form>
+              {%- else -%}
+                <a href="{{ product.url }}" class="wl-prod-card__btn">
+                  {%- if product.available -%}
+                    Choose options
+                  {%- else -%}
+                    Sold out
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - Featured Products",
+  "tag": "section",
+  "class": "wl-feat-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "Hand-picked for you"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured products"
+    },
+    {
+      "type": "text",
+      "id": "all_link_label",
+      "label": "\"See all\" link text",
+      "default": "See all products →"
+    },
+    {
+      "type": "url",
+      "id": "all_link_url",
+      "label": "\"See all\" link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Card description",
+          "info": "Overrides the product description. Keep to ~80 characters."
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Image background colour",
+          "default": "#F0F2F5"
+        },
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Featured card (blue border glow)",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge text",
+          "info": "e.g. Best seller, New, Popular — leave blank for none"
+        },
+        {
+          "type": "select",
+          "id": "badge_style",
+          "label": "Badge style",
+          "options": [
+            { "value": "hot",  "label": "Bold (Best seller)" },
+            { "value": "soft", "label": "Soft (New / Popular)" }
+          ],
+          "default": "hot"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Featured Products",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "bg_color": "#E8EDF2",
+            "featured": true,
+            "badge": "Best seller",
+            "badge_style": "hot",
+            "description": "Printed in-house on quality ceramic. Your photo, your message."
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "bg_color": "#EDE8F2",
+            "featured": false,
+            "badge": "Popular",
+            "badge_style": "soft",
+            "description": "300 or 500 pieces. Perfect birthday or anniversary gift."
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "bg_color": "#E8F2ED",
+            "featured": false,
+            "description": "Custom photo. Great for parties & weddings."
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "bg_color": "#F2EEE8",
+            "featured": false,
+            "description": "Laser engraved natural slate. A timeless keepsake."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8
+}
+{% endschema %}

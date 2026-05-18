@@ -1,0 +1,164 @@
+{{ 'wl-reviews.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-rev-section">
+  <div class="page-width">
+
+    <div class="wl-rev__head">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="wl-rev__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="wl-rev__title">{{ section.settings.title }}</h2>
+      </div>
+      {%- if section.settings.aggregate_score != blank or section.settings.aggregate_count != blank -%}
+        <div class="wl-rev__aggregate">
+          <span class="wl-rev__aggregate-stars">★★★★★</span>
+          <span class="wl-rev__aggregate-label">
+            {%- if section.settings.aggregate_score != blank -%}
+              {{ section.settings.aggregate_score }} average
+            {%- endif -%}
+            {%- if section.settings.aggregate_score != blank and section.settings.aggregate_count != blank -%}
+              &nbsp;·&nbsp;
+            {%- endif -%}
+            {%- if section.settings.aggregate_count != blank -%}
+              {{ section.settings.aggregate_count }} reviews
+            {%- endif -%}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="wl-rev__grid">
+      {%- for block in section.blocks -%}
+        <div class="wl-rev-card" {{ block.shopify_attributes }}>
+          <div class="wl-rev-card__stars">
+            {%- assign rating = block.settings.rating | plus: 0 -%}
+            {%- for i in (1..5) -%}
+              <span class="wl-rev-card__star{% if i > rating %} wl-rev-card__star--empty{% endif %}">★</span>
+            {%- endfor -%}
+          </div>
+          <p class="wl-rev-card__text">"{{ block.settings.review_text }}"</p>
+          <p class="wl-rev-card__author">{{ block.settings.author }}</p>
+          {%- if block.settings.source != blank -%}
+            <p class="wl-rev-card__source">{{ block.settings.source }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - Reviews",
+  "tag": "section",
+  "class": "wl-rev-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "Customer reviews"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What people are saying"
+    },
+    {
+      "type": "header",
+      "content": "Aggregate rating"
+    },
+    {
+      "type": "text",
+      "id": "aggregate_score",
+      "label": "Average score",
+      "info": "e.g. 5.0 — leave blank to hide",
+      "default": "5.0"
+    },
+    {
+      "type": "text",
+      "id": "aggregate_count",
+      "label": "Review count",
+      "info": "e.g. 200+ — leave blank to hide",
+      "default": "200+"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "select",
+          "id": "rating",
+          "label": "Star rating",
+          "options": [
+            { "value": "5", "label": "★★★★★  5 stars" },
+            { "value": "4", "label": "★★★★☆  4 stars" },
+            { "value": "3", "label": "★★★☆☆  3 stars" }
+          ],
+          "default": "5"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "info": "Do not include opening/closing quotes — they are added automatically.",
+          "default": "Write the customer review here."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Reviewer name or label",
+          "default": "Happy customer"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source",
+          "info": "e.g. Etsy · Verified purchase",
+          "default": "Etsy · Verified purchase"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "10 stars! Nice customer service, super fast shipping and quality product. Will definitely be back for more gifts.",
+            "author": "Satisfied customer",
+            "source": "Etsy · Verified purchase"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "The shot glasses were adorable and were a hit! Made in time for Christmas. Thank you for quick shipping!",
+            "author": "Holiday shopper",
+            "source": "Etsy · Verified purchase"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": "5",
+            "review_text": "Absolutely love my custom mug. The photo quality is amazing and it arrived faster than expected. Will order again!",
+            "author": "Repeat customer",
+            "source": "Google · Verified review"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 9
+}
+{% endschema %}
