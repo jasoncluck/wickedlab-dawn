@@ -1,0 +1,126 @@
+{% comment %}
+  Renders a WL custom product card
+
+  Accepts:
+  - card_product: {Object} Product Liquid object
+  - section_id:   {String} Parent section ID
+  - lazy_load:    {Boolean} Lazy-load the image. Default: true
+  - skip_styles:  {Boolean} Skip CSS tag (set true after first card in a loop)
+{% endcomment %}
+
+{%- unless skip_styles -%}
+  {{ 'wl-product-card.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- liquid
+  assign product_form_id = 'wl-add-' | append: section_id | append: '-' | append: card_product.id
+
+  assign badge_label = ''
+  assign badge_mod   = ''
+  if card_product.available == false
+    assign badge_label = 'Sold out'
+    assign badge_mod   = 'sold-out'
+  elsif card_product.compare_at_price > card_product.price
+    assign badge_label = 'Sale'
+    assign badge_mod   = 'sale'
+  elsif card_product.tags contains 'new' or card_product.tags contains 'New'
+    assign badge_label = 'New'
+    assign badge_mod   = 'new'
+  elsif card_product.tags contains 'best-seller' or card_product.tags contains 'Best Seller' or card_product.tags contains 'bestseller'
+    assign badge_label = 'Best seller'
+    assign badge_mod   = 'hot'
+  endif
+
+  assign is_multi_variant = false
+  if card_product.variants.size > 1
+    assign is_multi_variant = true
+  endif
+-%}
+
+<div class="wl-pc">
+
+  <a href="{{ card_product.url }}" class="wl-pc__img-wrap" tabindex="-1" aria-hidden="true">
+    <div class="wl-pc__img">
+      {%- if card_product.featured_media -%}
+        <img
+          srcset="
+            {%- if card_product.featured_media.width >= 300 -%}{{ card_product.featured_media | image_url: width: 300 }} 300w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 500 -%}{{ card_product.featured_media | image_url: width: 500 }} 500w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 800 -%}{{ card_product.featured_media | image_url: width: 800 }} 800w{%- endif -%}
+          "
+          src="{{ card_product.featured_media | image_url: width: 500 }}"
+          alt="{{ card_product.featured_media.alt | default: card_product.title | escape }}"
+          width="{{ card_product.featured_media.width }}"
+          height="{{ card_product.featured_media.height }}"
+          loading="{%- if lazy_load == false -%}eager{%- else -%}lazy{%- endif -%}"
+        >
+      {%- else -%}
+        <div class="wl-pc__img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>Product image</span>
+        </div>
+      {%- endif -%}
+
+      {%- if badge_label != '' -%}
+        <span class="wl-pc__badge wl-pc__badge--{{ badge_mod }}">{{ badge_label }}</span>
+      {%- endif -%}
+    </div>
+  </a>
+
+  <div class="wl-pc__body">
+    <h3 class="wl-pc__name">
+      <a href="{{ card_product.url }}">{{ card_product.title | escape }}</a>
+    </h3>
+
+    {%- if card_product.description != blank -%}
+      <p class="wl-pc__desc">{{ card_product.description | strip_html | truncate: 80 }}</p>
+    {%- endif -%}
+
+    <div class="wl-pc__foot">
+      <div class="wl-pc__price">
+        {%- if card_product.compare_at_price > card_product.price -%}
+          <s class="wl-pc__price-was">{{ card_product.compare_at_price | money }}</s>
+        {%- endif -%}
+        <span>{{ card_product.price | money }}</span>
+      </div>
+
+      {%- if card_product.available -%}
+        {%- if is_multi_variant -%}
+          <a href="{{ card_product.url }}" class="wl-btn-options">View options</a>
+        {%- else -%}
+          <product-form data-section-id="{{ section_id }}">
+            {%- form 'product', card_product,
+              id: product_form_id,
+              class: 'wl-pc__form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ card_product.selected_or_first_available_variant.id }}"
+                class="product-variant-id"
+              >
+              <button
+                type="submit"
+                name="add"
+                class="wl-btn-add"
+                aria-label="{{ 'products.product.add_to_cart' | t }}: {{ card_product.title | escape }}"
+              >
+                <span>{{ 'products.product.add_to_cart' | t }}</span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        {%- endif -%}
+      {%- else -%}
+        <span class="wl-btn-sold-out">{{ 'products.product.sold_out' | t }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+
+</div>
