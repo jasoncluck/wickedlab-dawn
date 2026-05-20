@@ -26,7 +26,9 @@
         }
       },
       "block_order": ["badge-1", "badge-2"],
-      "settings": {}
+      "settings": {
+        "breadcrumb_home_label": "Home"
+      }
     },
     "product-grid": {
       "type": "main-collection-product-grid",

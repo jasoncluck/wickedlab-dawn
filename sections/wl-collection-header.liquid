@@ -3,7 +3,7 @@
 <div class="wl-col-breadcrumb">
   <div class="page-width">
     <nav class="wl-col-breadcrumb__nav" aria-label="Breadcrumb">
-      <a href="/" class="wl-col-breadcrumb__link">Home</a>
+      <a href="/" class="wl-col-breadcrumb__link">{{ section.settings.breadcrumb_home_label }}</a>
       <span class="wl-col-breadcrumb__sep" aria-hidden="true">/</span>
       <span class="wl-col-breadcrumb__current">{{ collection.title | escape }}</span>
     </nav>
@@ -51,7 +51,14 @@
       ]
     }
   ],
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "breadcrumb_home_label",
+      "label": "Breadcrumb home label",
+      "default": "Home"
+    }
+  ],
   "presets": [
     {
       "name": "WL Collection Header",
