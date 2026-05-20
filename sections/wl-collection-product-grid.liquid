@@ -1,4 +1,3 @@
-{{ 'component-facets.css' | asset_url | stylesheet_tag }}
 {{ 'component-show-more.css' | asset_url | stylesheet_tag }}
 {{ 'wl-collection-product-grid.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -63,7 +62,7 @@
             {%- for filter in collection.filters -%}
               <details
                 id="wl-filter-{{ filter.param_name | escape }}-{{ section.id }}"
-                class="wl-cg-filter"
+                class="wl-cg-filter js-filter"
                 data-index="{{ forloop.index }}"
                 {% if forloop.index <= 3 %}open{% endif %}
               >
@@ -182,41 +181,48 @@
     </div>
 
     {%- comment -%} Grid ── {%- endcomment -%}
-    {%- if collection.products.size == 0 -%}
-      <div class="wl-cg-empty">
-        <p>No products found. <a href="{{ collection.url }}">Clear all filters</a></p>
-      </div>
-    {%- else -%}
-      <ul
-        id="product-grid"
-        data-id="{{ section.id }}"
-        class="wl-product-grid list-unstyled"
-      >
-        {%- assign skip_styles = false -%}
-        {%- for product in collection.products -%}
-          {%- assign lazy = true -%}
-          {%- if forloop.index <= 3 -%}{%- assign lazy = false -%}{%- endif -%}
-          <li class="wl-product-grid__item">
-            {%- render 'wl-product-card',
-              card_product: product,
-              section_id: section.id,
-              lazy_load: lazy,
-              skip_styles: skip_styles
-            -%}
-          </li>
-          {%- assign skip_styles = true -%}
-        {%- endfor -%}
-      </ul>
+    <div class="collection">
+      {%- if collection.products.size == 0 -%}
+        <div class="wl-cg-empty">
+          <p>No products found. <a href="{{ collection.url }}">Clear all filters</a></p>
+        </div>
+      {%- else -%}
+        <ul
+          id="product-grid"
+          data-id="{{ section.id }}"
+          class="wl-product-grid list-unstyled"
+        >
+          {%- assign skip_styles = false -%}
+          {%- for product in collection.products -%}
+            {%- assign lazy = true -%}
+            {%- if forloop.index <= 3 -%}{%- assign lazy = false -%}{%- endif -%}
+            <li class="wl-product-grid__item">
+              {%- render 'wl-product-card',
+                card_product: product,
+                section_id: section.id,
+                lazy_load: lazy,
+                skip_styles: skip_styles
+              -%}
+            </li>
+            {%- assign skip_styles = true -%}
+          {%- endfor -%}
+        </ul>
 
-      {%- if paginate.pages > 1 -%}
-        {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
       {%- endif -%}
-    {%- endif -%}
+    </div>
   </div>
 
 </div>
 
 {%- endpaginate -%}
+
+{%- comment -%} facets.js calls getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents() unconditionally — stub prevents crash {%- endcomment -%}
+<menu-drawer hidden aria-hidden="true">
+  <form id="FacetFiltersFormMobile"></form>
+</menu-drawer>
 
 {% schema %}
 {

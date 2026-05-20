@@ -121,12 +121,22 @@
   text-transform: none;
 }
 
+/* Prevent any inherited overflow clipping from cutting the caret */
+.wl-cg-filter {
+  overflow: visible;
+}
+
+.wl-cg-filter__title {
+  overflow: visible;
+}
+
 /* CSS-only chevron — no SVG dependency, no layout shift */
 .wl-cg-filter__caret {
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .wl-cg-filter__caret::before,
@@ -134,7 +144,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  width: 7px;
+  width: 8px;
   height: 1.5px;
   background: #9CA3AF;
   border-radius: 1px;
@@ -143,11 +153,13 @@
 
 .wl-cg-filter__caret::before {
   left: 1px;
+  transform-origin: right center;
   transform: translateY(-50%) rotate(45deg);
 }
 
 .wl-cg-filter__caret::after {
   right: 1px;
+  transform-origin: left center;
   transform: translateY(-50%) rotate(-45deg);
 }
 
