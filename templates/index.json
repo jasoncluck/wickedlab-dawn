@@ -132,16 +132,16 @@
     "wl_category_grid_D6id9H": {
       "type": "wl-category-grid",
       "blocks": {
-        "category_RmNn8i": {
+        "category_hCcwAE": {
           "type": "category",
           "settings": {
-            "title": "Personalized Gifts",
-            "subtitle": "Mugs, puzzles, ornaments, photo gifts",
-            "badge": "~45 items",
-            "link_label": "Shop gifts",
-            "url": "",
-            "image": "shopify://shop_images/puzzletin.png",
-            "bg_color": "#e8edf2",
+            "title": "Apparel",
+            "subtitle": "T-shirts, hoodies, tote bags, hats",
+            "badge": "~106 items",
+            "link_label": "Shop apparel",
+            "url": "/collections/apparel",
+            "image": "shopify://shop_images/dog3_bff032d8-757c-4d75-9263-5c8a71324583.jpg",
+            "bg_color": "#eee8f2",
             "highlight": false
           }
         },
@@ -150,24 +150,24 @@
           "settings": {
             "title": "Drinkware",
             "subtitle": "Mugs, shot glasses, pint glasses, tumblers",
-            "badge": "~52 items",
+            "badge": "~47 items",
             "link_label": "Shop drinkware",
-            "url": "",
+            "url": "/collections/drinkware",
             "image": "shopify://shop_images/wicked-stickerz-custom-frosted-glass-beer-stein.jpg",
             "bg_color": "#f0f2f5",
             "highlight": false
           }
         },
-        "category_hCcwAE": {
+        "category_RmNn8i": {
           "type": "category",
           "settings": {
-            "title": "Apparel",
-            "subtitle": "T-shirts, hoodies, tote bags, hats",
-            "badge": "~90 items",
-            "link_label": "Shop apparel",
-            "url": "",
-            "image": "shopify://shop_images/dog3_bff032d8-757c-4d75-9263-5c8a71324583.jpg",
-            "bg_color": "#eee8f2",
+            "title": "Gifts & Accessories",
+            "subtitle": "Ornaments, keychains, magnets, jewelry",
+            "badge": "~20 items",
+            "link_label": "Shop gifts",
+            "url": "/collections/gifts",
+            "image": "shopify://shop_images/puzzletin.png",
+            "bg_color": "#e8edf2",
             "highlight": false
           }
         },
@@ -176,9 +176,9 @@
           "settings": {
             "title": "Home & Décor",
             "subtitle": "Coasters, slates, clocks, pillows, blankets",
-            "badge": "~18 items",
+            "badge": "~20 items",
             "link_label": "Shop home",
-            "url": "",
+            "url": "/collections/home-decor",
             "bg_color": "#f0f2f5",
             "highlight": false
           }
@@ -190,7 +190,7 @@
             "subtitle": "Vinyl, printed, custom sizes & shapes",
             "badge": "~8 items",
             "link_label": "Shop decals",
-            "url": "",
+            "url": "/collections/stickers-decals",
             "bg_color": "#e8eaec",
             "highlight": false
           }
@@ -198,56 +198,30 @@
         "category_NzWxh9": {
           "type": "category",
           "settings": {
-            "title": "Occasions & Events",
-            "subtitle": "Wedding favors, baby gifts, party supplies",
-            "badge": "~15 items",
-            "link_label": "Shop occasions",
-            "url": "",
+            "title": "Puzzles",
+            "subtitle": "Custom photo puzzles, 300 or 500 pieces",
+            "badge": "~6 items",
+            "link_label": "Shop puzzles",
+            "url": "/collections/puzzles",
             "bg_color": "#f2eaea",
             "highlight": false
-          }
-        },
-        "category_x8DpWK": {
-          "type": "category",
-          "settings": {
-            "title": "Pet Lovers",
-            "subtitle": "Pet blankets, bowls, magnets, slates",
-            "badge": "~8 items",
-            "link_label": "Shop pet gifts",
-            "url": "",
-            "bg_color": "#f0f2f5",
-            "highlight": false
-          }
-        },
-        "category_Dgh3qW": {
-          "type": "category",
-          "settings": {
-            "title": "Promotional Products",
-            "subtitle": "1M+ items for businesses via our network",
-            "badge": "1M+ items",
-            "link_label": "Get a quote",
-            "url": "",
-            "bg_color": "#f0f2f5",
-            "highlight": true
           }
         }
       },
       "block_order": [
-        "category_RmNn8i",
-        "category_Mnxw8e",
         "category_hCcwAE",
+        "category_Mnxw8e",
+        "category_RmNn8i",
         "category_hNDC7J",
         "category_mjezbN",
-        "category_NzWxh9",
-        "category_x8DpWK",
-        "category_Dgh3qW"
+        "category_NzWxh9"
       ],
       "name": "WL Category Grid",
       "settings": {
         "eyebrow": "Browse the store",
         "title": "Shop by category",
         "all_link_label": "All categories →",
-        "all_link_url": ""
+        "all_link_url": "/collections/all"
       }
     },
     "wl_featured_products_kp6edE": {
