@@ -1,21 +1,16 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-section-header.css' | asset_url | stylesheet_tag }}
 {{ 'wl-category-grid.css' | asset_url | stylesheet_tag }}
 
 <div class="wl-cat-grid-section">
   <div class="page-width">
 
-    <div class="wl-cat-grid__head">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="wl-cat-grid__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
-        <h2 class="wl-cat-grid__title">{{ section.settings.title }}</h2>
-      </div>
-      {%- if section.settings.all_link_label != blank and section.settings.all_link_url != blank -%}
-        <a href="{{ section.settings.all_link_url }}" class="wl-cat-grid__all-link">
-          {{ section.settings.all_link_label }} →
-        </a>
-      {%- endif -%}
-    </div>
+    {%- render 'wl-section-header',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      all_link_label: section.settings.all_link_label,
+      all_link_url: section.settings.all_link_url
+    -%}
 
     <div class="wl-cat-grid__grid">
       {%- for block in section.blocks -%}
@@ -202,27 +197,6 @@
             "badge": "~15 items",
             "link_label": "Shop occasions",
             "bg_color": "#F2EAEA"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Pet Lovers",
-            "subtitle": "Pet blankets, bowls, magnets, slates",
-            "badge": "~8 items",
-            "link_label": "Shop pet gifts",
-            "bg_color": "#F0F2F5"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Promotional Products",
-            "subtitle": "1M+ items for businesses via our network",
-            "badge": "1M+ items",
-            "link_label": "Get a quote",
-            "bg_color": "#F0F2F5",
-            "highlight": true
           }
         }
       ]

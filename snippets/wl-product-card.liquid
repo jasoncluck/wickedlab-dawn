@@ -9,6 +9,8 @@
 {% endcomment %}
 
 {%- unless skip_styles -%}
+  {{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+  {{ 'wl-buttons.css' | asset_url | stylesheet_tag }}
   {{ 'wl-product-card.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
 
@@ -66,7 +68,7 @@
       {%- endif -%}
 
       {%- if badge_label != '' -%}
-        <span class="wl-pc__badge wl-pc__badge--{{ badge_mod }}">{{ badge_label }}</span>
+        <span class="wl-badge wl-badge--{{ badge_mod }}">{{ badge_label }}</span>
       {%- endif -%}
     </div>
   </a>

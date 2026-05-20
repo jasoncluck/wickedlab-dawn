@@ -4,28 +4,6 @@
   padding: 32px 5rem;
 }
 
-/* ── Section header ── */
-.wl-occ__head {
-  margin-bottom: 40px;
-}
-
-.wl-occ__eyebrow {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #5AB3E8;
-  margin: 0 0 8px;
-}
-
-.wl-occ__title {
-  font-size: 34px;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #111827;
-  margin: 0;
-}
-
 /* ── Grid ── */
 .wl-occ__grid {
   display: grid;
@@ -36,24 +14,24 @@
 /* ── Card ── */
 .wl-occ-card {
   display: block;
-  background: #F7F8FA;
-  border: 1px solid #D1D5DB;
-  border-radius: 12px;
+  background: var(--wl-gray-50);
+  border: 1px solid var(--wl-gray-300);
+  border-radius: var(--wl-radius-md);
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--wl-t-base), box-shadow var(--wl-t-base);
 }
 
 .wl-occ-card:hover {
-  border-color: #5AB3E8;
-  box-shadow: 0 0 16px rgba(90, 179, 232, 0.12);
+  border-color: var(--wl-blue);
+  box-shadow: var(--wl-shadow-glow-sm);
 }
 
 /* ── Image area ── */
 .wl-occ-card__image-wrap {
   height: 120px;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid var(--wl-gray-200);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,17 +42,17 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform var(--wl-t-base);
 }
 
 .wl-occ-card:hover .wl-occ-card__img {
-  transform: scale(1.03);
+  transform: var(--wl-img-zoom);
 }
 
 .wl-occ-card__placeholder {
   font-size: 11px;
   font-weight: 500;
-  color: #9CA3AF;
+  color: var(--wl-gray-400);
   letter-spacing: 0.04em;
 }
 
@@ -86,13 +64,13 @@
 .wl-occ-card__name {
   font-size: 16px;
   font-weight: 500;
-  color: #111827;
+  color: var(--wl-gray-900);
   margin: 0 0 4px;
 }
 
 .wl-occ-card__sub {
   font-size: 13px;
-  color: #6B7280;
+  color: var(--wl-gray-500);
   line-height: 1.55;
   margin: 0 0 14px;
 }
@@ -100,22 +78,18 @@
 .wl-occ-card__link {
   font-size: 13px;
   font-weight: 500;
-  color: #5AB3E8;
-  transition: color 0.15s ease;
+  color: var(--wl-blue);
+  transition: color var(--wl-t-fast);
 }
 
 .wl-occ-card:hover .wl-occ-card__link {
-  color: #2E7FBB;
+  color: var(--wl-blue-dark);
 }
 
 /* ── Responsive ── */
 @media screen and (max-width: 989px) {
   .wl-occ-section {
     padding: 48px 1.5rem;
-  }
-
-  .wl-occ__title {
-    font-size: 26px;
   }
 
   .wl-occ__grid {

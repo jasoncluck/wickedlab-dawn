@@ -4,34 +4,6 @@
   padding: 32px 5rem;
 }
 
-/* ── Section header ── */
-.wl-how__head {
-  margin-bottom: 48px;
-}
-
-.wl-how__eyebrow {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #5AB3E8;
-  margin: 0 0 8px;
-}
-
-.wl-how__title {
-  font-size: 34px;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #111827;
-  margin: 0 0 6px;
-}
-
-.wl-how__subtitle {
-  font-size: 15px;
-  color: #6B7280;
-  margin: 0;
-}
-
 /* ── Steps grid ── */
 .wl-how__grid {
   display: grid;
@@ -48,9 +20,9 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(90, 179, 232, 0.1);
-  border: 1px solid rgba(90, 179, 232, 0.25);
-  color: #5AB3E8;
+  background: var(--wl-blue-bg-md);
+  border: 1px solid var(--wl-blue-border);
+  color: var(--wl-blue);
   font-size: 14px;
   font-weight: 600;
   display: flex;
@@ -63,13 +35,13 @@
 .wl-how__step-title {
   font-size: 17px;
   font-weight: 500;
-  color: #111827;
+  color: var(--wl-gray-900);
   margin: 0 0 8px;
 }
 
 .wl-how__step-body {
   font-size: 14px;
-  color: #6B7280;
+  color: var(--wl-gray-500);
   line-height: 1.7;
   margin: 0;
 }
@@ -78,10 +50,6 @@
 @media screen and (max-width: 989px) {
   .wl-how-section {
     padding: 48px 1.5rem;
-  }
-
-  .wl-how__title {
-    font-size: 26px;
   }
 
   .wl-how__grid {

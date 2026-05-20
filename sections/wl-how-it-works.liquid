@@ -1,19 +1,15 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-section-header.css' | asset_url | stylesheet_tag }}
 {{ 'wl-how-it-works.css' | asset_url | stylesheet_tag }}
 
 <div class="wl-how-section">
   <div class="page-width">
 
-    <div class="wl-how__head">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="wl-how__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
-        <h2 class="wl-how__title">{{ section.settings.title }}</h2>
-        {%- if section.settings.subtitle != blank -%}
-          <p class="wl-how__subtitle">{{ section.settings.subtitle }}</p>
-        {%- endif -%}
-      </div>
-    </div>
+    {%- render 'wl-section-header',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      subtitle: section.settings.subtitle
+    -%}
 
     <div class="wl-how__grid">
       {%- for block in section.blocks -%}

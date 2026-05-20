@@ -1,0 +1,59 @@
+/* ── WL Section Header ───────────────────────────────────────── */
+
+.wl-sh {
+  margin-bottom: 40px;
+}
+
+.wl-sh--split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.wl-sh__eyebrow {
+  font-size: var(--wl-eyebrow-size);
+  font-weight: var(--wl-eyebrow-weight);
+  letter-spacing: var(--wl-eyebrow-spacing);
+  text-transform: uppercase;
+  color: var(--wl-blue);
+  margin: 0 0 8px;
+}
+
+.wl-sh__title {
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
+  margin: 0;
+}
+
+.wl-sh__subtitle {
+  font-size: 15px;
+  color: var(--wl-gray-500);
+  margin: 6px 0 0;
+}
+
+.wl-sh__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--wl-blue);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: color var(--wl-t-fast);
+}
+
+.wl-sh__link:hover {
+  color: var(--wl-blue-dark);
+}
+
+@media screen and (max-width: 989px) {
+  .wl-sh--split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .wl-sh__title {
+    font-size: var(--wl-title-size-sm);
+  }
+}

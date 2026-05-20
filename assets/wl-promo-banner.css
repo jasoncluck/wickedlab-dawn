@@ -2,8 +2,8 @@
 
 .wl-promo {
   background: #EEF3FD;
-  border-top: 1px solid #D1D5DB;
-  border-bottom: 1px solid #D1D5DB;
+  border-top: 1px solid var(--wl-gray-300);
+  border-bottom: 1px solid var(--wl-gray-300);
 }
 
 .wl-promo__inner {
@@ -22,19 +22,19 @@
 }
 
 .wl-promo__eyebrow {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: var(--wl-eyebrow-size);
+  font-weight: var(--wl-eyebrow-weight);
+  letter-spacing: var(--wl-eyebrow-spacing);
   text-transform: uppercase;
-  color: #6B7280;
+  color: var(--wl-gray-500);
   margin: 0 0 10px;
 }
 
 .wl-promo__title {
-  font-size: 34px;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #111827;
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
   margin: 0 0 10px;
 }
 
@@ -44,19 +44,19 @@
 
 .wl-promo__body {
   font-size: 15px;
-  color: #374151;
+  color: var(--wl-gray-700);
   line-height: 1.65;
   max-width: 480px;
   margin: 0;
 }
 
-/* ── Button ── */
+/* ── Button (slightly larger than wl-btn-primary — layout-specific) ── */
 .wl-promo__btn {
   display: inline-block;
-  background: #5AB3E8;
-  color: #F7F8FA;
+  background: var(--wl-blue);
+  color: var(--wl-gray-50);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--wl-radius-sm);
   padding: 14px 32px;
   font-family: inherit;
   font-size: 15px;
@@ -64,12 +64,12 @@
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background 0.15s ease;
+  transition: background var(--wl-t-fast);
 }
 
 .wl-promo__btn:hover {
-  background: #2E7FBB;
-  color: #F7F8FA;
+  background: var(--wl-blue-hover);
+  color: var(--wl-gray-50);
 }
 
 /* ── Responsive ── */
@@ -83,7 +83,7 @@
   }
 
   .wl-promo__title {
-    font-size: 26px;
+    font-size: var(--wl-title-size-sm);
   }
 }
 

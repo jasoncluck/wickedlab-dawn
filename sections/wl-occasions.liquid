@@ -1,16 +1,14 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-section-header.css' | asset_url | stylesheet_tag }}
 {{ 'wl-occasions.css' | asset_url | stylesheet_tag }}
 
 <div class="wl-occ-section">
   <div class="page-width">
 
-    <div class="wl-occ__head">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="wl-occ__eyebrow">{{ section.settings.eyebrow }}</p>
-        {%- endif -%}
-        <h2 class="wl-occ__title">{{ section.settings.title }}</h2>
-      </div>
-    </div>
+    {%- render 'wl-section-header',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title
+    -%}
 
     <div class="wl-occ__grid">
       {%- for block in section.blocks -%}

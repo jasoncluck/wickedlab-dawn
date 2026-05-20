@@ -4,7 +4,7 @@
   padding: 32px 5rem;
 }
 
-/* ── Section header ── */
+/* ── Section header (custom right side — uses wl-sh base but overrides right) ── */
 .wl-rev__head {
   display: flex;
   justify-content: space-between;
@@ -12,20 +12,29 @@
   margin-bottom: 40px;
 }
 
+.wl-rev__head > div:first-child .wl-sh__title,
+.wl-rev__title {
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
+  margin: 0;
+}
+
 .wl-rev__eyebrow {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: var(--wl-eyebrow-size);
+  font-weight: var(--wl-eyebrow-weight);
+  letter-spacing: var(--wl-eyebrow-spacing);
   text-transform: uppercase;
-  color: #5AB3E8;
+  color: var(--wl-blue);
   margin: 0 0 8px;
 }
 
 .wl-rev__title {
-  font-size: 34px;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  color: #111827;
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
   margin: 0;
 }
 
@@ -38,14 +47,14 @@
 }
 
 .wl-rev__aggregate-stars {
-  color: #FAC775;
+  color: var(--wl-star);
   font-size: 14px;
   letter-spacing: 2px;
 }
 
 .wl-rev__aggregate-label {
   font-size: 14px;
-  color: #6B7280;
+  color: var(--wl-gray-500);
 }
 
 /* ── Grid ── */
@@ -57,9 +66,9 @@
 
 /* ── Card ── */
 .wl-rev-card {
-  background: #F7F8FA;
-  border: 1px solid #D1D5DB;
-  border-radius: 12px;
+  background: var(--wl-gray-50);
+  border: 1px solid var(--wl-gray-300);
+  border-radius: var(--wl-radius-md);
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -73,18 +82,18 @@
 }
 
 .wl-rev-card__star {
-  color: #FAC775;
+  color: var(--wl-star);
   font-size: 14px;
 }
 
 .wl-rev-card__star--empty {
-  color: #D1D5DB;
+  color: var(--wl-gray-300);
 }
 
 /* ── Review text ── */
 .wl-rev-card__text {
   font-size: 14px;
-  color: #374151;
+  color: var(--wl-gray-700);
   line-height: 1.7;
   font-style: italic;
   margin: 0 0 14px;
@@ -95,13 +104,13 @@
 .wl-rev-card__author {
   font-size: 13px;
   font-weight: 500;
-  color: #374151;
+  color: var(--wl-gray-700);
   margin: 0 0 2px;
 }
 
 .wl-rev-card__source {
   font-size: 11px;
-  color: #9CA3AF;
+  color: var(--wl-gray-400);
   margin: 0;
 }
 
@@ -118,7 +127,7 @@
   }
 
   .wl-rev__title {
-    font-size: 26px;
+    font-size: var(--wl-title-size-sm);
   }
 
   .wl-rev__grid {

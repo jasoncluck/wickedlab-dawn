@@ -1,26 +1,24 @@
-/* =============================================================
-   wl-feat-carousel.css
-   Featured Collections Carousel — The Wicked Lab
-   ============================================================= */
+/* ── WL Featured Carousel ────────────────────────── */
 
 /* ── Section heading ── */
 .wl-feat-carousel__heading {
   padding: 0 0 32px;
 }
 
+/* Carousel eyebrow is slightly larger than the shared token — intentional design choice */
 .wl-feat-carousel__eyebrow {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--wl-eyebrow-weight);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #5AB3E8;
+  color: var(--wl-blue);
   margin: 0 0 10px;
   padding: 0;
 }
 
 .wl-feat-carousel__title {
-  font-weight: 300;
-  letter-spacing: -0.02em;
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
   line-height: 1.15;
   margin: 0;
   padding: 0;
@@ -124,7 +122,7 @@
   cursor: pointer;
   z-index: 10;
   color: rgb(var(--color-foreground));
-  transition: background 0.2s;
+  transition: background var(--wl-t-base);
 }
 
 .wl-feat-carousel__arrow:hover {
@@ -170,7 +168,7 @@
 
 .wl-feat-carousel__dot.active {
   width: 24px;
-  border-radius: 4px;
+  border-radius: var(--wl-radius-sm);
   background: rgb(var(--color-link));
 }
 
