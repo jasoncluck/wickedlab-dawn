@@ -4,6 +4,7 @@
   display: flex;
   align-items: flex-start;
   min-height: 600px;
+  overflow-x: clip;
 }
 
 /* ─────────────────────────────────────────
@@ -120,21 +121,42 @@
   text-transform: none;
 }
 
+/* CSS-only chevron — no SVG dependency, no layout shift */
 .wl-cg-filter__caret {
-  color: #9CA3AF;
+  position: relative;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
-  transition: transform .2s;
-  display: flex;
-  align-items: center;
 }
 
-.wl-cg-filter__caret svg {
-  width: 14px;
-  height: 14px;
+.wl-cg-filter__caret::before,
+.wl-cg-filter__caret::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 1.5px;
+  background: #9CA3AF;
+  border-radius: 1px;
+  transition: transform .2s ease;
 }
 
-.wl-cg-filter[open] .wl-cg-filter__caret {
-  transform: rotate(180deg);
+.wl-cg-filter__caret::before {
+  left: 1px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.wl-cg-filter__caret::after {
+  right: 1px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.wl-cg-filter[open] .wl-cg-filter__caret::before {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.wl-cg-filter[open] .wl-cg-filter__caret::after {
+  transform: translateY(-50%) rotate(45deg);
 }
 
 /* Filter body */

@@ -13,7 +13,7 @@
 
 {%- paginate collection.products by section.settings.products_per_page -%}
 
-<div class="wl-cg-wrap">
+<div class="wl-cg-wrap page-width">
 
   {%- comment -%} ── SIDEBAR ── {%- endcomment -%}
   {%- if section.settings.enable_filtering -%}
@@ -72,9 +72,7 @@
                   {%- if filter.active_values.size > 0 -%}
                     <span class="wl-cg-filter__count">({{ filter.active_values.size }})</span>
                   {%- endif -%}
-                  <span class="wl-cg-filter__caret" aria-hidden="true">
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                  </span>
+                  <span class="wl-cg-filter__caret" aria-hidden="true"></span>
                 </summary>
 
                 <div class="wl-cg-filter__body">
