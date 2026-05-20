@@ -22,6 +22,17 @@ shopify theme dev
 shopify theme check
 ```
 
+## Local Reference Files
+
+These files live outside the repo on the developer's machine and are not committed to git.
+
+| File | Purpose |
+|---|---|
+| `/Users/jasoncluck/Desktop/WickedLab/products/shopify_wicked_lab_products_export.csv` | Full Shopify product export — use for real product names, handles, prices, and variants when building sections or mock data |
+| `/Users/jasoncluck/Desktop/WickedLab/wicked_light_theme_complete/homepage_v2_light.html` | Design mock for the homepage |
+| `/Users/jasoncluck/Desktop/WickedLab/wicked_light_theme_complete/collection_page_light.html` | Design mock for the collection page |
+| `/Users/jasoncluck/Desktop/WickedLab/wicked_light_theme_complete/product_page_light.html` | Design mock for the product page |
+
 ## Architecture
 
 ### Directory layout
