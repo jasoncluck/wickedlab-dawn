@@ -225,6 +225,17 @@
 
 <script>
 (function () {
+  var container = document.getElementById('ProductGridContainer');
+  if (container) {
+    var wrap = document.querySelector('.wl-cg-wrap');
+    new MutationObserver(function () {
+      var target = wrap || container;
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }).observe(container, { childList: true, subtree: false });
+  }
+}());
+
+(function () {
   var header = document.querySelector('.wl-col-header');
   var title  = document.getElementById('WlSidebarTitle');
   if (!header || !title) return;
