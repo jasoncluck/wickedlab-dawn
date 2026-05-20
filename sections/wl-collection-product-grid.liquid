@@ -19,6 +19,9 @@
   {%- if section.settings.enable_filtering -%}
     <aside class="wl-cg-sidebar" id="wl-collection-filters" aria-label="Filters">
       <div class="wl-cg-sidebar__inner">
+        <div class="wl-cg-sidebar__title" id="WlSidebarTitle" aria-hidden="true">
+          {{ collection.title }}
+        </div>
 
         {%- comment -%} Active filter chips ── {%- endcomment -%}
         {%- assign total_active = 0 -%}
@@ -219,6 +222,22 @@
 </div>
 
 {%- endpaginate -%}
+
+<script>
+(function () {
+  var header = document.querySelector('.wl-col-header');
+  var title  = document.getElementById('WlSidebarTitle');
+  if (!header || !title) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    var visible = !entries[0].isIntersecting;
+    title.classList.toggle('is-visible', visible);
+    title.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  }, { threshold: 0.50 });
+
+  observer.observe(header);
+}());
+</script>
 
 {%- comment -%} facets.js calls getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents() unconditionally — stub prevents crash {%- endcomment -%}
 <menu-drawer hidden aria-hidden="true">

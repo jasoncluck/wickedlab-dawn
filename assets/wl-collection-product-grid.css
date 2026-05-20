@@ -5,6 +5,8 @@
   align-items: flex-start;
   min-height: 600px;
   overflow-x: clip;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 /* ─────────────────────────────────────────
@@ -17,13 +19,41 @@
   border-right: 1px solid var(--wl-gray-100);
   min-height: 100%;
   position: sticky;
-  top: 0;
-  max-height: 100vh;
+  top: var(--header-height, 0px);
+  max-height: calc(100vh - var(--header-height, 0px));
   overflow-y: auto;
 }
 
 .wl-cg-sidebar__inner {
   padding: 36px 24px 28px;
+}
+
+/* Collection title — hidden until header scrolls out of view */
+.wl-cg-sidebar__title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--wl-gray-900);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid transparent;
+  transition:
+    max-height var(--wl-t-base),
+    opacity var(--wl-t-fast),
+    padding-bottom var(--wl-t-base),
+    margin-bottom var(--wl-t-base),
+    border-color var(--wl-t-base);
+}
+
+.wl-cg-sidebar__title.is-visible {
+  max-height: 48px;
+  opacity: 1;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  border-bottom-color: var(--wl-gray-100);
 }
 
 /* Active filter chips */
