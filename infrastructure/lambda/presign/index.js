@@ -6,6 +6,7 @@ const s3 = new S3Client({ region: process.env.AWS_REGION });
 const ALLOWED_ORIGINS = new Set([
   'https://wickedstickerz.com',
   'https://thewickedlab.com',
+  'https://wicked-stickerz.myshopify.com',
 ]);
 
 const ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/heic', 'image/heif']);

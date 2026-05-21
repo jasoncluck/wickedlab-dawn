@@ -10,6 +10,7 @@ import * as path from 'path';
 const ALLOWED_ORIGINS = [
   'https://wickedstickerz.com',
   'https://thewickedlab.com',
+  'https://wicked-stickerz.myshopify.com',
 ];
 
 export class UploadStack extends cdk.Stack {
