@@ -51,7 +51,9 @@ async function handlePresign(event) {
     : fileType === 'image/heif' ? 'heic'
     : fileType.split('/')[1];
 
-  const key = `uploads/${Date.now()}-${Math.random().toString(36).slice(2, 9)}.${ext}`;
+  const now = new Date();
+  const datePath = `${now.getUTCFullYear()}/${String(now.getUTCMonth() + 1).padStart(2, '0')}/${String(now.getUTCDate()).padStart(2, '0')}`;
+  const key = `uploads/${datePath}/${Date.now()}-${Math.random().toString(36).slice(2, 9)}.${ext}`;
 
   const uploadUrl = await getSignedUrl(
     s3,
