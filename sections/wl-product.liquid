@@ -403,7 +403,7 @@ var WlPd = (function () {
       if (urlInput) urlInput.value = '';
 
       try {
-        var presignRes = await fetch(endpoint + '?fileType=' + encodeURIComponent(file.type));
+        var presignRes = await fetch(endpoint + '/presign?fileType=' + encodeURIComponent(file.type));
         if (!presignRes.ok) throw new Error('Could not get upload URL');
         var data = await presignRes.json();
 
@@ -533,7 +533,7 @@ WlPd.initDropzone('{{ section.id }}');
       "type": "text",
       "id": "upload_endpoint",
       "label": "Upload endpoint URL",
-      "info": "Your API Gateway URL for the presign Lambda (e.g. https://xxx.execute-api.us-east-1.amazonaws.com/presign)"
+      "info": "API Gateway base URL — no trailing slash (e.g. https://xxx.execute-api.us-east-1.amazonaws.com)"
     }
   ],
   "blocks": [
