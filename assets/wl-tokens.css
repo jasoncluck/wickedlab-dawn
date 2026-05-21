@@ -26,6 +26,7 @@
   /* ── Greyscale ── */
   --wl-gray-900: #111827;
   --wl-gray-700: #374151;
+  --wl-gray-600: #4B5563;
   --wl-gray-500: #6B7280;
   --wl-gray-400: #9CA3AF;
   --wl-gray-300: #D1D5DB;
@@ -36,6 +37,7 @@
   /* ── Border radius ── */
   --wl-radius-sm:   4px;
   --wl-radius-md:   12px;
+  --wl-radius-lg:   16px;
   --wl-radius-pill: 999px;
 
   /* ── Transitions ── */

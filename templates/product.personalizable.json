@@ -58,11 +58,18 @@
         "acc-2": {
           "type": "accordion",
           "settings": {
-            "title": "Shipping & returns",
-            "content": "<p>Orders typically ship within 5–7 business days. Free shipping on orders over $50.</p>"
+            "title": "Image guidelines",
+            "content": "<p>For best results, upload images at 300dpi or higher. PNG and JPG formats are supported. HEIC files from iPhone are also accepted.</p>"
           }
         },
         "acc-3": {
+          "type": "accordion",
+          "settings": {
+            "title": "Shipping & returns",
+            "content": "<p>Orders typically ship within 5–7 business days. Free shipping on orders over $50. Personalized items cannot be returned unless there is a print defect.</p>"
+          }
+        },
+        "acc-4": {
           "type": "accordion",
           "settings": {
             "title": "Bulk & wholesale pricing",
@@ -79,10 +86,19 @@
         "trust-3",
         "acc-1",
         "acc-2",
-        "acc-3"
+        "acc-3",
+        "acc-4"
       ],
       "settings": {
-        "show_personalization": false,
+        "show_personalization": true,
+        "personalization_heading": "Personalize your item",
+        "show_text_field": true,
+        "text_field_label": "Custom text (optional)",
+        "text_field_placeholder": "e.g. Mom's Favorite, Best Dad, Sarah's Mug…",
+        "text_field_property": "Custom text",
+        "text_field_max_length": 80,
+        "show_upload_field": true,
+        "upload_field_label": "Upload your photo",
         "show_dynamic_checkout": true,
         "price_note": "Free shipping over $50"
       }
