@@ -13,7 +13,8 @@
 
 /* ── Card ── */
 .wl-cat-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--wl-gray-50);
   border: 1px solid var(--wl-gray-300);
   border-radius: var(--wl-radius-md);
@@ -69,6 +70,9 @@
 /* ── Card body ── */
 .wl-cat-card__body {
   padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .wl-cat-card__name {
@@ -87,6 +91,7 @@
 
 .wl-cat-card__badge {
   display: inline-flex;
+  align-self: flex-start;
   font-size: 11px;
   font-weight: 600;
   color: var(--wl-blue);
@@ -104,6 +109,7 @@
   font-weight: 500;
   color: var(--wl-blue);
   transition: color var(--wl-t-fast);
+  margin-top: auto;
 }
 
 .wl-cat-card:hover .wl-cat-card__link {
