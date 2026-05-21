@@ -168,7 +168,7 @@
                 <input
                   type="file"
                   id="WlPersUpload-{{ section.id }}"
-                  accept="image/png,image/jpeg,image/heic"
+                  accept="image/png,image/jpeg,image/heic,image/heif"
                   class="wl-pd__pers-file"
                   onchange="WlPd.handleUpload(this, '{{ section.id }}')"
                 >
@@ -181,6 +181,13 @@
                 value=""
               >
               <div class="wl-pd__pers-upload-status" id="WlPersUploadStatus-{{ section.id }}" hidden></div>
+              <div class="wl-pd__pers-preview" id="WlPersPreview-{{ section.id }}" hidden>
+                <img class="wl-pd__pers-preview-img" id="WlPersPreviewImg-{{ section.id }}" src="" alt="" hidden>
+                <div class="wl-pd__pers-preview-file" id="WlPersPreviewFile-{{ section.id }}" hidden>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <span id="WlPersPreviewFileName-{{ section.id }}"></span>
+                </div>
+              </div>
             </div>
           {%- endif -%}
         </div>
@@ -378,14 +385,53 @@ var WlPd = (function () {
       if (input.files && input.files[0]) WlPd.uploadToS3(input.files[0], sectionId);
     },
 
+    resolveFileType: function (file) {
+      if (file.type) return file.type;
+      var ext = file.name.split('.').pop().toLowerCase();
+      return { heic: 'image/heic', heif: 'image/heif', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' }[ext] || '';
+    },
+
+    showPreview: function (file, fileType, sectionId) {
+      var previewEl  = document.getElementById('WlPersPreview-' + sectionId);
+      var previewImg = document.getElementById('WlPersPreviewImg-' + sectionId);
+      var previewFile = document.getElementById('WlPersPreviewFile-' + sectionId);
+      if (!previewEl) return;
+
+      // Revoke any previous blob URL to avoid memory leaks
+      if (previewImg && previewImg.src.startsWith('blob:')) URL.revokeObjectURL(previewImg.src);
+
+      previewEl.hidden = false;
+      var canPreview = fileType === 'image/jpeg' || fileType === 'image/png';
+      if (canPreview) {
+        previewImg.src = URL.createObjectURL(file);
+        previewImg.hidden = false;
+        if (previewFile) previewFile.hidden = true;
+      } else {
+        previewImg.hidden = true;
+        if (previewFile) {
+          previewFile.hidden = false;
+          var nameEl = document.getElementById('WlPersPreviewFileName-' + sectionId);
+          if (nameEl) nameEl.textContent = file.name;
+        }
+      }
+    },
+
     uploadToS3: async function (file, sectionId) {
       var zone = document.getElementById('WlPersDropzone-' + sectionId);
       var statusEl = document.getElementById('WlPersUploadStatus-' + sectionId);
       var urlInput = document.getElementById('WlPersPhotoUrl-' + sectionId);
       var endpoint = zone && zone.dataset.endpoint;
+      var fileType = WlPd.resolveFileType(file);
+      var validTypes = ['image/jpeg', 'image/png', 'image/heic', 'image/heif'];
 
       if (!endpoint) {
         statusEl.textContent = 'Upload not configured.';
+        statusEl.hidden = false;
+        return;
+      }
+
+      if (!validTypes.includes(fileType)) {
+        statusEl.textContent = 'Please upload a PNG, JPG, or HEIC image.';
         statusEl.hidden = false;
         return;
       }
@@ -396,6 +442,8 @@ var WlPd = (function () {
         return;
       }
 
+      WlPd.showPreview(file, fileType, sectionId);
+
       zone.classList.remove('is-uploaded');
       zone.classList.add('is-uploading');
       statusEl.innerHTML = 'Uploading…';
@@ -403,14 +451,14 @@ var WlPd = (function () {
       if (urlInput) urlInput.value = '';
 
       try {
-        var presignRes = await fetch(endpoint + '/presign?fileType=' + encodeURIComponent(file.type));
+        var presignRes = await fetch(endpoint + '/presign?fileType=' + encodeURIComponent(fileType));
         if (!presignRes.ok) throw new Error('Could not get upload URL');
         var data = await presignRes.json();
 
         var uploadRes = await fetch(data.uploadUrl, {
           method: 'PUT',
           body: file,
-          headers: { 'Content-Type': file.type }
+          headers: { 'Content-Type': fileType }
         });
         if (!uploadRes.ok) throw new Error('S3 upload failed');
 
