@@ -143,7 +143,7 @@
                 type="text"
                 id="WlPersText-{{ section.id }}"
                 name="properties[{{ section.settings.text_field_property | default: 'Custom text' }}]"
-                placeholder="{{ section.settings.text_field_placeholder | default: 'e.g. Mom\'s Favorite, Best Dad…' }}"
+                placeholder="{{ section.settings.text_field_placeholder | default: "e.g. Mom's Favorite, Best Dad..." }}"
                 form="{{ product_form_id }}"
                 maxlength="{{ section.settings.text_field_max_length | default: 80 }}"
               >
