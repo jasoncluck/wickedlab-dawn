@@ -293,119 +293,49 @@
   box-shadow: 0 0 0 3px var(--wl-blue-bg);
 }
 
-.wl-pd__pers-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  border: 1.5px dashed var(--wl-gray-300);
-  border-radius: var(--wl-radius-md);
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color var(--wl-t-fast), background var(--wl-t-fast);
-}
-
-.wl-pd__pers-upload:hover {
-  border-color: var(--wl-blue);
-  background: var(--wl-blue-bg);
-}
-
-.wl-pd__pers-upload-icon {
-  color: var(--wl-gray-400);
-  margin-bottom: 4px;
-}
-
-.wl-pd__pers-upload-text {
+/* ── FilePond theme overrides ── */
+.wl-pd__pers-field .filepond--root {
+  font-family: inherit;
   font-size: 13px;
-  color: var(--wl-gray-600);
-  font-weight: 500;
+  margin-bottom: 0;
 }
 
-.wl-pd__pers-upload-sub {
-  font-size: 11px;
-  color: var(--wl-gray-400);
-}
-
-.wl-pd__pers-upload-btn {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--wl-blue);
-  background: var(--wl-blue-bg);
-  border: 1px solid var(--wl-blue-bg-md);
-  padding: 5px 14px;
-  border-radius: var(--wl-radius-pill);
-}
-
-.wl-pd__pers-file {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.wl-pd__pers-filename {
-  font-size: 12px;
-  color: var(--wl-blue);
-  margin-top: 8px;
-}
-
-.wl-pd__pers-upload.is-drag-over {
-  border-color: var(--wl-blue);
-  background: var(--wl-blue-bg);
-}
-
-.wl-pd__pers-upload.is-uploading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-.wl-pd__pers-upload.is-uploaded {
-  border-color: #22c55e;
-  border-style: solid;
-  background: #f0fdf4;
-}
-
-.wl-pd__pers-upload-status {
-  font-size: 12px;
-  color: var(--wl-gray-500);
-  margin-top: 6px;
-}
-
-.wl-pd__pers-upload-ok {
-  color: #16a34a;
-  font-weight: 500;
-}
-
-.wl-pd__pers-preview {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 8px;
-  padding: 8px 10px;
+.wl-pd__pers-field .filepond--panel-root {
   background: var(--wl-gray-50, #f9fafb);
-  border: 1px solid var(--wl-gray-200, #e5e7eb);
-  border-radius: var(--wl-radius-md);
+  border: 1.5px dashed var(--wl-gray-300, #d1d5db);
+  border-radius: var(--wl-radius-md, 8px);
 }
 
-.wl-pd__pers-preview-img {
-  width: 52px;
-  height: 52px;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 1px solid var(--wl-gray-200, #e5e7eb);
-  flex-shrink: 0;
+.wl-pd__pers-field .filepond--drop-label {
+  color: var(--wl-gray-600, #4b5563);
 }
 
-.wl-pd__pers-preview-file {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--wl-gray-600);
+.wl-pd__pers-field .filepond--label-action {
+  color: var(--wl-blue, #5AB3E8);
+  text-decoration-color: var(--wl-blue, #5AB3E8);
 }
+
+.wl-pd__pers-field .filepond--drip-blob {
+  background: var(--wl-blue, #5AB3E8);
+}
+
+.wl-pd__pers-field .filepond--item-panel {
+  background: var(--wl-gray-100, #f3f4f6);
+  border-radius: var(--wl-radius-sm, 4px);
+}
+
+.wl-pd__pers-field .filepond--progress-indicator {
+  color: var(--wl-blue, #5AB3E8);
+}
+
+.wl-pd__pers-field .filepond--image-preview-overlay-idle {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.wl-pd__pers-field .filepond--image-preview-overlay-success {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 
 /* ─────────────────────────────────────────
    FORM: QTY + ADD TO CART
