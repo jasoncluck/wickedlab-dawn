@@ -153,12 +153,17 @@
           {%- if section.settings.show_upload_field -%}
             <div class="wl-pd__pers-field">
               <div class="wl-pd__pers-label">{{ section.settings.upload_field_label | default: 'Upload your photo' }}</div>
-              <label class="wl-pd__pers-upload" for="WlPersUpload-{{ section.id }}">
+              <label
+                class="wl-pd__pers-upload"
+                for="WlPersUpload-{{ section.id }}"
+                id="WlPersDropzone-{{ section.id }}"
+                data-endpoint="{{ section.settings.upload_endpoint | escape }}"
+              >
                 <svg class="wl-pd__pers-upload-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
                 </svg>
                 <span class="wl-pd__pers-upload-text">Drag &amp; drop your photo here</span>
-                <span class="wl-pd__pers-upload-sub">PNG, JPG or HEIC · min 300dpi recommended</span>
+                <span class="wl-pd__pers-upload-sub">PNG, JPG or HEIC · max 20MB</span>
                 <span class="wl-pd__pers-upload-btn">Browse files</span>
                 <input
                   type="file"
@@ -168,7 +173,14 @@
                   onchange="WlPd.handleUpload(this, '{{ section.id }}')"
                 >
               </label>
-              <div class="wl-pd__pers-filename" id="WlPersFileName-{{ section.id }}" hidden></div>
+              <input
+                type="hidden"
+                id="WlPersPhotoUrl-{{ section.id }}"
+                name="properties[Photo URL]"
+                form="{{ product_form_id }}"
+                value=""
+              >
+              <div class="wl-pd__pers-upload-status" id="WlPersUploadStatus-{{ section.id }}" hidden></div>
             </div>
           {%- endif -%}
         </div>
@@ -363,17 +375,78 @@ var WlPd = (function () {
       if (input) input.value = Math.max(1, (parseInt(input.value) || 1) + delta);
     },
     handleUpload: function (input, sectionId) {
-      var nameEl = document.getElementById('WlPersFileName-' + sectionId);
-      if (!nameEl) return;
-      if (input.files && input.files[0]) {
-        nameEl.textContent = '📎 ' + input.files[0].name;
-        nameEl.hidden = false;
-      } else {
-        nameEl.hidden = true;
+      if (input.files && input.files[0]) WlPd.uploadToS3(input.files[0], sectionId);
+    },
+
+    uploadToS3: async function (file, sectionId) {
+      var zone = document.getElementById('WlPersDropzone-' + sectionId);
+      var statusEl = document.getElementById('WlPersUploadStatus-' + sectionId);
+      var urlInput = document.getElementById('WlPersPhotoUrl-' + sectionId);
+      var endpoint = zone && zone.dataset.endpoint;
+
+      if (!endpoint) {
+        statusEl.textContent = 'Upload not configured.';
+        statusEl.hidden = false;
+        return;
       }
+
+      if (file.size > 20 * 1024 * 1024) {
+        statusEl.textContent = 'File too large — max 20MB.';
+        statusEl.hidden = false;
+        return;
+      }
+
+      zone.classList.remove('is-uploaded');
+      zone.classList.add('is-uploading');
+      statusEl.innerHTML = 'Uploading…';
+      statusEl.hidden = false;
+      if (urlInput) urlInput.value = '';
+
+      try {
+        var presignRes = await fetch(endpoint + '?fileType=' + encodeURIComponent(file.type));
+        if (!presignRes.ok) throw new Error('Could not get upload URL');
+        var data = await presignRes.json();
+
+        var uploadRes = await fetch(data.uploadUrl, {
+          method: 'PUT',
+          body: file,
+          headers: { 'Content-Type': file.type }
+        });
+        if (!uploadRes.ok) throw new Error('S3 upload failed');
+
+        if (urlInput) urlInput.value = data.viewUrl;
+        zone.classList.remove('is-uploading');
+        zone.classList.add('is-uploaded');
+        statusEl.innerHTML = '<span class="wl-pd__pers-upload-ok">✓ ' + file.name + '</span>';
+      } catch (e) {
+        zone.classList.remove('is-uploading');
+        statusEl.textContent = 'Upload failed — please try again.';
+        if (urlInput) urlInput.value = '';
+        console.error(e);
+      }
+    },
+
+    initDropzone: function (sectionId) {
+      var zone = document.getElementById('WlPersDropzone-' + sectionId);
+      if (!zone) return;
+      zone.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        zone.classList.add('is-drag-over');
+      });
+      zone.addEventListener('dragleave', function () {
+        zone.classList.remove('is-drag-over');
+      });
+      zone.addEventListener('drop', function (e) {
+        e.preventDefault();
+        zone.classList.remove('is-drag-over');
+        var files = e.dataTransfer && e.dataTransfer.files;
+        if (files && files[0]) WlPd.uploadToS3(files[0], sectionId);
+      });
     }
   };
 })();
+
+WlPd.initDropzone('{{ section.id }}');
 </script>
 
 {% schema %}
@@ -455,6 +528,12 @@ var WlPd = (function () {
       "id": "upload_field_label",
       "label": "Upload field label",
       "default": "Upload your photo"
+    },
+    {
+      "type": "text",
+      "id": "upload_endpoint",
+      "label": "Upload endpoint URL",
+      "info": "Your API Gateway URL for the presign Lambda (e.g. https://xxx.execute-api.us-east-1.amazonaws.com/presign)"
     }
   ],
   "blocks": [

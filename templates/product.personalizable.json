@@ -99,6 +99,7 @@
         "text_field_max_length": 80,
         "show_upload_field": true,
         "upload_field_label": "Upload your photo",
+        "upload_endpoint": "https://d8pv2vjuv7.execute-api.us-east-1.amazonaws.com",
         "show_dynamic_checkout": true,
         "price_note": "Free shipping over $50"
       }

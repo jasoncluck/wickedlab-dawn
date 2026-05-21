@@ -352,6 +352,33 @@
   margin-top: 8px;
 }
 
+.wl-pd__pers-upload.is-drag-over {
+  border-color: var(--wl-blue);
+  background: var(--wl-blue-bg);
+}
+
+.wl-pd__pers-upload.is-uploading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.wl-pd__pers-upload.is-uploaded {
+  border-color: #22c55e;
+  border-style: solid;
+  background: #f0fdf4;
+}
+
+.wl-pd__pers-upload-status {
+  font-size: 12px;
+  color: var(--wl-gray-500);
+  margin-top: 6px;
+}
+
+.wl-pd__pers-upload-ok {
+  color: #16a34a;
+  font-weight: 500;
+}
+
 /* ─────────────────────────────────────────
    FORM: QTY + ADD TO CART
 ───────────────────────────────────────── */
