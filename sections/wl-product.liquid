@@ -370,72 +370,117 @@ var WlPd = (function () {
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
-  var input = document.getElementById('WlPersUpload-{{ section.id }}');
-  if (!input) return;
+  var addBtn = document.getElementById('WlPdAddBtn-{{ section.id }}');
+  var textInput = document.getElementById('WlPersText-{{ section.id }}');
+  var uploadInput = document.getElementById('WlPersUpload-{{ section.id }}');
 
-  var endpoint = input.dataset.endpoint;
+  if (!textInput && !uploadInput) return;
+
+  var ctaStack = addBtn && addBtn.closest('.wl-pd__cta-stack');
   var urlInput = document.getElementById('WlPersPhotoUrl-{{ section.id }}');
+  var endpoint = uploadInput && uploadInput.dataset.endpoint;
+  var hasText = false;
+  var hasPhoto = false;
 
-  FilePond.registerPlugin(
-    FilePondPluginImagePreview,
-    FilePondPluginFileValidateType,
-    FilePondPluginFileValidateSize
-  );
-
-  FilePond.create(input, {
-    credits: false,
-    allowMultiple: false,
-    maxFiles: 1,
-    maxFileSize: '20MB',
-    acceptedFileTypes: ['image/jpeg', 'image/png', 'image/heic', 'image/heif'],
-    labelIdle: 'Drag &amp; drop or <span class="filepond--label-action">browse</span>',
-    labelFileTypeNotAllowed: 'Please upload a PNG, JPG, or HEIC image',
-    labelMaxFileSizeExceeded: 'File too large — max 20MB',
-    fileValidateTypeDetectType: function (source, type) {
-      return new Promise(function (resolve) {
-        if (!type) {
-          var ext = source.name.split('.').pop().toLowerCase();
-          var map = { heic: 'image/heic', heif: 'image/heif', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
-          resolve(map[ext] || type);
-        } else {
-          resolve(type);
-        }
+  function setCtaDisabled(disabled) {
+    if (addBtn) addBtn.disabled = disabled;
+    if (ctaStack) {
+      ctaStack.querySelectorAll('.shopify-payment-button button').forEach(function (btn) {
+        btn.disabled = disabled;
       });
-    },
-    server: {
-      process: function (fieldName, file, metadata, load, error, progress, abort) {
-        if (!endpoint) { error('Upload not configured'); return; }
-        var fileType = file.type || (/\.(heic|heif)$/i.test(file.name) ? 'image/heic' : 'image/jpeg');
-        var xhr;
-
-        fetch(endpoint + '/presign?fileType=' + encodeURIComponent(fileType))
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            xhr = new XMLHttpRequest();
-            xhr.open('PUT', data.uploadUrl);
-            xhr.setRequestHeader('Content-Type', fileType);
-            xhr.upload.onprogress = function (e) { progress(e.lengthComputable, e.loaded, e.total); };
-            xhr.onload = function () {
-              if (xhr.status >= 200 && xhr.status < 300) {
-                if (urlInput) urlInput.value = data.viewUrl;
-                load(data.viewUrl);
-              } else {
-                error('Upload failed');
-              }
-            };
-            xhr.onerror = function () { error('Upload failed'); };
-            xhr.send(file);
-          })
-          .catch(function () { error('Could not get upload URL'); });
-
-        return { abort: function () { if (xhr) xhr.abort(); abort(); } };
-      },
-      revert: function (uniqueFileId, load) {
-        if (urlInput) urlInput.value = '';
-        load();
-      }
     }
-  });
+  }
+
+  function updateCtaState() {
+    setCtaDisabled(!(hasText || hasPhoto));
+  }
+
+  setCtaDisabled(true);
+
+  if (textInput) {
+    textInput.addEventListener('input', function () {
+      hasText = textInput.value.trim().length > 0;
+      updateCtaState();
+    });
+  }
+
+  if (uploadInput) {
+    FilePond.registerPlugin(
+      FilePondPluginImagePreview,
+      FilePondPluginFileValidateType,
+      FilePondPluginFileValidateSize
+    );
+
+    FilePond.create(uploadInput, {
+      credits: false,
+      allowMultiple: false,
+      maxFiles: 1,
+      maxFileSize: '20MB',
+      acceptedFileTypes: ['image/jpeg', 'image/png', 'image/heic', 'image/heif'],
+      labelIdle: '<div class="wl-fp-idle"><svg class="wl-fp-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg><span class="wl-fp-text">Drag &amp; drop your photo here</span><span class="wl-fp-sub">JPG, PNG or HEIC &middot; max 20MB</span><span class="filepond--label-action">Browse files</span></div>',
+      labelFileTypeNotAllowed: 'Please upload a PNG, JPG, or HEIC image',
+      labelMaxFileSizeExceeded: 'File too large — max 20MB',
+      fileValidateTypeDetectType: function (source, type) {
+        return new Promise(function (resolve) {
+          if (!type) {
+            var ext = source.name.split('.').pop().toLowerCase();
+            var map = { heic: 'image/heic', heif: 'image/heif', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
+            resolve(map[ext] || type);
+          } else {
+            resolve(type);
+          }
+        });
+      },
+      server: {
+        process: function (fieldName, file, metadata, load, error, progress, abort) {
+          if (!endpoint) { error('Upload not configured'); return; }
+          var fileType = file.type || (/\.(heic|heif)$/i.test(file.name) ? 'image/heic' : 'image/jpeg');
+          var xhr;
+
+          fetch(endpoint + '/presign?fileType=' + encodeURIComponent(fileType))
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              xhr = new XMLHttpRequest();
+              xhr.open('PUT', data.uploadUrl);
+              xhr.setRequestHeader('Content-Type', fileType);
+              xhr.upload.onprogress = function (e) { progress(e.lengthComputable, e.loaded, e.total); };
+              xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                  if (urlInput) urlInput.value = data.viewUrl;
+                  load(data.viewUrl);
+                } else {
+                  error('Upload failed');
+                }
+              };
+              xhr.onerror = function () { error('Upload failed'); };
+              xhr.send(file);
+            })
+            .catch(function () { error('Could not get upload URL'); });
+
+          return { abort: function () { if (xhr) xhr.abort(); abort(); } };
+        },
+        revert: function (uniqueFileId, load) {
+          if (urlInput) urlInput.value = '';
+          load();
+        }
+      },
+      onaddfilestart: function () {
+        setCtaDisabled(true);
+      },
+      onprocessfile: function (error) {
+        hasPhoto = !error;
+        updateCtaState();
+      },
+      onprocessfileabort: function () {
+        updateCtaState();
+      },
+      onremovefile: function () {
+        hasPhoto = false;
+        if (urlInput) urlInput.value = '';
+        updateCtaState();
+      }
+    });
+  }
 });
 </script>
 

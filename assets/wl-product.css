@@ -298,42 +298,94 @@
   font-family: inherit;
   font-size: 13px;
   margin-bottom: 0;
+  min-height: 130px;
 }
 
 .wl-pd__pers-field .filepond--panel-root {
-  background: var(--wl-gray-50, #f9fafb);
-  border: 1.5px dashed var(--wl-gray-300, #d1d5db);
-  border-radius: var(--wl-radius-md, 8px);
+  background: transparent;
+  border: 1.5px dashed var(--wl-gray-200);
+  border-radius: 8px;
+  transition: border-color 0.15s;
+}
+
+.wl-pd__pers-field .filepond--root:hover .filepond--panel-root {
+  border-color: var(--wl-blue-dark);
 }
 
 .wl-pd__pers-field .filepond--drop-label {
-  color: var(--wl-gray-600, #4b5563);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
+/* Custom idle label layout */
+.wl-fp-idle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.wl-fp-icon {
+  color: var(--wl-gray-400);
+  margin-bottom: 2px;
+}
+
+.wl-fp-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--wl-gray-700);
+}
+
+.wl-fp-sub {
+  font-size: 11px;
+  color: var(--wl-gray-400);
+}
+
+/* Browse pill button */
 .wl-pd__pers-field .filepond--label-action {
-  color: var(--wl-blue, #5AB3E8);
-  text-decoration-color: var(--wl-blue, #5AB3E8);
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--wl-blue);
+  background: var(--wl-blue-bg);
+  border: 1px solid var(--wl-blue-border);
+  padding: 5px 14px;
+  border-radius: var(--wl-radius-pill);
+  text-decoration: none;
 }
 
+.wl-pd__pers-field .filepond--label-action:hover {
+  text-decoration: none;
+  background: var(--wl-blue-bg-md);
+}
+
+/* Drag-over highlight */
 .wl-pd__pers-field .filepond--drip-blob {
-  background: var(--wl-blue, #5AB3E8);
+  background: var(--wl-blue);
 }
 
+/* File item */
 .wl-pd__pers-field .filepond--item-panel {
-  background: var(--wl-gray-100, #f3f4f6);
-  border-radius: var(--wl-radius-sm, 4px);
+  background: var(--wl-gray-100);
+  border-radius: 6px;
 }
 
+/* Progress ring */
 .wl-pd__pers-field .filepond--progress-indicator {
-  color: var(--wl-blue, #5AB3E8);
+  color: var(--wl-blue);
 }
 
+/* Image preview overlays */
 .wl-pd__pers-field .filepond--image-preview-overlay-idle {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .wl-pd__pers-field .filepond--image-preview-overlay-success {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 
