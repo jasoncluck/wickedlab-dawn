@@ -1,0 +1,300 @@
+{{ 'component-show-more.css' | asset_url | stylesheet_tag }}
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-collection-product-grid.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .wl-product-grid { --wl-cols: {{ section.settings.columns_desktop }}; }
+  @media screen and (max-width: 989px) { .wl-product-grid { --wl-cols: 2; } }
+  @media screen and (max-width: 749px)  { .wl-product-grid { --wl-cols: 1; } }
+{%- endstyle -%}
+
+{%- paginate collection.products by section.settings.products_per_page -%}
+
+<div class="wl-cg-wrap page-width">
+
+  {%- comment -%} ── SIDEBAR ── {%- endcomment -%}
+  {%- if section.settings.enable_filtering -%}
+    <aside class="wl-cg-sidebar" id="wl-collection-filters" aria-label="Filters">
+      <div class="wl-cg-sidebar__inner">
+        <div class="wl-cg-sidebar__title" id="WlSidebarTitle" aria-hidden="true">
+          {{ collection.title }}
+        </div>
+
+        {%- comment -%} Active filter chips ── {%- endcomment -%}
+        {%- assign total_active = 0 -%}
+        {%- for filter in collection.filters -%}
+          {%- assign total_active = total_active | plus: filter.active_values.size -%}
+          {%- if filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+            {%- assign total_active = total_active | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if total_active > 0 -%}
+          <div class="wl-cg-active">
+            {%- for filter in collection.filters -%}
+              {%- for value in filter.active_values -%}
+                <facet-remove>
+                  <a href="{{ value.url_to_remove }}" class="wl-cg-chip">
+                    {{ value.label | escape }}
+                    <span aria-hidden="true">×</span>
+                  </a>
+                </facet-remove>
+              {%- endfor -%}
+              {%- if filter.type == 'price_range' -%}
+                {%- if filter.min_value.value or filter.max_value.value -%}
+                  <facet-remove>
+                    <a href="{{ filter.url_to_remove }}" class="wl-cg-chip">
+                      {{ filter.min_value.value | default: 0 | money }} – {{ filter.max_value.value | default: filter.range_max | money }}
+                      <span aria-hidden="true">×</span>
+                    </a>
+                  </facet-remove>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            <facet-remove>
+              <a href="{{ collection.url }}" class="wl-cg-clear">Clear all</a>
+            </facet-remove>
+          </div>
+        {%- endif -%}
+
+        {%- comment -%} Filter sections ── {%- endcomment -%}
+        <facet-filters-form>
+          <form id="FacetFiltersForm" class="wl-cg-filter-form">
+            {%- for filter in collection.filters -%}
+              <details
+                id="wl-filter-{{ filter.param_name | escape }}-{{ section.id }}"
+                class="wl-cg-filter js-filter"
+                data-index="{{ forloop.index }}"
+                {% if forloop.index <= 3 and filter.type != 'price_range' %}open{% endif %}
+              >
+                <summary class="wl-cg-filter__title">
+                  {{ filter.label | escape }}
+                  {%- if filter.active_values.size > 0 -%}
+                    <span class="wl-cg-filter__count">({{ filter.active_values.size }})</span>
+                  {%- endif -%}
+                  <span class="wl-cg-filter__caret" aria-hidden="true"></span>
+                </summary>
+
+                <div class="wl-cg-filter__body">
+                  {%- case filter.type -%}
+
+                    {%- when 'boolean', 'list' -%}
+                      <ul class="wl-cg-filter__list list-unstyled" role="list">
+                        {%- for value in filter.values -%}
+                          {%- assign input_id = 'wlf-' | append: filter.param_name | escape | append: '-' | append: forloop.index -%}
+                          <li class="wl-cg-filter__item{% if value.count == 0 and value.active == false %} wl-cg-filter__item--disabled{% endif %}">
+                            <label for="{{ input_id }}" class="wl-cg-filter__label">
+                              <input
+                                type="checkbox"
+                                name="{{ filter.param_name | escape }}"
+                                value="{{ value.value | escape }}"
+                                id="{{ input_id }}"
+                                class="wl-cg-checkbox"
+                                {% if value.active %}checked{% endif %}
+                                {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                              >
+                              <span class="wl-cg-checkbox-ui" aria-hidden="true"></span>
+                              <span class="wl-cg-filter__name">{{ value.label | escape }}</span>
+                              <span class="wl-cg-filter__tally">{{ value.count }}</span>
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+
+                    {%- when 'price_range' -%}
+                      {%- assign min_price = filter.min_value.value | default: 0 -%}
+                      {%- assign max_price = filter.max_value.value | default: filter.range_max -%}
+                      <div class="wl-cg-price">
+                        <div class="wl-cg-price__inputs">
+                          <div class="wl-cg-price__field">
+                            <span class="wl-cg-price__symbol">$</span>
+                            <input
+                              class="wl-cg-price__input"
+                              name="{{ filter.min_value.param_name }}"
+                              id="Filter-{{ filter.min_value.param_name }}-{{ section.id }}"
+                              {%- if filter.min_value.value -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                              type="number"
+                              placeholder="0"
+                              min="0"
+                              max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            >
+                          </div>
+                          <span class="wl-cg-price__dash">–</span>
+                          <div class="wl-cg-price__field">
+                            <span class="wl-cg-price__symbol">$</span>
+                            <input
+                              class="wl-cg-price__input"
+                              name="{{ filter.max_value.param_name }}"
+                              id="Filter-{{ filter.max_value.param_name }}-{{ section.id }}"
+                              {%- if filter.max_value.value -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                              type="number"
+                              placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                              min="0"
+                              max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            >
+                          </div>
+                        </div>
+                        <button type="button" class="wl-cg-price__apply js-price-filter-apply">Apply</button>
+                      </div>
+
+                  {%- endcase -%}
+                </div>
+              </details>
+            {%- endfor -%}
+          </form>
+        </facet-filters-form>
+
+      </div>
+    </aside>
+  {%- endif -%}
+
+  {%- comment -%} ── PRODUCT AREA ── {%- endcomment -%}
+  <div class="wl-cg-main" id="ProductGridContainer">
+    <div class="loading-overlay gradient"></div>
+
+    {%- comment -%} Toolbar ── {%- endcomment -%}
+    <div class="wl-cg-toolbar">
+      <div class="wl-cg-toolbar__left">
+        {%- if section.settings.enable_sorting -%}
+          <facet-filters-form>
+            <form id="FacetSortForm">
+              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+              <select name="sort_by" class="wl-cg-sort" id="SortBy" aria-describedby="a11y-refresh-page-message">
+                {%- for option in collection.sort_options -%}
+                  <option value="{{ option.value | escape }}"{% if option.value == sort_by %} selected{% endif %}>
+                    Sort: {{ option.name | escape }}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </form>
+          </facet-filters-form>
+        {%- endif -%}
+      </div>
+      <div class="wl-cg-toolbar__right" role="status" id="ProductCount">
+        {%- if collection.results_count -%}
+          Showing {{ collection.results_count }} results
+        {%- elsif collection.products_count == collection.all_products_count -%}
+          {{ collection.products_count }} products
+        {%- else -%}
+          Showing {{ collection.products_count }} of {{ collection.all_products_count }} products
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Grid ── {%- endcomment -%}
+    <div class="collection">
+      {%- if collection.products.size == 0 -%}
+        <div class="wl-cg-empty">
+          <p>No products found. <a href="{{ collection.url }}">Clear all filters</a></p>
+        </div>
+      {%- else -%}
+        <ul
+          id="product-grid"
+          data-id="{{ section.id }}"
+          class="wl-product-grid list-unstyled"
+        >
+          {%- assign skip_styles = false -%}
+          {%- for product in collection.products -%}
+            {%- assign lazy = true -%}
+            {%- if forloop.index <= 3 -%}{%- assign lazy = false -%}{%- endif -%}
+            <li class="wl-product-grid__item">
+              {%- render 'wl-product-card',
+                card_product: product,
+                section_id: section.id,
+                lazy_load: lazy,
+                skip_styles: skip_styles
+              -%}
+            </li>
+            {%- assign skip_styles = true -%}
+          {%- endfor -%}
+        </ul>
+
+        {%- if paginate.pages > 1 -%}
+          {% render 'pagination', paginate: paginate, anchor: '' %}
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+
+</div>
+
+{%- endpaginate -%}
+
+<script>
+(function () {
+  var container = document.getElementById('ProductGridContainer');
+  if (container) {
+    var wrap = document.querySelector('.wl-cg-wrap');
+    new MutationObserver(function () {
+      var target = wrap || container;
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }).observe(container, { childList: true, subtree: false });
+  }
+}());
+
+(function () {
+  var header = document.querySelector('.wl-col-header');
+  var title  = document.getElementById('WlSidebarTitle');
+  if (!header || !title) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    var visible = !entries[0].isIntersecting;
+    title.classList.toggle('is-visible', visible);
+    title.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  }, { threshold: 0.50 });
+
+  observer.observe(header);
+}());
+</script>
+
+{%- comment -%} facets.js calls getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents() unconditionally — stub prevents crash {%- endcomment -%}
+<menu-drawer hidden aria-hidden="true">
+  <form id="FacetFiltersFormMobile"></form>
+</menu-drawer>
+
+{% schema %}
+{
+  "name": "WL Collection Grid",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 36,
+      "step": 4,
+      "default": 12,
+      "label": "Products per page"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Columns (desktop)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "Enable filtering"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable sorting"
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Collection Grid"
+    }
+  ]
+}
+{% endschema %}

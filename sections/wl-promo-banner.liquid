@@ -1,0 +1,76 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-promo-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-promo">
+  <div class="wl-promo__inner page-width">
+
+    <div class="wl-promo__text">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="wl-promo__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="wl-promo__title">{{ section.settings.title }}</h2>
+      {%- if section.settings.body != blank -%}
+        <p class="wl-promo__body">{{ section.settings.body }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.btn_label != blank -%}
+      <a href="{{ section.settings.btn_url }}" class="wl-promo__btn">
+        {{ section.settings.btn_label }} →
+      </a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - Promo Banner",
+  "tag": "section",
+  "class": "wl-promo-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "For businesses & organizations"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "info": "Wrap a word in <strong> tags to make it bold, e.g. Over <strong>1 million</strong> promotional products",
+      "default": "Over <strong>1 million</strong> promotional products"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "No set-up fee. No minimum order. From branded apparel and drinkware to trade show giveaways — we source it, brand it, and ship it for you."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Get a free quote"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Promo Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,105 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-section-header.css' | asset_url | stylesheet_tag }}
+{{ 'wl-how-it-works.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-how-section">
+  <div class="page-width">
+
+    {%- render 'wl-section-header',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      subtitle: section.settings.subtitle
+    -%}
+
+    <div class="wl-how__grid">
+      {%- for block in section.blocks -%}
+        <div class="wl-how__step" {{ block.shopify_attributes }}>
+          <div class="wl-how__num">{{ forloop.index }}</div>
+          <h3 class="wl-how__step-title">{{ block.settings.title }}</h3>
+          <p class="wl-how__step-body">{{ block.settings.body }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - How It Works",
+  "tag": "section",
+  "class": "wl-how-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "The process"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "How it works"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every item made to order, printed in our shop in York, PA."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step title",
+          "default": "Step title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Step description",
+          "default": "Describe this step in a couple of sentences."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Pick your product",
+            "body": "Browse hundreds of in-house items — mugs, puzzles, apparel, decals, laser-engraved pieces and more."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Send us your image or idea",
+            "body": "Upload a high-resolution photo on the product page or contact us. No design skills needed — we handle the layout."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "We print, pack & ship",
+            "body": "Every item is custom-printed in our shop and shipped within 5–7 business days. Tracked shipping on every order."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

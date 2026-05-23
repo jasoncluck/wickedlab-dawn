@@ -1,0 +1,144 @@
+/* ── WL Shared Buttons & Badges ─────────────────────────────── */
+
+/* ── Primary (filled) ── */
+.wl-btn-primary {
+  display: inline-block;
+  background: var(--wl-blue);
+  color: var(--wl-gray-50);
+  border: none;
+  border-radius: var(--wl-radius-sm);
+  padding: 14px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--wl-shadow-btn-lg);
+  transition: background var(--wl-t-fast);
+}
+
+.wl-btn-primary:hover {
+  background: var(--wl-blue-hover);
+  color: var(--wl-gray-50);
+}
+
+/* ── Secondary (outlined) ── */
+.wl-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--wl-blue-dark);
+  border: 1.5px solid var(--wl-blue);
+  border-radius: var(--wl-radius-sm);
+  padding: 13px 28px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--wl-t-fast), color var(--wl-t-fast);
+}
+
+.wl-btn-secondary:hover {
+  background: var(--wl-blue-bg);
+  color: var(--wl-blue);
+}
+
+/* ── Add-to-cart / options (small card buttons) ── */
+.wl-btn-add,
+.wl-btn-options {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: var(--wl-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--wl-t-fast), color var(--wl-t-fast), border-color var(--wl-t-fast);
+  line-height: 1;
+}
+
+.wl-btn-add {
+  background: var(--wl-blue);
+  color: #fff;
+  border: none;
+  box-shadow: var(--wl-shadow-btn);
+}
+
+.wl-btn-add:hover:not([disabled]) {
+  background: var(--wl-blue-hover);
+}
+
+.wl-btn-add[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.wl-btn-options {
+  background: transparent;
+  color: var(--wl-blue-dark);
+  border: 1.5px solid var(--wl-blue);
+}
+
+.wl-btn-options:hover {
+  background: var(--wl-blue-bg);
+}
+
+.wl-btn-sold-out {
+  font-size: 12px;
+  color: var(--wl-gray-400);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.wl-btn-add .loading__spinner {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+/* ── Overlay badge (absolute-positioned on card image zones) ── */
+.wl-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: var(--wl-radius-pill);
+  pointer-events: none;
+}
+
+.wl-badge--hot {
+  background: var(--wl-blue-bg-hi);
+  color: var(--wl-blue-hover);
+  border: 1px solid var(--wl-blue-border-hi);
+}
+
+.wl-badge--new {
+  background: var(--wl-blue-bg-md);
+  color: var(--wl-blue-light);
+  border: 1px solid var(--wl-blue-border);
+}
+
+.wl-badge--soft {
+  background: var(--wl-blue-bg);
+  color: var(--wl-blue-light);
+  border: 1px solid var(--wl-blue-bg-md);
+}
+
+.wl-badge--sale {
+  background: var(--wl-sale-bg);
+  color: var(--wl-sale);
+  border: 1px solid var(--wl-sale-border);
+}
+
+.wl-badge--sold-out {
+  background: rgba(156, 163, 175, 0.15);
+  color: var(--wl-gray-400);
+  border: 1px solid rgba(156, 163, 175, 0.30);
+}

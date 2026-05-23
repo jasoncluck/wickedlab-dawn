@@ -1,0 +1,33 @@
+{% comment %}
+  Renders the standard WL section header: eyebrow + title + optional subtitle + optional "see all" link.
+  When a link is provided the layout becomes flex space-between (eyebrow/title left, link right).
+
+  Accepts:
+  - eyebrow:        {String} Optional small caps label above the title
+  - title:          {String} Required heading text
+  - subtitle:       {String} Optional sentence below the title
+  - all_link_label: {String} Optional "see all" link text
+  - all_link_url:   {String} Optional "see all" link URL (both required for link to render)
+{% endcomment %}
+
+{%- liquid
+  assign has_link = false
+  if all_link_label != blank and all_link_url != blank
+    assign has_link = true
+  endif
+-%}
+
+<div class="wl-sh{% if has_link %} wl-sh--split{% endif %}">
+  <div>
+    {%- if eyebrow != blank -%}
+      <p class="wl-sh__eyebrow">{{ eyebrow }}</p>
+    {%- endif -%}
+    <h2 class="wl-sh__title">{{ title }}</h2>
+    {%- if subtitle != blank -%}
+      <p class="wl-sh__subtitle">{{ subtitle }}</p>
+    {%- endif -%}
+  </div>
+  {%- if has_link -%}
+    <a href="{{ all_link_url }}" class="wl-sh__link">{{ all_link_label }}</a>
+  {%- endif -%}
+</div>

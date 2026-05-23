@@ -1,0 +1,211 @@
+/* ── WL Featured Carousel ────────────────────────── */
+
+/* ── Section heading ── */
+.wl-feat-carousel__heading {
+  padding: 0 0 32px;
+}
+
+/* Carousel eyebrow is slightly larger than the shared token — intentional design choice */
+.wl-feat-carousel__eyebrow {
+  font-size: 11px;
+  font-weight: var(--wl-eyebrow-weight);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wl-blue);
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.wl-feat-carousel__title {
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Outer wrapper ── */
+.wl-feat-carousel__outer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Track ── */
+.wl-feat-carousel__track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Individual slide ── */
+.wl-feat-carousel__slide {
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 520px;
+}
+
+.wl-feat-carousel__slide-inner {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 56px var(--page-width-padding, 90px);
+  min-height: 520px;
+}
+
+/* ── Slide text column ── */
+.wl-feat-carousel__slide-text {
+  flex: 0 0 440px;
+  max-width: 440px;
+}
+
+.wl-feat-carousel__slide-heading {
+  font-size: 48px;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: rgb(var(--color-foreground));
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 14px;
+}
+
+.wl-feat-carousel__slide-heading strong {
+  font-weight: 600;
+}
+
+.wl-feat-carousel__slide-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(var(--color-foreground), 0.65);
+  margin-bottom: 28px;
+  max-width: 360px;
+}
+
+.wl-feat-carousel__slide-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Slide image column ── */
+.wl-feat-carousel__slide-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+}
+
+.wl-feat-carousel__img {
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.wl-feat-carousel__img.placeholder-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+
+/* ── Arrows ── */
+.wl-feat-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgb(var(--color-border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: rgb(var(--color-foreground));
+  transition: background var(--wl-t-base);
+}
+
+.wl-feat-carousel__arrow:hover {
+  background: rgb(255, 255, 255);
+}
+
+.wl-feat-carousel__arrow--prev {
+  left: 20px;
+}
+
+.wl-feat-carousel__arrow--prev .svg-wrapper {
+  transform: rotate(90deg);
+  display: flex;
+}
+
+.wl-feat-carousel__arrow--next {
+  right: 20px;
+}
+
+.wl-feat-carousel__arrow--next .svg-wrapper {
+  transform: rotate(-90deg);
+  display: flex;
+}
+
+/* ── Dots ── */
+.wl-feat-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 0 28px;
+}
+
+.wl-feat-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgb(var(--color-border));
+  border: none;
+  cursor: pointer;
+  transition: width 0.25s ease, border-radius 0.25s ease, background 0.25s ease;
+  padding: 0;
+}
+
+.wl-feat-carousel__dot.active {
+  width: 24px;
+  border-radius: var(--wl-radius-sm);
+  background: rgb(var(--color-link));
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .wl-feat-carousel__slide-inner {
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px var(--page-width-padding, 24px);
+    min-height: unset;
+  }
+
+  .wl-feat-carousel__slide-text {
+    flex: unset;
+    max-width: 100%;
+  }
+
+  .wl-feat-carousel__slide-heading {
+    font-size: 36px;
+  }
+
+  .wl-feat-carousel__slide-image {
+    height: 260px;
+    width: 100%;
+  }
+
+  .wl-feat-carousel__arrow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .wl-feat-carousel__slide-heading {
+    font-size: 28px;
+  }
+
+  .wl-feat-carousel__slide-body {
+    font-size: 14px;
+  }
+}

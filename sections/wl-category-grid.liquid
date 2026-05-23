@@ -1,0 +1,207 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-section-header.css' | asset_url | stylesheet_tag }}
+{{ 'wl-category-grid.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-cat-grid-section">
+  <div class="page-width">
+
+    {%- render 'wl-section-header',
+      eyebrow: section.settings.eyebrow,
+      title: section.settings.title,
+      all_link_label: section.settings.all_link_label,
+      all_link_url: section.settings.all_link_url
+    -%}
+
+    <div class="wl-cat-grid__grid">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.url }}"
+           class="wl-cat-card{% if block.settings.highlight %} wl-cat-card--highlight{% endif %}"
+           {{ block.shopify_attributes }}>
+
+          <div class="wl-cat-card__image-wrap"
+               style="background-color: {{ block.settings.bg_color }};">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'wl-cat-card__img' }}
+            {%- else -%}
+              <span class="wl-cat-card__placeholder">{{ block.settings.title }}</span>
+            {%- endif -%}
+          </div>
+
+          <div class="wl-cat-card__body">
+            <p class="wl-cat-card__name">{{ block.settings.title }}</p>
+            {%- if block.settings.subtitle != blank -%}
+              <p class="wl-cat-card__sub">{{ block.settings.subtitle }}</p>
+            {%- endif -%}
+            {%- if block.settings.badge != blank -%}
+              <span class="wl-cat-card__badge">{{ block.settings.badge }}</span>
+            {%- endif -%}
+            {%- if block.settings.link_label != blank -%}
+              <span class="wl-cat-card__link">{{ block.settings.link_label }} →</span>
+            {%- endif -%}
+          </div>
+
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL - Category Grid",
+  "tag": "section",
+  "class": "wl-cat-grid-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow line",
+      "default": "Browse the store"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop by category"
+    },
+    {
+      "type": "text",
+      "id": "all_link_label",
+      "label": "\"All categories\" link text",
+      "default": "All categories →"
+    },
+    {
+      "type": "url",
+      "id": "all_link_url",
+      "label": "\"All categories\" link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category name",
+          "default": "Category"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle line",
+          "default": "Short description of what's inside"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Item count badge",
+          "info": "e.g. ~45 items or 1M+ items",
+          "default": "~10 items"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Collection URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category image"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Image background colour",
+          "default": "#F0F2F5"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlighted card (blue glow border)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Category Grid",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Personalized Gifts",
+            "subtitle": "Mugs, puzzles, ornaments, photo gifts",
+            "badge": "~45 items",
+            "link_label": "Shop gifts",
+            "bg_color": "#E8EDF2"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Drinkware",
+            "subtitle": "Mugs, shot glasses, pint glasses, tumblers",
+            "badge": "~52 items",
+            "link_label": "Shop drinkware",
+            "bg_color": "#F0F2F5"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Apparel",
+            "subtitle": "T-shirts, hoodies, tote bags, hats",
+            "badge": "~90 items",
+            "link_label": "Shop apparel",
+            "bg_color": "#EEE8F2"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Home & Décor",
+            "subtitle": "Coasters, slates, clocks, pillows, blankets",
+            "badge": "~18 items",
+            "link_label": "Shop home",
+            "bg_color": "#F0F2F5"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Stickers & Decals",
+            "subtitle": "Vinyl, printed, custom sizes & shapes",
+            "badge": "~8 items",
+            "link_label": "Shop decals",
+            "bg_color": "#E8EAEC"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Occasions & Events",
+            "subtitle": "Wedding favors, baby gifts, party supplies",
+            "badge": "~15 items",
+            "link_label": "Shop occasions",
+            "bg_color": "#F2EAEA"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12
+}
+{% endschema %}

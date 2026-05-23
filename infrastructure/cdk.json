@@ -1,0 +1,8 @@
+{
+  "app": "npx ts-node bin/app.ts",
+  "profile": "wickedlab",
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:stackRelativeExports": true
+  }
+}

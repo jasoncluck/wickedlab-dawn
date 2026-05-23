@@ -1,0 +1,104 @@
+/* ── WL Occasions ────────────────────────────────── */
+
+.wl-occ-section {
+  padding: 32px 5rem;
+}
+
+/* ── Grid ── */
+.wl-occ__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── Card ── */
+.wl-occ-card {
+  display: block;
+  background: var(--wl-gray-50);
+  border: 1px solid var(--wl-gray-300);
+  border-radius: var(--wl-radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--wl-t-base), box-shadow var(--wl-t-base);
+}
+
+.wl-occ-card:hover {
+  border-color: var(--wl-blue);
+  box-shadow: var(--wl-shadow-glow-sm);
+}
+
+/* ── Image area ── */
+.wl-occ-card__image-wrap {
+  height: 120px;
+  border-bottom: 1px solid var(--wl-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wl-occ-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--wl-t-base);
+}
+
+.wl-occ-card:hover .wl-occ-card__img {
+  transform: var(--wl-img-zoom);
+}
+
+.wl-occ-card__placeholder {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--wl-gray-400);
+  letter-spacing: 0.04em;
+}
+
+/* ── Card body ── */
+.wl-occ-card__body {
+  padding: 20px;
+}
+
+.wl-occ-card__name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--wl-gray-900);
+  margin: 0 0 4px;
+}
+
+.wl-occ-card__sub {
+  font-size: 13px;
+  color: var(--wl-gray-500);
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.wl-occ-card__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--wl-blue);
+  transition: color var(--wl-t-fast);
+}
+
+.wl-occ-card:hover .wl-occ-card__link {
+  color: var(--wl-blue-dark);
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .wl-occ-section {
+    padding: 48px 1.5rem;
+  }
+
+  .wl-occ__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .wl-occ__grid {
+    grid-template-columns: 1fr;
+  }
+}

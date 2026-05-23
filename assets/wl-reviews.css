@@ -1,0 +1,142 @@
+/* ── WL Reviews ──────────────────────────────────── */
+
+.wl-rev-section {
+  padding: 32px 5rem;
+}
+
+/* ── Section header (custom right side — uses wl-sh base but overrides right) ── */
+.wl-rev__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.wl-rev__head > div:first-child .wl-sh__title,
+.wl-rev__title {
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
+  margin: 0;
+}
+
+.wl-rev__eyebrow {
+  font-size: var(--wl-eyebrow-size);
+  font-weight: var(--wl-eyebrow-weight);
+  letter-spacing: var(--wl-eyebrow-spacing);
+  text-transform: uppercase;
+  color: var(--wl-blue);
+  margin: 0 0 8px;
+}
+
+.wl-rev__title {
+  font-size: var(--wl-title-size);
+  font-weight: var(--wl-title-weight);
+  letter-spacing: var(--wl-title-spacing);
+  color: var(--wl-gray-900);
+  margin: 0;
+}
+
+/* ── Aggregate rating ── */
+.wl-rev__aggregate {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.wl-rev__aggregate-stars {
+  color: var(--wl-star);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.wl-rev__aggregate-label {
+  font-size: 14px;
+  color: var(--wl-gray-500);
+}
+
+/* ── Grid ── */
+.wl-rev__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── Card ── */
+.wl-rev-card {
+  background: var(--wl-gray-50);
+  border: 1px solid var(--wl-gray-300);
+  border-radius: var(--wl-radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Stars ── */
+.wl-rev-card__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.wl-rev-card__star {
+  color: var(--wl-star);
+  font-size: 14px;
+}
+
+.wl-rev-card__star--empty {
+  color: var(--wl-gray-300);
+}
+
+/* ── Review text ── */
+.wl-rev-card__text {
+  font-size: 14px;
+  color: var(--wl-gray-700);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 14px;
+  flex: 1;
+}
+
+/* ── Attribution ── */
+.wl-rev-card__author {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--wl-gray-700);
+  margin: 0 0 2px;
+}
+
+.wl-rev-card__source {
+  font-size: 11px;
+  color: var(--wl-gray-400);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 989px) {
+  .wl-rev-section {
+    padding: 48px 1.5rem;
+  }
+
+  .wl-rev__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .wl-rev__title {
+    font-size: var(--wl-title-size-sm);
+  }
+
+  .wl-rev__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .wl-rev__grid {
+    grid-template-columns: 1fr;
+  }
+}

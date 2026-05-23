@@ -1,0 +1,73 @@
+{{ 'wl-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'wl-collection-header.css' | asset_url | stylesheet_tag }}
+
+<div class="wl-col-breadcrumb">
+  <div class="page-width">
+    <nav class="wl-col-breadcrumb__nav" aria-label="Breadcrumb">
+      <a href="/" class="wl-col-breadcrumb__link">{{ section.settings.breadcrumb_home_label }}</a>
+      <span class="wl-col-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="wl-col-breadcrumb__current">{{ collection.title | escape }}</span>
+    </nav>
+  </div>
+</div>
+
+<div class="wl-col-header">
+  <div class="wl-col-header__inner page-width">
+    <div class="wl-col-header__left">
+      <p class="wl-col-header__eyebrow">{{ collection.all_products_count }} products</p>
+      <h1 class="wl-col-header__title">{{ collection.title | escape }}</h1>
+      {%- if collection.description != blank -%}
+        <p class="wl-col-header__desc">{{ collection.description | strip_html }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="wl-col-header__badges">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'badge' and block.settings.label != blank -%}
+            <span class="wl-col-badge" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "WL Collection Header",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Badge label",
+          "default": "In-house printed"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "breadcrumb_home_label",
+      "label": "Breadcrumb home label",
+      "default": "Home"
+    }
+  ],
+  "presets": [
+    {
+      "name": "WL Collection Header",
+      "blocks": [
+        { "type": "badge", "settings": { "label": "In-house printed" } },
+        { "type": "badge", "settings": { "label": "No minimum order" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
