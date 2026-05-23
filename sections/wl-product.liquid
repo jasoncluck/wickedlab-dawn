@@ -264,9 +264,21 @@
 
       {%- comment -%} Accordion {%- endcomment -%}
       {%- assign acc_blocks = section.blocks | where: 'type', 'accordion' -%}
-      {%- if acc_blocks.size > 0 -%}
+      {%- if product.description != blank or acc_blocks.size > 0 -%}
         <div class="wl-pd__accordion">
+          {%- if product.description != blank -%}
+            <details class="wl-pd__acc-item" open>
+              <summary class="wl-pd__acc-header">
+                <span class="wl-pd__acc-title">Product details</span>
+                <span class="wl-pd__acc-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="wl-pd__acc-body rte">{{ product.description }}</div>
+            </details>
+          {%- endif -%}
           {%- for block in acc_blocks -%}
+            {%- if product.description != blank and block.settings.title == 'Product details' -%}
+              {%- continue -%}
+            {%- endif -%}
             <details class="wl-pd__acc-item" {{ block.shopify_attributes }}>
               <summary class="wl-pd__acc-header">
                 <span class="wl-pd__acc-title">{{ block.settings.title }}</span>
@@ -332,10 +344,15 @@ var WlPd = (function () {
     if (variantId) variantId.value = variant.id;
 
     if (btn && label) {
-      btn.disabled = !variant.available;
       label.textContent = variant.available
         ? (btn.dataset.addLabel || 'Add to cart')
         : (btn.dataset.soldOutLabel || 'Sold out');
+      var persSetVariant = window['WlPersSetVariant_' + sectionId];
+      if (persSetVariant) {
+        persSetVariant(!!variant.available);
+      } else {
+        btn.disabled = !variant.available;
+      }
     }
   }
 
@@ -381,6 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var endpoint = uploadInput && uploadInput.dataset.endpoint;
   var hasText = false;
   var hasPhoto = false;
+  var variantAvailable = {{ current_variant.available | json }};
 
   function setCtaDisabled(disabled) {
     if (addBtn) addBtn.disabled = disabled;
@@ -392,8 +410,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateCtaState() {
-    setCtaDisabled(!(hasText || hasPhoto));
+    setCtaDisabled(!variantAvailable || !(hasText || hasPhoto));
   }
+
+  window['WlPersSetVariant_{{ section.id }}'] = function (available) {
+    variantAvailable = available;
+    updateCtaState();
+  };
 
   setCtaDisabled(true);
 
@@ -652,7 +675,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { "type": "trust_item", "settings": { "icon": "🚚", "title": "Ships in 5–7 days", "body": "Tracked on every order" } },
         { "type": "trust_item", "settings": { "icon": "🖨️", "title": "In-house printed", "body": "York, PA · since 2009" } },
         { "type": "trust_item", "settings": { "icon": "💬", "title": "Personal support", "body": "We check every order" } },
-        { "type": "accordion", "settings": { "title": "Product details", "content": "<p>Add product details here.</p>" } },
         { "type": "accordion", "settings": { "title": "Shipping & returns", "content": "<p>Add shipping info here.</p>" } }
       ]
     }

@@ -104,6 +104,14 @@
         "price_note": "Free shipping over $50"
       }
     }
+    ,
+    "recommendations": {
+      "type": "wl-product-recs",
+      "settings": {
+        "heading": "You might also like",
+        "products_to_show": 4
+      }
+    }
   },
-  "order": ["main"]
+  "order": ["main", "recommendations"]
 }
