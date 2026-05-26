@@ -14,6 +14,7 @@
             src="{{ section.settings.hero_logo | asset_url }}"
             alt="{{ shop.name | escape }}"
             height="{{ section.settings.hero_logo_height }}"
+            style="height: {{ section.settings.hero_logo_height }}px; width: auto;"
             loading="eager"
           >
         </div>
@@ -102,9 +103,9 @@
       "id": "hero_logo_height",
       "label": "Logo height (px)",
       "min": 30,
-      "max": 120,
+      "max": 200,
       "step": 5,
-      "default": 60
+      "default": 120
     },
     {
       "type": "header",

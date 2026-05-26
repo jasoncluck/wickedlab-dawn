@@ -159,6 +159,7 @@
               alt="{{ shop.name | escape }}"
               height="{{ section.settings.asset_logo_height }}"
               class="header__heading-logo motion-reduce"
+              style="height: {{ section.settings.asset_logo_height }}px; width: auto;"
               loading="eager"
             >
           </div>
@@ -212,6 +213,7 @@
               alt="{{ shop.name | escape }}"
               height="{{ section.settings.asset_logo_height }}"
               class="header__heading-logo"
+              style="height: {{ section.settings.asset_logo_height }}px; width: auto;"
               loading="eager"
             >
           </div>
@@ -503,9 +505,9 @@
       "id": "asset_logo_height",
       "label": "Asset logo height (px)",
       "min": 20,
-      "max": 80,
+      "max": 100,
       "step": 2,
-      "default": 40
+      "default": 52
     },
     {
       "type": "select",

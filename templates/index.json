@@ -53,6 +53,8 @@
       ],
       "name": "WL Hero",
       "settings": {
+        "hero_logo": "TWL_shopify_logo.svg",
+        "hero_logo_height": 180,
         "eyebrow": "York, PA · In-house printing since 2015",
         "heading_line1": "Every gift,",
         "heading_line2": "made just for you",
