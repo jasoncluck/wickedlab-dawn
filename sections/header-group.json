@@ -38,6 +38,8 @@
     "header": {
       "type": "header",
       "settings": {
+        "asset_logo": "TWL_logo_only.svg",
+        "asset_logo_height": 40,
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "dawn-redesign-menu",

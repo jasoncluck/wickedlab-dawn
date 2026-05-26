@@ -16,6 +16,17 @@
   min-width: 0;
 }
 
+/* ── Hero logo ── */
+.wl-hero__logo {
+  margin-bottom: 28px;
+}
+
+.wl-hero__logo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+
 /* Hero eyebrow has a decorative line — kept separate from wl-sh__eyebrow */
 .wl-hero__eyebrow {
   font-size: 11px;

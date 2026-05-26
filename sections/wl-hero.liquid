@@ -8,6 +8,17 @@
     {%- comment -%} ── LEFT: text column ── {%- endcomment -%}
     <div class="wl-hero__text">
 
+      {%- if section.settings.hero_logo != blank -%}
+        <div class="wl-hero__logo">
+          <img
+            src="{{ section.settings.hero_logo | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            height="{{ section.settings.hero_logo_height }}"
+            loading="eager"
+          >
+        </div>
+      {%- endif -%}
+
       <p class="wl-hero__eyebrow">{{ section.settings.eyebrow }}</p>
 
       <h1 class="wl-hero__h1">
@@ -75,6 +86,30 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Brand logo"
+    },
+    {
+      "type": "text",
+      "id": "hero_logo",
+      "label": "Logo asset filename",
+      "info": "Filename of an SVG or PNG in the theme assets folder (e.g. TWL_shopify_logo.svg). Leave blank to hide.",
+      "default": "TWL_shopify_logo.svg"
+    },
+    {
+      "type": "range",
+      "id": "hero_logo_height",
+      "label": "Logo height (px)",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
     {
       "type": "text",
       "id": "eyebrow",

@@ -152,7 +152,17 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        {%- if settings.logo != blank -%}
+        {%- if section.settings.asset_logo != blank -%}
+          <div class="header__heading-logo-wrapper">
+            <img
+              src="{{ section.settings.asset_logo | asset_url }}"
+              alt="{{ shop.name | escape }}"
+              height="{{ section.settings.asset_logo_height }}"
+              class="header__heading-logo motion-reduce"
+              loading="eager"
+            >
+          </div>
+        {%- elsif settings.logo != blank -%}
           <div class="header__heading-logo-wrapper">
             {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
@@ -195,7 +205,17 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        {%- if settings.logo != blank -%}
+        {%- if section.settings.asset_logo != blank -%}
+          <div class="header__heading-logo-wrapper">
+            <img
+              src="{{ section.settings.asset_logo | asset_url }}"
+              alt="{{ shop.name | escape }}"
+              height="{{ section.settings.asset_logo_height }}"
+              class="header__heading-logo"
+              loading="eager"
+            >
+          </div>
+        {%- elsif settings.logo != blank -%}
           <div class="header__heading-logo-wrapper">
             {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
             {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
@@ -472,6 +492,21 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
+    {
+      "type": "text",
+      "id": "asset_logo",
+      "label": "Asset logo filename",
+      "info": "Filename of an SVG or PNG in the theme assets folder (e.g. TWL_logo_only.svg). Overrides the theme logo setting when set."
+    },
+    {
+      "type": "range",
+      "id": "asset_logo_height",
+      "label": "Asset logo height (px)",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "default": 40
+    },
     {
       "type": "select",
       "id": "logo_position",
