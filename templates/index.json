@@ -103,9 +103,9 @@
             "eyebrow": "For businesses & events",
             "heading": "Corporate & Events",
             "body": "Shop our latest promoted products for special offers and holidays.",
-            "image": "shopify://shop_images/BARNFINDSHIRT.jpg",
-            "button_label": "Get a quote",
-            "button_link": "",
+            "image_asset": "pen-business-and-events.jpg",
+            "button_label": "Browse Products",
+            "button_link": "https://www.promoplace.com/wickedstickerzandmore",
             "button_label_2": "",
             "button_link_2": ""
           }
