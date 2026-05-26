@@ -25,12 +25,6 @@
       <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
 
-    {%- if section.settings.intro != blank -%}
-      <p class="rte" style="margin: 0 0 32px; font-size: 16px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75);">
-        {{ section.settings.intro }}
-      </p>
-    {%- endif -%}
-
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
@@ -147,12 +141,6 @@
       "id": "heading",
       "default": "t:sections.contact-form.settings.title.default",
       "label": "t:sections.contact-form.settings.title.label"
-    },
-    {
-      "type": "textarea",
-      "id": "intro",
-      "label": "Intro text",
-      "default": "Can't find what you're looking for? We'd love to help. Whether you have a question about a product, need something custom, or want to discuss a bulk order — drop us a message and we'll get back to you within one business day."
     },
     {
       "type": "select",
