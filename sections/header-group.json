@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free shipping on orders over $75",
+            "text": "Free shipping on orders over $50",
             "link": ""
           }
         }
@@ -43,6 +43,10 @@
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "dawn-redesign-menu",
+        "utility_link_1_label": "About",
+        "utility_link_1_url": "/pages/about",
+        "utility_link_2_label": "Contact",
+        "utility_link_2_url": "/pages/contact",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "always",
         "show_line_separator": false,

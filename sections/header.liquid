@@ -28,6 +28,21 @@
     }
   {%- endif -%}
 
+  .header__utility-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__utility-nav .header__menu-item {
+    font-size: 1.3rem;
+    white-space: nowrap;
+    padding: 0;
+  }
+
   {%- if section.settings.menu_type_desktop != "drawer" -%}
     @media screen and (min-width: 990px) {
       header-drawer {
@@ -269,6 +284,35 @@
           </localization-form>
         {%- endif -%}
       </div>
+      {%- liquid
+        assign has_utility = false
+        for i in (1..4)
+          assign label_key = 'utility_link_' | append: i | append: '_label'
+          if section.settings[label_key] != blank
+            assign has_utility = true
+            break
+          endif
+        endfor
+      -%}
+      {%- if has_utility -%}
+        <ul class="header__utility-nav small-hide" role="list">
+          {%- for i in (1..4) -%}
+            {%- assign label_key = 'utility_link_' | append: i | append: '_label' -%}
+            {%- assign url_key = 'utility_link_' | append: i | append: '_url' -%}
+            {%- if section.settings[label_key] != blank -%}
+              <li>
+                <a
+                  href="{{ section.settings[url_key] | default: '#' }}"
+                  class="header__menu-item link link--text focus-inset"
+                >
+                  {{- section.settings[label_key] | escape -}}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
@@ -555,6 +599,52 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "header",
+      "content": "Utility links (right-aligned)"
+    },
+    {
+      "type": "text",
+      "id": "utility_link_1_label",
+      "label": "Link 1 label",
+      "default": "About"
+    },
+    {
+      "type": "url",
+      "id": "utility_link_1_url",
+      "label": "Link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "utility_link_2_label",
+      "label": "Link 2 label",
+      "default": "Contact"
+    },
+    {
+      "type": "url",
+      "id": "utility_link_2_url",
+      "label": "Link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "utility_link_3_label",
+      "label": "Link 3 label"
+    },
+    {
+      "type": "url",
+      "id": "utility_link_3_url",
+      "label": "Link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "utility_link_4_label",
+      "label": "Link 4 label"
+    },
+    {
+      "type": "url",
+      "id": "utility_link_4_url",
+      "label": "Link 4 URL"
     },
     {
       "type": "select",

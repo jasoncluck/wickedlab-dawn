@@ -46,7 +46,19 @@
                 </div>
               {%- endif -%}
               <div class="wl-feat-carousel__slide-btns">
-                {%- if block.settings.button_label != blank -%}
+                {%- if block.settings.product != blank -%}
+                  {%- assign slide_product = block.settings.product -%}
+                  {%- if slide_product.available == false -%}
+                    <button class="button button--primary" disabled>Sold out</button>
+                  {%- elsif slide_product.variants.size == 1 -%}
+                    <form action="/cart/add" method="post">
+                      <input type="hidden" name="id" value="{{ slide_product.selected_or_first_available_variant.id }}">
+                      <button type="submit" class="button button--primary">Add to cart</button>
+                    </form>
+                  {%- else -%}
+                    <a href="{{ slide_product.url }}" class="button button--primary">Choose options</a>
+                  {%- endif -%}
+                {%- elsif block.settings.button_label != blank -%}
                   <a
                     href="{{ block.settings.button_link }}"
                     class="button button--primary"
@@ -315,6 +327,12 @@ document.addEventListener('shopify:section:reorder', function (e) {
           "type": "image_picker",
           "id": "image",
           "label": "Product / collection image"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "When set, the button automatically shows Add to cart (single variant) or Choose options (multiple variants), overriding the button label below."
         }
       ]
     }
