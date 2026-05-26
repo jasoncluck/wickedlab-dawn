@@ -278,7 +278,7 @@
       "name": "WL Featured Products",
       "settings": {
         "eyebrow": "Hand-picked for you",
-        "title": "Featured products",
+        "title": "Top Sellers",
         "all_link_label": "See all products →",
         "all_link_url": ""
       }
@@ -331,98 +331,6 @@
         "subtitle": "Every item made to order, printed in our shop in York, PA."
       }
     },
-    "wl_occasions_W4c3XK": {
-      "type": "wl-occasions",
-      "blocks": {
-        "occasion_6MRXfB": {
-          "type": "occasion",
-          "settings": {
-            "name": "Weddings & Events",
-            "subtitle": "Favors, gifts, keepsakes & décor for the big day",
-            "link_label": "Shop wedding gifts",
-            "url": "",
-            "image": "shopify://shop_images/wedding-gown-and-bouquet-near-beach.jpg",
-            "bg_color": "#f0edf5"
-          }
-        },
-        "occasion_KaJRwB": {
-          "type": "occasion",
-          "settings": {
-            "name": "Baby & New Parents",
-            "subtitle": "Personalized blankets, announcements & keepsake sets",
-            "link_label": "Shop baby gifts",
-            "url": "",
-            "image": "shopify://shop_images/baby-nursery-supplies.jpg",
-            "bg_color": "#edf4f0"
-          }
-        },
-        "occasion_aKAYUd": {
-          "type": "occasion",
-          "settings": {
-            "name": "Graduation & Milestones",
-            "subtitle": "Celebrate achievements with something they'll keep forever",
-            "link_label": "Shop grad gifts",
-            "url": "",
-            "image": "shopify://shop_images/grad-students-throwing-hats-in-the-air.jpg",
-            "bg_color": "#edf1f5"
-          }
-        }
-      },
-      "block_order": [
-        "occasion_6MRXfB",
-        "occasion_KaJRwB",
-        "occasion_aKAYUd"
-      ],
-      "name": "WL Occasions",
-      "settings": {
-        "eyebrow": "Shop by occasion",
-        "title": "The perfect gift for every moment"
-      }
-    },
-    "wl_reviews_m7WCgW": {
-      "type": "wl-reviews",
-      "blocks": {
-        "review_W9Qedf": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "10 stars! Nice customer service, super fast shipping and quality product. Will definitely be back for more gifts.",
-            "author": "Satisfied customer",
-            "source": "Etsy · Verified purchase"
-          }
-        },
-        "review_DkPEW7": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "The shot glasses were adorable and were a hit! Made in time for Christmas. Thank you for quick shipping!",
-            "author": "Holiday shopper",
-            "source": "Etsy · Verified purchase"
-          }
-        },
-        "review_xT8Ggb": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "Absolutely love my custom mug. The photo quality is amazing and it arrived faster than expected. Will order again!",
-            "author": "Repeat customer",
-            "source": "Google · Verified review"
-          }
-        }
-      },
-      "block_order": [
-        "review_W9Qedf",
-        "review_DkPEW7",
-        "review_xT8Ggb"
-      ],
-      "name": "WL Reviews",
-      "settings": {
-        "eyebrow": "Customer reviews",
-        "title": "What people are saying",
-        "aggregate_score": "5.0",
-        "aggregate_count": "200+"
-      }
-    }
   },
   "order": [
     "wl_hero_NaLCDk",
@@ -430,8 +338,6 @@
     "wl_category_grid_D6id9H",
     "wl_featured_products_kp6edE",
     "wl_promo_banner_z7fc8G",
-    "wl_how_it_works_h6PUTV",
-    "wl_occasions_W4c3XK",
-    "wl_reviews_m7WCgW"
+    "wl_how_it_works_h6PUTV"
   ]
 }
