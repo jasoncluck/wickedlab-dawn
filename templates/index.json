@@ -74,45 +74,38 @@
       "type": "wl-feat-carousel",
       "blocks": {
         "slide_wbYEyz": {
-          "type": "slide",
+          "type": "product_slide",
           "settings": {
             "background_color": "#daeefa",
             "eyebrow": "Shop the latest items",
-            "heading": "Featured Item",
-            "body": "See the latest products from The Wicked Lab",
-            "button_label": "",
-            "button_link": "",
-            "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/catmom.jpg"
+            "heading": "",
+            "body": ""
           }
         },
         "slide_Px3aLC": {
-          "type": "slide",
+          "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
             "eyebrow": "Custom creations for any occasion",
             "heading": "Personalized Items",
             "body": "Import your own designs to build your own unique version of our products",
-            "button_label": "",
+            "button_label": "Shop personalized",
             "button_link": "",
             "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/momsfavmug.jpg"
+            "button_link_2": ""
           }
         },
         "slide_wKGpd4": {
-          "type": "slide",
+          "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
-            "eyebrow": "Store wide promotions",
-            "heading": "Promotional Products",
+            "eyebrow": "For businesses & events",
+            "heading": "Corporate & Events",
             "body": "Shop our latest promoted products for special offers and holidays.",
-            "button_label": "",
+            "button_label": "Get a quote",
             "button_link": "",
             "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/BARNFINDSHIRT.jpg"
+            "button_link_2": ""
           }
         }
       },
