@@ -1,5 +1,13 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "All Products",
   "sections": {
     "wl-collection-header": {
       "type": "wl-collection-header",
@@ -17,7 +25,10 @@
           }
         }
       },
-      "block_order": ["badge-1", "badge-2"],
+      "block_order": [
+        "badge-1",
+        "badge-2"
+      ],
       "settings": {
         "breadcrumb_home_label": "Home"
       }
