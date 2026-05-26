@@ -77,19 +77,21 @@
           "type": "product_slide",
           "settings": {
             "background_color": "#daeefa",
-            "eyebrow": "Shop the latest items",
+            "product": "barn-find-american-muscle-t-shirt",
+            "eyebrow": "The latest from The Wicked Lab",
             "heading": "Featured Item",
-            "body": ""
+            "body": "Barn Find American Muscle T-Shirt"
           }
         },
         "slide_Px3aLC": {
           "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
+            "image_asset": "",
+            "image": "shopify://shop_images/momsfavmug.jpg",
             "eyebrow": "Custom creations for any occasion",
             "heading": "Personalized Items",
             "body": "Import your own designs to build your own unique version of our products",
-            "image": "shopify://shop_images/momsfavmug.jpg",
             "button_label": "Shop personalized",
             "button_link": "/collections/customize",
             "button_label_2": "",
@@ -100,10 +102,10 @@
           "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
+            "image_asset": "pen_business_and_events.jpeg",
             "eyebrow": "For businesses & events",
             "heading": "Corporate & Events",
             "body": "Shop our latest promoted products for special offers and holidays.",
-            "image_asset": "pen_business_and_events.jpeg",
             "button_label": "Browse Products",
             "button_link": "https://www.promoplace.com/wickedstickerzandmore",
             "button_label_2": "",
@@ -330,7 +332,7 @@
         "title": "How it works",
         "subtitle": "Every item made to order, printed in our shop in York, PA."
       }
-    },
+    }
   },
   "order": [
     "wl_hero_NaLCDk",
