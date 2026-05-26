@@ -33,13 +33,22 @@
 
             {%- if block.type == 'product_slide' -%}
               {%- assign slide_product = block.settings.product -%}
-              <div class="wl-feat-carousel__slide-text">
+              <div class="wl-feat-carousel__slide-text wl-feat-carousel__slide-text--product">
                 {%- if block.settings.eyebrow != blank -%}
                   <p class="wl-feat-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
                 {%- endif -%}
                 <h3 class="wl-feat-carousel__slide-heading">
                   {{ block.settings.heading | default: slide_product.title }}
                 </h3>
+                {%- if slide_product != blank -%}
+                  <p class="wl-feat-carousel__slide-price">
+                    {%- if slide_product.price_varies -%}
+                      From {{ slide_product.price_min | money }}
+                    {%- else -%}
+                      {{ slide_product.price | money }}
+                    {%- endif -%}
+                  </p>
+                {%- endif -%}
                 {%- if block.settings.body != blank -%}
                   <div class="wl-feat-carousel__slide-body rte">{{ block.settings.body }}</div>
                 {%- endif -%}
@@ -58,11 +67,12 @@
                   {%- endif -%}
                 </div>
               </div>
-              <div class="wl-feat-carousel__slide-image">
+              <div class="wl-feat-carousel__slide-image wl-feat-carousel__slide-image--product">
                 {%- if block.settings.image != blank -%}
                   {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt, class: 'wl-feat-carousel__img' }}
                 {%- elsif slide_product != blank and slide_product.featured_image != blank -%}
-                  {{ slide_product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: slide_product.featured_image.alt | default: slide_product.title, class: 'wl-feat-carousel__img' }}
+                  {%- assign prod_img_alt = slide_product.featured_image.alt | default: slide_product.title -%}
+                  {{ slide_product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: prod_img_alt, class: 'wl-feat-carousel__img' }}
                 {%- else -%}
                   {{ 'product-1' | placeholder_svg_tag: 'wl-feat-carousel__img placeholder-svg' }}
                 {%- endif -%}
