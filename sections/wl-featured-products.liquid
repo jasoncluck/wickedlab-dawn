@@ -59,7 +59,7 @@
                 {{ product.price | money }}
               </span>
 
-              {%- if product.variants.size == 1 and product.available and product.template_suffix != 'personalizable' -%}
+              {%- if product.variants.size == 1 and product.available and product.template_suffix != 'personalizable' and product.template_suffix != 'text-only' -%}
                 <form action="/cart/add" method="post">
                   <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                   <input type="hidden" name="quantity" value="1">
