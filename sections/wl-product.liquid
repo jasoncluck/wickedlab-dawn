@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var hasText = false;
   var hasPhoto = false;
   var variantAvailable = {{ current_variant.available | json }};
-  var textRequired = {{ section.settings.text_field_required | default: true | json }};
+  var textRequired = {% if section.settings.text_field_required == false %}false{% else %}true{% endif %};
 
   function setCtaDisabled(disabled) {
     if (addBtn) addBtn.disabled = disabled;
