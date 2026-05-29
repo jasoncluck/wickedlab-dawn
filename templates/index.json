@@ -135,7 +135,7 @@
           "type": "category",
           "settings": {
             "title": "Apparel",
-            "subtitle": "T-shirts, hoodies, tote bags, hats",
+            "subtitle": "T-shirts, hoodies, jackets, hats",
             "badge": "~106 items",
             "link_label": "Shop apparel",
             "url": "/collections/apparel",
@@ -160,12 +160,12 @@
         "category_RmNn8i": {
           "type": "category",
           "settings": {
-            "title": "Gifts & Accessories",
-            "subtitle": "Ornaments, keychains, magnets, jewelry",
+            "title": "Accessories",
+            "subtitle": "Tote bags, keychains, jewelry, wallets, bookmarks",
             "badge": "~20 items",
-            "link_label": "Shop gifts",
+            "link_label": "Shop accessories",
             "url": "/collections/gifts",
-            "image": "shopify://shop_images/puzzletin.png",
+            "image": "shopify://shop_images/B15.jpg",
             "bg_color": "#e8edf2",
             "highlight": false
           }
@@ -174,10 +174,11 @@
           "type": "category",
           "settings": {
             "title": "Home & Décor",
-            "subtitle": "Coasters, slates, clocks, pillows, blankets",
+            "subtitle": "Coasters, magnets, slates, clocks, pillows, blankets",
             "badge": "~20 items",
             "link_label": "Shop home",
             "url": "/collections/home-decor",
+            "image": "shopify://shop_images/heartornamentphoto.jpg",
             "bg_color": "#f0f2f5",
             "highlight": false
           }
@@ -190,6 +191,7 @@
             "badge": "~8 items",
             "link_label": "Shop decals",
             "url": "/collections/stickers-decals",
+            "image": "shopify://shop_images/IMG_7590.jpg",
             "bg_color": "#e8eaec",
             "highlight": false
           }
@@ -198,10 +200,11 @@
           "type": "category",
           "settings": {
             "title": "Puzzles",
-            "subtitle": "Custom photo puzzles, 300 or 500 pieces",
+            "subtitle": "Custom photo puzzles, ranging 30 - 500 pieces",
             "badge": "~6 items",
             "link_label": "Shop puzzles",
-            "url": "/collections/puzzles",
+            "url": "shopify://collections/puzzles-1",
+            "image": "shopify://shop_images/puzzletin.png",
             "bg_color": "#f2eaea",
             "highlight": false
           }
@@ -229,8 +232,8 @@
         "product_t6ipeD": {
           "type": "product",
           "settings": {
-            "product": "1st-grade-squad-coffee-mug",
-            "description": "Printed in-house on quality ceramic. Your photo, your message.",
+            "product": "custom-metal-circle-tin",
+            "description": "Printed in-house on food-safe aluminum. Your photo, your message.",
             "bg_color": "#e8edf2",
             "featured": true,
             "badge": "Best seller",
@@ -241,7 +244,7 @@
           "type": "product",
           "settings": {
             "product": "personalized-photo-puzzle-500-pieces-design-your-own-puzzle",
-            "description": "300 or 500 pieces. Perfect birthday or anniversary gift.",
+            "description": "500 pieces. Perfect birthday or anniversary gift.",
             "bg_color": "#ede8f2",
             "featured": false,
             "badge": "Popular",
@@ -251,8 +254,8 @@
         "product_fVxFFH": {
           "type": "product",
           "settings": {
-            "product": "custom-personalized-heart-shaped-photo-slates",
-            "description": "Custom photo. Great for parties & weddings.",
+            "product": "custom-white-photo-mug-15oz",
+            "description": "Printed in-house on quality ceramic. Your photo, your message.",
             "bg_color": "#e8f2ed",
             "featured": false,
             "badge": "",
@@ -262,8 +265,8 @@
         "product_f4aPVN": {
           "type": "product",
           "settings": {
-            "product": "wooden-mini-liquor-holder-ornament",
-            "description": "Laser engraved natural slate. A timeless keepsake.",
+            "product": "custom-personalized-heart-shaped-photo-slates",
+            "description": "Custom photo. Great for parties & weddings.",
             "bg_color": "#f2eee8",
             "featured": false,
             "badge": "",
