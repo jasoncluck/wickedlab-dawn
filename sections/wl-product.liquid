@@ -459,30 +459,65 @@ document.addEventListener('DOMContentLoaded', function () {
       server: {
         process: function (fieldName, file, metadata, load, error, progress, abort) {
           if (!endpoint) { error('Upload not configured'); return; }
-          var fileType = file.type || (/\.(heic|heif)$/i.test(file.name) ? 'image/heic' : 'image/jpeg');
+
+          var aborted = false;
           var xhr;
 
-          fetch(endpoint + '/presign?fileType=' + encodeURIComponent(fileType))
-            .then(function (r) { return r.json(); })
-            .then(function (data) {
-              xhr = new XMLHttpRequest();
-              xhr.open('PUT', data.uploadUrl);
-              xhr.setRequestHeader('Content-Type', fileType);
-              xhr.upload.onprogress = function (e) { progress(e.lengthComputable, e.loaded, e.total); };
-              xhr.onload = function () {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                  if (urlInput) urlInput.value = data.viewUrl;
-                  load(data.viewUrl);
-                } else {
-                  error('Upload failed');
-                }
-              };
-              xhr.onerror = function () { error('Upload failed'); };
-              xhr.send(file);
-            })
-            .catch(function () { error('Could not get upload URL'); });
+          function uploadBlob(blob, mimeType) {
+            if (aborted) return;
+            fetch(endpoint + '/presign?fileType=' + encodeURIComponent(mimeType))
+              .then(function (r) { return r.json(); })
+              .then(function (data) {
+                if (aborted) return;
+                xhr = new XMLHttpRequest();
+                xhr.open('PUT', data.uploadUrl);
+                xhr.setRequestHeader('Content-Type', mimeType);
+                xhr.upload.onprogress = function (e) { progress(e.lengthComputable, e.loaded, e.total); };
+                xhr.onload = function () {
+                  if (xhr.status >= 200 && xhr.status < 300) {
+                    if (urlInput) urlInput.value = data.viewUrl;
+                    load(data.viewUrl);
+                  } else {
+                    error('Upload failed');
+                  }
+                };
+                xhr.onerror = function () { error('Upload failed'); };
+                xhr.send(blob);
+              })
+              .catch(function () { error('Could not get upload URL'); });
+          }
 
-          return { abort: function () { if (xhr) xhr.abort(); abort(); } };
+          var isHeic = file.type === 'image/heic' || file.type === 'image/heif' || /\.(heic|heif)$/i.test(file.name);
+
+          if (isHeic) {
+            var objectUrl = URL.createObjectURL(file);
+            var img = new Image();
+            img.onload = function () {
+              var canvas = document.createElement('canvas');
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              canvas.getContext('2d').drawImage(img, 0, 0);
+              URL.revokeObjectURL(objectUrl);
+              canvas.toBlob(function (blob) {
+                uploadBlob(blob || file, blob ? 'image/jpeg' : (file.type || 'image/heic'));
+              }, 'image/jpeg', 0.92);
+            };
+            img.onerror = function () {
+              URL.revokeObjectURL(objectUrl);
+              uploadBlob(file, file.type || 'image/heic');
+            };
+            img.src = objectUrl;
+          } else {
+            uploadBlob(file, file.type || 'image/jpeg');
+          }
+
+          return {
+            abort: function () {
+              aborted = true;
+              if (xhr) xhr.abort();
+              abort();
+            }
+          };
         },
         revert: function (uniqueFileId, load) {
           if (urlInput) urlInput.value = '';
