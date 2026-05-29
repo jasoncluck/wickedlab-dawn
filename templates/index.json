@@ -232,8 +232,8 @@
         "product_t6ipeD": {
           "type": "product",
           "settings": {
-            "product": "1st-grade-squad-coffee-mug",
-            "description": "Printed in-house on quality ceramic. Your photo, your message.",
+            "product": "custom-metal-circle-tin",
+            "description": "Printed in-house on food-safe aluminum. Your photo, your message.",
             "bg_color": "#e8edf2",
             "featured": true,
             "badge": "Best seller",
@@ -244,7 +244,7 @@
           "type": "product",
           "settings": {
             "product": "personalized-photo-puzzle-500-pieces-design-your-own-puzzle",
-            "description": "300 or 500 pieces. Perfect birthday or anniversary gift.",
+            "description": "500 pieces. Perfect birthday or anniversary gift.",
             "bg_color": "#ede8f2",
             "featured": false,
             "badge": "Popular",
@@ -254,8 +254,8 @@
         "product_fVxFFH": {
           "type": "product",
           "settings": {
-            "product": "custom-personalized-heart-shaped-photo-slates",
-            "description": "Custom photo. Great for parties & weddings.",
+            "product": "custom-white-photo-mug-15oz",
+            "description": "Printed in-house on quality ceramic. Your photo, your message.",
             "bg_color": "#e8f2ed",
             "featured": false,
             "badge": "",
@@ -265,8 +265,8 @@
         "product_f4aPVN": {
           "type": "product",
           "settings": {
-            "product": "wooden-mini-liquor-holder-ornament",
-            "description": "Laser engraved natural slate. A timeless keepsake.",
+            "product": "custom-personalized-heart-shaped-photo-slates",
+            "description": "Custom photo. Great for parties & weddings.",
             "bg_color": "#f2eee8",
             "featured": false,
             "badge": "",
