@@ -95,7 +95,7 @@
           "settings": {
             "title": "Apparel",
             "subtitle": "T-shirts, hoodies, jackets, hats",
-            "badge": "~106 items",
+            "badge": "",
             "link_label": "Shop apparel",
             "url": "/collections/apparel",
             "image": "shopify://shop_images/dog3_bff032d8-757c-4d75-9263-5c8a71324583.jpg",
@@ -108,7 +108,7 @@
           "settings": {
             "title": "Drinkware",
             "subtitle": "Mugs, shot glasses, pint glasses, tumblers",
-            "badge": "~47 items",
+            "badge": "",
             "link_label": "Shop drinkware",
             "url": "/collections/drinkware",
             "image": "shopify://shop_images/wicked-stickerz-custom-frosted-glass-beer-stein.jpg",
@@ -121,7 +121,7 @@
           "settings": {
             "title": "Accessories",
             "subtitle": "Tote bags, keychains, jewelry, wallets, bookmarks",
-            "badge": "~20 items",
+            "badge": "",
             "link_label": "Shop accessories",
             "url": "/collections/gifts",
             "image": "shopify://shop_images/B15.jpg",
@@ -134,7 +134,7 @@
           "settings": {
             "title": "Home & Décor",
             "subtitle": "Coasters, magnets, slates, clocks, pillows, blankets",
-            "badge": "~20 items",
+            "badge": "",
             "link_label": "Shop home",
             "url": "/collections/home-decor",
             "image": "shopify://shop_images/heartornamentphoto.jpg",
@@ -147,7 +147,7 @@
           "settings": {
             "title": "Stickers & Decals",
             "subtitle": "Vinyl, printed, custom sizes & shapes",
-            "badge": "~8 items",
+            "badge": "",
             "link_label": "Shop decals",
             "url": "/collections/stickers-decals",
             "image": "shopify://shop_images/IMG_7590.jpg",
@@ -160,7 +160,7 @@
           "settings": {
             "title": "Puzzles",
             "subtitle": "Custom photo puzzles, ranging 30 - 500 pieces",
-            "badge": "~6 items",
+            "badge": "",
             "link_label": "Shop puzzles",
             "url": "shopify://collections/puzzles-1",
             "image": "shopify://shop_images/puzzletin.png",
