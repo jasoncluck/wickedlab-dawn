@@ -15,6 +15,10 @@
 .wl-hero__left {
   min-width: 0;
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .wl-hero__logo {
@@ -119,6 +123,17 @@
   .wl-hero {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .wl-hero__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .wl-hero__eyebrow::before {
+    display: none;
   }
 
   .wl-hero__h1 {

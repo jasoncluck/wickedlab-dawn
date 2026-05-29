@@ -91,7 +91,7 @@
       </div>
 
       {%- if card_product.available -%}
-        {%- if is_multi_variant or card_product.template_suffix == 'personalizable' -%}
+        {%- if is_multi_variant or card_product.template_suffix == 'personalizable' or card_product.template_suffix == 'text-only' -%}
           <a href="{{ card_product.url }}" class="wl-btn-options">View options</a>
         {%- else -%}
           <product-form data-section-id="{{ section_id }}">
