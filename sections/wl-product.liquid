@@ -399,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var hasText = false;
   var hasPhoto = false;
   var variantAvailable = {{ current_variant.available | json }};
+  var textRequired = {{ section.settings.text_field_required | default: true | json }};
 
   function setCtaDisabled(disabled) {
     if (addBtn) addBtn.disabled = disabled;
@@ -410,7 +411,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateCtaState() {
-    setCtaDisabled(!variantAvailable || !(hasText || hasPhoto));
+    var gated = textRequired ? !(hasText || hasPhoto) : false;
+    setCtaDisabled(!variantAvailable || gated);
   }
 
   window['WlPersSetVariant_{{ section.id }}'] = function (available) {
@@ -418,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCtaState();
   };
 
-  setCtaDisabled(true);
+  setCtaDisabled(!variantAvailable || textRequired);
 
   if (textInput) {
     textInput.addEventListener('input', function () {
@@ -565,6 +567,12 @@ document.addEventListener('DOMContentLoaded', function () {
       "label": "Line item property name",
       "default": "Custom text",
       "info": "This label appears on the order and packing slip"
+    },
+    {
+      "type": "checkbox",
+      "id": "text_field_required",
+      "label": "Require text before adding to cart",
+      "default": true
     },
     {
       "type": "range",
