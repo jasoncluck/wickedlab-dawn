@@ -93,7 +93,7 @@
         "show_personalization": true,
         "personalization_heading": "Personalize your item",
         "show_text_field": true,
-        "text_field_label": "Custom text (optional)",
+        "text_field_label": "Custom text",
         "text_field_placeholder": "e.g. Mom's Favorite, Best Dad, Sarah's Mug…",
         "text_field_property": "Custom text",
         "text_field_max_length": 80,
