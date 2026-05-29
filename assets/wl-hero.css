@@ -1,24 +1,24 @@
 /* ── WL Hero ─────────────────────────────────────── */
 
 .wl-hero-section {
-  padding: 40px 0;
+  padding: 56px 0 64px;
 }
 
 .wl-hero {
-  display: flex;
-  gap: 64px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
 
-/* ── Left column ── */
-.wl-hero__text {
-  flex: 1;
+/* ── Left column: logo + heading ── */
+.wl-hero__left {
   min-width: 0;
+  align-self: center;
 }
 
-/* ── Hero logo ── */
 .wl-hero__logo {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .wl-hero__logo img {
@@ -34,7 +34,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--wl-blue);
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -54,7 +54,7 @@
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--wl-gray-900);
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 }
 
 .wl-hero__h1-line1,
@@ -67,26 +67,30 @@
   font-weight: 600;
 }
 
+/* ── Right column: body + actions ── */
+.wl-hero__right {
+  min-width: 0;
+}
+
 .wl-hero__body {
   font-size: 16px;
   color: var(--wl-gray-700);
   line-height: 1.75;
   margin: 0 0 32px;
-  max-width: 460px;
 }
 
 .wl-hero__btns {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 /* ── Trust badges ── */
 .wl-hero__trust {
   display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .wl-trust-item {
@@ -95,6 +99,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .wl-trust-dot {
@@ -105,61 +110,6 @@
   flex-shrink: 0;
 }
 
-/* ── Right panel ── */
-.wl-hero__panel {
-  width: 340px;
-  flex-shrink: 0;
-  background: var(--wl-gray-50);
-  border: 1px solid var(--wl-gray-200);
-  border-radius: 16px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.wl-panel__label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--wl-gray-400);
-  margin: 0 0 4px;
-}
-
-.wl-panel__row {
-  background: var(--wl-gray-100);
-  border: 1px solid var(--wl-gray-200);
-  border-radius: 10px;
-  padding: 14px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.wl-panel__tag {
-  font-size: 10px;
-  color: var(--wl-blue);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-.wl-panel__name {
-  font-size: 14px;
-  color: var(--wl-gray-900);
-}
-
-.wl-panel__price {
-  font-size: 17px;
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
-  color: var(--wl-gray-900);
-  white-space: nowrap;
-}
-
 /* ── Responsive ── */
 @media screen and (max-width: 989px) {
   .wl-hero-section {
@@ -167,16 +117,16 @@
   }
 
   .wl-hero {
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .wl-hero__h1 {
     font-size: 40px;
   }
 
-  .wl-hero__panel {
-    width: 100%;
+  .wl-hero__right {
+    padding-top: 0;
   }
 }
 
@@ -187,6 +137,10 @@
 
   .wl-hero__btns {
     flex-direction: column;
+  }
+
+  .wl-hero__trust {
+    gap: 16px;
   }
 
   .wl-btn-primary,

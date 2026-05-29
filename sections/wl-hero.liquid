@@ -5,8 +5,8 @@
 <div class="wl-hero-section">
   <div class="wl-hero page-width">
 
-    {%- comment -%} ── LEFT: text column ── {%- endcomment -%}
-    <div class="wl-hero__text">
+    {%- comment -%} ── LEFT: logo + heading ── {%- endcomment -%}
+    <div class="wl-hero__left">
 
       {%- if section.settings.hero_logo != blank -%}
         <div class="wl-hero__logo">
@@ -21,6 +21,11 @@
       {%- endif -%}
 
       <p class="wl-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+
+    </div>
+
+    {%- comment -%} ── RIGHT: heading + body + actions ── {%- endcomment -%}
+    <div class="wl-hero__right">
 
       <h1 class="wl-hero__h1">
         <span class="wl-hero__h1-line1">{{ section.settings.heading_line1 }}</span>
@@ -53,25 +58,6 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
-
-    </div>
-
-    {%- comment -%} ── RIGHT: product panel ── {%- endcomment -%}
-    <div class="wl-hero__panel">
-
-      <p class="wl-panel__label">{{ section.settings.panel_label }}</p>
-
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'product_row' -%}
-          <div class="wl-panel__row" {{ block.shopify_attributes }}>
-            <div>
-              <div class="wl-panel__tag">{{ block.settings.tag }}</div>
-              <div class="wl-panel__name">{{ block.settings.name }}</div>
-            </div>
-            <div class="wl-panel__price">{{ block.settings.price }}</div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
 
     </div>
 
@@ -192,83 +178,12 @@
       "id": "trust_4",
       "label": "Badge 4",
       "default": "In-house printed"
-    },
-    {
-      "type": "header",
-      "content": "Product panel"
-    },
-    {
-      "type": "text",
-      "id": "panel_label",
-      "label": "Panel heading",
-      "default": "Top products this week"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "product_row",
-      "name": "Product row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tag",
-          "label": "Tag (e.g. Best seller, New)",
-          "default": "Best seller"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Product name",
-          "default": "Custom Photo Mug"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "Price",
-          "default": "$15.00"
-        }
-      ]
     }
   ],
   "presets": [
     {
-      "name": "WL Hero",
-      "blocks": [
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Best seller",
-            "name": "Custom Photo Mug",
-            "price": "$15.00"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "New",
-            "name": "Laser Engraved Gift",
-            "price": "From $15.00"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Popular",
-            "name": "Custom Photo Puzzle",
-            "price": "$21.50"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Limited",
-            "name": "3D Printed Keepsake",
-            "price": "From $19.50"
-          }
-        }
-      ]
+      "name": "WL Hero"
     }
-  ],
-  "max_blocks": 6
+  ]
 }
 {% endschema %}
