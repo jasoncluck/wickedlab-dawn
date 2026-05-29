@@ -15,7 +15,7 @@
     </div>
 
     {%- if section.settings.btn_label != blank -%}
-      <a href="{{ section.settings.btn_url }}" class="wl-promo__btn">
+      <a href="{{ section.settings.btn_url }}" class="wl-promo__btn" target="_blank" rel="noopener noreferrer">
         {{ section.settings.btn_label }} →
       </a>
     {%- endif -%}
@@ -62,7 +62,7 @@
       "default": "Get a free quote"
     },
     {
-      "type": "url",
+      "type": "text",
       "id": "btn_url",
       "label": "Button link"
     }

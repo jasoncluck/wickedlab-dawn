@@ -91,12 +91,12 @@
                 {%- endif -%}
                 <div class="wl-feat-carousel__slide-btns">
                   {%- if block.settings.button_label != blank -%}
-                    <a href="{{ block.settings.button_link }}" class="button button--primary">
+                    <a href="{{ block.settings.button_link }}" class="button button--primary" target="_blank" rel="noopener noreferrer">
                       {{ block.settings.button_label }}
                     </a>
                   {%- endif -%}
                   {%- if block.settings.button_label_2 != blank -%}
-                    <a href="{{ block.settings.button_link_2 }}" class="button button--secondary">
+                    <a href="{{ block.settings.button_link_2 }}" class="button button--secondary" target="_blank" rel="noopener noreferrer">
                       {{ block.settings.button_label_2 }}
                     </a>
                   {%- endif -%}
@@ -388,7 +388,7 @@ document.addEventListener('shopify:section:reorder', function (e) {
           "label": "Primary button label"
         },
         {
-          "type": "url",
+          "type": "text",
           "id": "button_link",
           "label": "Primary button link"
         },
@@ -398,7 +398,7 @@ document.addEventListener('shopify:section:reorder', function (e) {
           "label": "Secondary button label"
         },
         {
-          "type": "url",
+          "type": "text",
           "id": "button_link_2",
           "label": "Secondary button link"
         }
