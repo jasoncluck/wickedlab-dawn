@@ -56,7 +56,7 @@
                   {%- if slide_product != blank -%}
                     {%- if slide_product.available == false -%}
                       <button class="button button--primary" disabled>Sold out</button>
-                    {%- elsif slide_product.variants.size == 1 and slide_product.template_suffix != 'personalizable' and slide_product.template_suffix != 'text-only' -%}
+                    {%- elsif slide_product.variants.size == 1 and slide_product.template_suffix != 'personalizable' and slide_product.template_suffix != 'personalizable-text' -%}
                       <form action="/cart/add" method="post">
                         <input type="hidden" name="id" value="{{ slide_product.selected_or_first_available_variant.id }}">
                         <button type="submit" class="button button--primary">Add to cart</button>
