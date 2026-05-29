@@ -227,10 +227,8 @@
 (function () {
   var container = document.getElementById('ProductGridContainer');
   if (container) {
-    var wrap = document.querySelector('.wl-cg-wrap');
     new MutationObserver(function () {
-      var target = wrap || container;
-      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }).observe(container, { childList: true, subtree: false });
   }
 }());

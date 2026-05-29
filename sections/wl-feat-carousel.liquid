@@ -31,47 +31,87 @@
         >
           <div class="wl-feat-carousel__slide-inner page-width">
 
-            <div class="wl-feat-carousel__slide-text">
-              {%- if block.settings.eyebrow != blank -%}
-                <p class="wl-feat-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
-              {%- endif -%}
-              {%- if block.settings.heading != blank -%}
-                <h3 class="wl-feat-carousel__slide-heading">
-                  {{ block.settings.heading }}
-                </h3>
-              {%- endif -%}
-              {%- if block.settings.body != blank -%}
-                <div class="wl-feat-carousel__slide-body rte">
-                  {{ block.settings.body }}
-                </div>
-              {%- endif -%}
-              <div class="wl-feat-carousel__slide-btns">
-                {%- if block.settings.button_label != blank -%}
-                  <a
-                    href="{{ block.settings.button_link }}"
-                    class="button button--primary"
-                  >
-                    {{ block.settings.button_label }}
-                  </a>
+            {%- if block.type == 'product_slide' -%}
+              {%- assign slide_product = block.settings.product -%}
+              <div class="wl-feat-carousel__slide-text wl-feat-carousel__slide-text--product">
+                {%- if block.settings.eyebrow != blank -%}
+                  <p class="wl-feat-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
                 {%- endif -%}
-                {%- if block.settings.button_label_2 != blank -%}
-                  <a
-                    href="{{ block.settings.button_link_2 }}"
-                    class="button button--secondary"
-                  >
-                    {{ block.settings.button_label_2 }}
-                  </a>
+                <h3 class="wl-feat-carousel__slide-heading">
+                  {{ block.settings.heading | default: slide_product.title }}
+                </h3>
+                {%- if slide_product != blank -%}
+                  <p class="wl-feat-carousel__slide-price">
+                    {%- if slide_product.price_varies -%}
+                      From {{ slide_product.price_min | money }}
+                    {%- else -%}
+                      {{ slide_product.price | money }}
+                    {%- endif -%}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.body != blank -%}
+                  <div class="wl-feat-carousel__slide-body rte">{{ block.settings.body }}</div>
+                {%- endif -%}
+                <div class="wl-feat-carousel__slide-btns">
+                  {%- if slide_product != blank -%}
+                    {%- if slide_product.available == false -%}
+                      <button class="button button--primary" disabled>Sold out</button>
+                    {%- elsif slide_product.variants.size == 1 and slide_product.template_suffix != 'personalizable' -%}
+                      <form action="/cart/add" method="post">
+                        <input type="hidden" name="id" value="{{ slide_product.selected_or_first_available_variant.id }}">
+                        <button type="submit" class="button button--primary">Add to cart</button>
+                      </form>
+                    {%- else -%}
+                      <a href="{{ slide_product.url }}" class="button button--primary">Choose options</a>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="wl-feat-carousel__slide-image wl-feat-carousel__slide-image--product">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt, class: 'wl-feat-carousel__img' }}
+                {%- elsif slide_product != blank and slide_product.featured_image != blank -%}
+                  {%- assign prod_img_alt = slide_product.featured_image.alt | default: slide_product.title -%}
+                  {{ slide_product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: prod_img_alt, class: 'wl-feat-carousel__img' }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'wl-feat-carousel__img placeholder-svg' }}
                 {%- endif -%}
               </div>
-            </div>
 
-            <div class="wl-feat-carousel__slide-image">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt, class: 'wl-feat-carousel__img' }}
-              {%- else -%}
-                {{ 'product-1' | placeholder_svg_tag: 'wl-feat-carousel__img placeholder-svg' }}
-              {%- endif -%}
-            </div>
+            {%- elsif block.type == 'link_slide' -%}
+              <div class="wl-feat-carousel__slide-text">
+                {%- if block.settings.eyebrow != blank -%}
+                  <p class="wl-feat-carousel__eyebrow">{{ block.settings.eyebrow }}</p>
+                {%- endif -%}
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="wl-feat-carousel__slide-heading">{{ block.settings.heading }}</h3>
+                {%- endif -%}
+                {%- if block.settings.body != blank -%}
+                  <div class="wl-feat-carousel__slide-body rte">{{ block.settings.body }}</div>
+                {%- endif -%}
+                <div class="wl-feat-carousel__slide-btns">
+                  {%- if block.settings.button_label != blank -%}
+                    <a href="{{ block.settings.button_link }}" class="button button--primary">
+                      {{ block.settings.button_label }}
+                    </a>
+                  {%- endif -%}
+                  {%- if block.settings.button_label_2 != blank -%}
+                    <a href="{{ block.settings.button_link_2 }}" class="button button--secondary">
+                      {{ block.settings.button_label_2 }}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="wl-feat-carousel__slide-image">
+                {%- if block.settings.image_asset != blank -%}
+                  <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" class="wl-feat-carousel__img" loading="lazy">
+                {%- elsif block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.image.alt, class: 'wl-feat-carousel__img' }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'wl-feat-carousel__img placeholder-svg' }}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
 
           </div>
         </div>
@@ -266,15 +306,66 @@ document.addEventListener('shopify:section:reorder', function (e) {
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "Slide",
+      "type": "product_slide",
+      "name": "Product Feature",
       "limit": 6,
       "settings": [
         {
           "type": "color",
           "id": "background_color",
-          "label": "Slide background color",
+          "label": "Background color",
           "default": "#DAEEFA"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override",
+          "info": "Optional. Replaces the product image. Use for lifestyle shots or custom crops."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Leave blank to use the product title."
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body text"
+        }
+      ]
+    },
+    {
+      "type": "link_slide",
+      "name": "Collection / Link",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#DAEEFA"
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Image asset filename",
+          "info": "Filename of an image in the theme assets folder (e.g. pen-business-and-events.jpg). Takes priority over the image picker below."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
           "type": "text",
@@ -310,11 +401,6 @@ document.addEventListener('shopify:section:reorder', function (e) {
           "type": "url",
           "id": "button_link_2",
           "label": "Secondary button link"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Product / collection image"
         }
       ]
     }
@@ -323,9 +409,9 @@ document.addEventListener('shopify:section:reorder', function (e) {
     {
       "name": "WL Featured Carousel",
       "blocks": [
-        { "type": "slide" },
-        { "type": "slide" },
-        { "type": "slide" }
+        { "type": "product_slide" },
+        { "type": "link_slide" },
+        { "type": "link_slide" }
       ]
     }
   ]

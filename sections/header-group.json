@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free shipping on orders over $75",
+            "text": "Free shipping on orders over $50",
             "link": ""
           }
         }
@@ -38,11 +38,17 @@
     "header": {
       "type": "header",
       "settings": {
+        "asset_logo": "TWL_logo_only.svg",
+        "asset_logo_height": 52,
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "dawn-redesign-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "reduce-logo-size",
+        "sticky_header_type": "always",
+        "utility_link_1_label": "About",
+        "utility_link_1_url": "/pages/about-us",
+        "utility_link_2_label": "Contact",
+        "utility_link_2_url": "/pages/contact-us",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",

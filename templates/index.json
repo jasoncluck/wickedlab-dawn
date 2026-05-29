@@ -11,106 +11,64 @@
   "sections": {
     "wl_hero_NaLCDk": {
       "type": "wl-hero",
-      "blocks": {
-        "product_row_FAGEWr": {
-          "type": "product_row",
-          "settings": {
-            "tag": "Best seller",
-            "name": "Custom Photo Mug",
-            "price": "$15.00"
-          }
-        },
-        "product_row_iq6Dqa": {
-          "type": "product_row",
-          "settings": {
-            "tag": "New",
-            "name": "Laser Engraved Gift",
-            "price": "From $15.00"
-          }
-        },
-        "product_row_DNqakE": {
-          "type": "product_row",
-          "settings": {
-            "tag": "Popular",
-            "name": "Custom Photo Puzzle",
-            "price": "$21.50"
-          }
-        },
-        "product_row_GhCbCf": {
-          "type": "product_row",
-          "settings": {
-            "tag": "Limited",
-            "name": "3D Printed Keepsake",
-            "price": "From $19.50"
-          }
-        }
-      },
-      "block_order": [
-        "product_row_FAGEWr",
-        "product_row_iq6Dqa",
-        "product_row_DNqakE",
-        "product_row_GhCbCf"
-      ],
       "name": "WL Hero",
       "settings": {
+        "hero_logo": "TWL_shopify_logo.svg",
+        "hero_logo_height": 180,
         "eyebrow": "York, PA · In-house printing since 2015",
         "heading_line1": "Every gift,",
         "heading_line2": "made just for you",
         "body": "No set-up fee. No minimum order. Custom-printed in-house — mugs, apparel, puzzles, laser engraving, and more. Ships in 5–7 business days.",
         "btn_primary_label": "Shop all gifts",
-        "btn_primary_url": "",
-        "btn_secondary_label": "Get a promo quote",
+        "btn_primary_url": "/collections/all-products",
+        "btn_secondary_label": "",
         "btn_secondary_url": "",
         "trust_1": "No set-up fee",
         "trust_2": "No minimum order",
         "trust_3": "Ships in 5–7 days",
-        "trust_4": "In-house printed",
-        "panel_label": "Top products this week"
+        "trust_4": "In-house printed"
       }
     },
     "wl_feat_carousel_6tJWVV": {
       "type": "wl-feat-carousel",
       "blocks": {
         "slide_wbYEyz": {
-          "type": "slide",
+          "type": "product_slide",
           "settings": {
             "background_color": "#daeefa",
-            "eyebrow": "Shop the latest items",
-            "heading": "Featured Items",
-            "body": "See the latest products from The Wicked Lab",
-            "button_label": "Shop",
-            "button_link": "",
-            "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/catmom.jpg"
+            "product": "barn-find-american-muscle-t-shirt",
+            "eyebrow": "Latest from The Wicked Lab",
+            "heading": "Featured Item",
+            "body": "Barn Find American Muscle T-Shirt"
           }
         },
         "slide_Px3aLC": {
-          "type": "slide",
+          "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
+            "image_asset": "",
+            "image": "shopify://shop_images/momsfavmug.jpg",
             "eyebrow": "Custom creations for any occasion",
             "heading": "Personalized Items",
             "body": "Import your own designs to build your own unique version of our products",
-            "button_label": "Shop",
-            "button_link": "",
+            "button_label": "Shop personalized",
+            "button_link": "/collections/customize",
             "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/momsfavmug.jpg"
+            "button_link_2": ""
           }
         },
         "slide_wKGpd4": {
-          "type": "slide",
+          "type": "link_slide",
           "settings": {
             "background_color": "#daeefa",
-            "eyebrow": "Store wide promotions",
-            "heading": "Promotional Products",
-            "body": "Shop our latest promoted products for special offers and holidays.",
-            "button_label": "Shop",
-            "button_link": "",
+            "image_asset": "pen_business_and_events.jpeg",
+            "eyebrow": "For businesses & events",
+            "heading": "Corporate & Events",
+            "body": "Shop and create custom promotional products for your business, organization, or special event",
+            "button_label": "Browse Products",
+            "button_link": "https://www.promoplace.com/wickedstickerzandmore",
             "button_label_2": "",
-            "button_link_2": "",
-            "image": "shopify://shop_images/BARNFINDSHIRT.jpg"
+            "button_link_2": ""
           }
         }
       },
@@ -136,7 +94,7 @@
           "type": "category",
           "settings": {
             "title": "Apparel",
-            "subtitle": "T-shirts, hoodies, tote bags, hats",
+            "subtitle": "T-shirts, hoodies, jackets, hats",
             "badge": "~106 items",
             "link_label": "Shop apparel",
             "url": "/collections/apparel",
@@ -161,12 +119,12 @@
         "category_RmNn8i": {
           "type": "category",
           "settings": {
-            "title": "Gifts & Accessories",
-            "subtitle": "Ornaments, keychains, magnets, jewelry",
+            "title": "Accessories",
+            "subtitle": "Tote bags, keychains, jewelry, wallets, bookmarks",
             "badge": "~20 items",
-            "link_label": "Shop gifts",
+            "link_label": "Shop accessories",
             "url": "/collections/gifts",
-            "image": "shopify://shop_images/puzzletin.png",
+            "image": "shopify://shop_images/B15.jpg",
             "bg_color": "#e8edf2",
             "highlight": false
           }
@@ -175,10 +133,11 @@
           "type": "category",
           "settings": {
             "title": "Home & Décor",
-            "subtitle": "Coasters, slates, clocks, pillows, blankets",
+            "subtitle": "Coasters, magnets, slates, clocks, pillows, blankets",
             "badge": "~20 items",
             "link_label": "Shop home",
             "url": "/collections/home-decor",
+            "image": "shopify://shop_images/heartornamentphoto.jpg",
             "bg_color": "#f0f2f5",
             "highlight": false
           }
@@ -191,6 +150,7 @@
             "badge": "~8 items",
             "link_label": "Shop decals",
             "url": "/collections/stickers-decals",
+            "image": "shopify://shop_images/IMG_7590.jpg",
             "bg_color": "#e8eaec",
             "highlight": false
           }
@@ -199,10 +159,11 @@
           "type": "category",
           "settings": {
             "title": "Puzzles",
-            "subtitle": "Custom photo puzzles, 300 or 500 pieces",
+            "subtitle": "Custom photo puzzles, ranging 30 - 500 pieces",
             "badge": "~6 items",
             "link_label": "Shop puzzles",
-            "url": "/collections/puzzles",
+            "url": "shopify://collections/puzzles-1",
+            "image": "shopify://shop_images/puzzletin.png",
             "bg_color": "#f2eaea",
             "highlight": false
           }
@@ -220,7 +181,7 @@
       "settings": {
         "eyebrow": "Browse the store",
         "title": "Shop by category",
-        "all_link_label": "All categories →",
+        "all_link_label": "All products →",
         "all_link_url": "/collections/all"
       }
     },
@@ -230,8 +191,8 @@
         "product_t6ipeD": {
           "type": "product",
           "settings": {
-            "product": "1st-grade-squad-coffee-mug",
-            "description": "Printed in-house on quality ceramic. Your photo, your message.",
+            "product": "custom-metal-circle-tin",
+            "description": "Printed in-house on food-safe aluminum. Your photo, your message.",
             "bg_color": "#e8edf2",
             "featured": true,
             "badge": "Best seller",
@@ -242,7 +203,7 @@
           "type": "product",
           "settings": {
             "product": "personalized-photo-puzzle-500-pieces-design-your-own-puzzle",
-            "description": "300 or 500 pieces. Perfect birthday or anniversary gift.",
+            "description": "500 pieces. Perfect birthday or anniversary gift.",
             "bg_color": "#ede8f2",
             "featured": false,
             "badge": "Popular",
@@ -252,8 +213,8 @@
         "product_fVxFFH": {
           "type": "product",
           "settings": {
-            "product": "custom-personalized-heart-shaped-photo-slates",
-            "description": "Custom photo. Great for parties & weddings.",
+            "product": "custom-white-photo-mug-15oz",
+            "description": "Printed in-house on quality ceramic. Your photo, your message.",
             "bg_color": "#e8f2ed",
             "featured": false,
             "badge": "",
@@ -263,8 +224,8 @@
         "product_f4aPVN": {
           "type": "product",
           "settings": {
-            "product": "wooden-mini-liquor-holder-ornament",
-            "description": "Laser engraved natural slate. A timeless keepsake.",
+            "product": "custom-personalized-heart-shaped-photo-slates",
+            "description": "Custom photo. Great for parties & weddings.",
             "bg_color": "#f2eee8",
             "featured": false,
             "badge": "",
@@ -281,7 +242,7 @@
       "name": "WL Featured Products",
       "settings": {
         "eyebrow": "Hand-picked for you",
-        "title": "Featured products",
+        "title": "Top Sellers",
         "all_link_label": "See all products →",
         "all_link_url": ""
       }
@@ -293,8 +254,8 @@
         "eyebrow": "For businesses & organizations",
         "title": "Over 1 million promotional products",
         "body": "No set-up fee. No minimum order. From branded apparel and drinkware to trade show giveaways — we source it, brand it, and ship it for you.",
-        "btn_label": "Get a free quote",
-        "btn_url": ""
+        "btn_label": "Browse Products",
+        "btn_url": "https://www.promoplace.com/wickedstickerzandmore"
       }
     },
     "wl_how_it_works_h6PUTV": {
@@ -333,98 +294,6 @@
         "title": "How it works",
         "subtitle": "Every item made to order, printed in our shop in York, PA."
       }
-    },
-    "wl_occasions_W4c3XK": {
-      "type": "wl-occasions",
-      "blocks": {
-        "occasion_6MRXfB": {
-          "type": "occasion",
-          "settings": {
-            "name": "Weddings & Events",
-            "subtitle": "Favors, gifts, keepsakes & décor for the big day",
-            "link_label": "Shop wedding gifts",
-            "url": "",
-            "image": "shopify://shop_images/wedding-gown-and-bouquet-near-beach.jpg",
-            "bg_color": "#f0edf5"
-          }
-        },
-        "occasion_KaJRwB": {
-          "type": "occasion",
-          "settings": {
-            "name": "Baby & New Parents",
-            "subtitle": "Personalized blankets, announcements & keepsake sets",
-            "link_label": "Shop baby gifts",
-            "url": "",
-            "image": "shopify://shop_images/baby-nursery-supplies.jpg",
-            "bg_color": "#edf4f0"
-          }
-        },
-        "occasion_aKAYUd": {
-          "type": "occasion",
-          "settings": {
-            "name": "Graduation & Milestones",
-            "subtitle": "Celebrate achievements with something they'll keep forever",
-            "link_label": "Shop grad gifts",
-            "url": "",
-            "image": "shopify://shop_images/grad-students-throwing-hats-in-the-air.jpg",
-            "bg_color": "#edf1f5"
-          }
-        }
-      },
-      "block_order": [
-        "occasion_6MRXfB",
-        "occasion_KaJRwB",
-        "occasion_aKAYUd"
-      ],
-      "name": "WL Occasions",
-      "settings": {
-        "eyebrow": "Shop by occasion",
-        "title": "The perfect gift for every moment"
-      }
-    },
-    "wl_reviews_m7WCgW": {
-      "type": "wl-reviews",
-      "blocks": {
-        "review_W9Qedf": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "10 stars! Nice customer service, super fast shipping and quality product. Will definitely be back for more gifts.",
-            "author": "Satisfied customer",
-            "source": "Etsy · Verified purchase"
-          }
-        },
-        "review_DkPEW7": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "The shot glasses were adorable and were a hit! Made in time for Christmas. Thank you for quick shipping!",
-            "author": "Holiday shopper",
-            "source": "Etsy · Verified purchase"
-          }
-        },
-        "review_xT8Ggb": {
-          "type": "review",
-          "settings": {
-            "rating": "5",
-            "review_text": "Absolutely love my custom mug. The photo quality is amazing and it arrived faster than expected. Will order again!",
-            "author": "Repeat customer",
-            "source": "Google · Verified review"
-          }
-        }
-      },
-      "block_order": [
-        "review_W9Qedf",
-        "review_DkPEW7",
-        "review_xT8Ggb"
-      ],
-      "name": "WL Reviews",
-      "settings": {
-        "eyebrow": "Customer reviews",
-        "title": "What people are saying",
-        "aggregate_score": "5.0",
-        "aggregate_count": "200+"
-      }
     }
   },
   "order": [
@@ -433,8 +302,6 @@
     "wl_category_grid_D6id9H",
     "wl_featured_products_kp6edE",
     "wl_promo_banner_z7fc8G",
-    "wl_how_it_works_h6PUTV",
-    "wl_occasions_W4c3XK",
-    "wl_reviews_m7WCgW"
+    "wl_how_it_works_h6PUTV"
   ]
 }

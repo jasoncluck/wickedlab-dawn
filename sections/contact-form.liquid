@@ -16,6 +16,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
@@ -23,6 +24,13 @@
     {%- else -%}
       <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
     {%- endif -%}
+
+    {%- if section.settings.intro != blank -%}
+      <p class="rte" style="margin: 0 0 32px; font-size: 16px; line-height: 1.7; color: rgba(var(--color-foreground), 0.75);">
+        {{ section.settings.intro }}
+      </p>
+    {%- endif -%}
+
     {%- liquid
       assign contact_form_class = 'isolate'
       if settings.animations_reveal_on_scroll
@@ -51,6 +59,7 @@
           </li>
         </ul>
       {%- endif -%}
+
       <div class="contact__fields">
         <div class="field">
           <input
@@ -99,22 +108,10 @@
           {%- endif -%}
         </div>
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
+
       <div class="field">
         <textarea
-          rows="10"
+          rows="7"
           id="ContactForm-body"
           class="text-area field__input"
           name="contact[{{ 'templates.contact.form.comment' | t }}]"
@@ -126,6 +123,7 @@
           {{- 'templates.contact.form.comment' | t -}}
         </label>
       </div>
+
       <div class="contact__button">
         <button type="submit" class="button">
           {{ 'templates.contact.form.send' | t }}
@@ -149,6 +147,12 @@
       "id": "heading",
       "default": "t:sections.contact-form.settings.title.default",
       "label": "t:sections.contact-form.settings.title.label"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "Can't find what you're looking for? We'd love to help. Whether you have a question about a product, need something custom, or want to discuss a bulk order — drop us a message and we'll get back to you within one business day."
     },
     {
       "type": "select",

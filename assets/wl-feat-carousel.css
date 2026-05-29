@@ -71,6 +71,13 @@
   font-weight: 600;
 }
 
+.wl-feat-carousel__slide-price {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  margin: 0 0 16px;
+}
+
 .wl-feat-carousel__slide-body {
   font-size: 15px;
   line-height: 1.7;
@@ -98,6 +105,10 @@
   max-width: 100%;
   max-height: 420px;
   object-fit: contain;
+}
+
+.wl-feat-carousel__slide-image--product {
+  overflow: hidden;
 }
 
 .wl-feat-carousel__img.placeholder-svg {

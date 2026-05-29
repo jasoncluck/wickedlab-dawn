@@ -5,10 +5,27 @@
 <div class="wl-hero-section">
   <div class="wl-hero page-width">
 
-    {%- comment -%} ── LEFT: text column ── {%- endcomment -%}
-    <div class="wl-hero__text">
+    {%- comment -%} ── LEFT: logo + heading ── {%- endcomment -%}
+    <div class="wl-hero__left">
+
+      {%- if section.settings.hero_logo != blank -%}
+        <div class="wl-hero__logo">
+          <img
+            src="{{ section.settings.hero_logo | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            height="{{ section.settings.hero_logo_height }}"
+            style="height: {{ section.settings.hero_logo_height }}px; width: auto;"
+            loading="eager"
+          >
+        </div>
+      {%- endif -%}
 
       <p class="wl-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+
+    </div>
+
+    {%- comment -%} ── RIGHT: heading + body + actions ── {%- endcomment -%}
+    <div class="wl-hero__right">
 
       <h1 class="wl-hero__h1">
         <span class="wl-hero__h1-line1">{{ section.settings.heading_line1 }}</span>
@@ -44,25 +61,6 @@
 
     </div>
 
-    {%- comment -%} ── RIGHT: product panel ── {%- endcomment -%}
-    <div class="wl-hero__panel">
-
-      <p class="wl-panel__label">{{ section.settings.panel_label }}</p>
-
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'product_row' -%}
-          <div class="wl-panel__row" {{ block.shopify_attributes }}>
-            <div>
-              <div class="wl-panel__tag">{{ block.settings.tag }}</div>
-              <div class="wl-panel__name">{{ block.settings.name }}</div>
-            </div>
-            <div class="wl-panel__price">{{ block.settings.price }}</div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-
-    </div>
-
   </div>
 </div>
 
@@ -75,6 +73,30 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Brand logo"
+    },
+    {
+      "type": "text",
+      "id": "hero_logo",
+      "label": "Logo asset filename",
+      "info": "Filename of an SVG or PNG in the theme assets folder (e.g. TWL_shopify_logo.svg). Leave blank to hide.",
+      "default": "TWL_shopify_logo.svg"
+    },
+    {
+      "type": "range",
+      "id": "hero_logo_height",
+      "label": "Logo height (px)",
+      "min": 30,
+      "max": 200,
+      "step": 5,
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
     {
       "type": "text",
       "id": "eyebrow",
@@ -156,83 +178,12 @@
       "id": "trust_4",
       "label": "Badge 4",
       "default": "In-house printed"
-    },
-    {
-      "type": "header",
-      "content": "Product panel"
-    },
-    {
-      "type": "text",
-      "id": "panel_label",
-      "label": "Panel heading",
-      "default": "Top products this week"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "product_row",
-      "name": "Product row",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tag",
-          "label": "Tag (e.g. Best seller, New)",
-          "default": "Best seller"
-        },
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Product name",
-          "default": "Custom Photo Mug"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "Price",
-          "default": "$15.00"
-        }
-      ]
     }
   ],
   "presets": [
     {
-      "name": "WL Hero",
-      "blocks": [
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Best seller",
-            "name": "Custom Photo Mug",
-            "price": "$15.00"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "New",
-            "name": "Laser Engraved Gift",
-            "price": "From $15.00"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Popular",
-            "name": "Custom Photo Puzzle",
-            "price": "$21.50"
-          }
-        },
-        {
-          "type": "product_row",
-          "settings": {
-            "tag": "Limited",
-            "name": "3D Printed Keepsake",
-            "price": "From $19.50"
-          }
-        }
-      ]
+      "name": "WL Hero"
     }
-  ],
-  "max_blocks": 6
+  ]
 }
 {% endschema %}
