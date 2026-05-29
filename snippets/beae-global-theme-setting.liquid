@@ -1,0 +1,657 @@
+<style type="text/css" id="beae-global-theme-style" data-beae-global-style="true">/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+            :root {
+                --rows: 10;
+                --beae-site-max-width: 1920px;
+            }
+            
+        :root{--beae-global-colors-accent: #dc2626;--beae-global-colors-background: #e7e7e7;--beae-global-colors-primary: #171717;--beae-global-colors-secondary: #171717;--beae-global-colors-text: #171717;--beae-global-colors-primary_50: #e6e6e6;--beae-global-colors-primary_100: #dadada;--beae-global-colors-primary_200: #cfcfcf;--beae-global-colors-primary_300: #b8b8b8;--beae-global-colors-primary_400: #8a8a8a;--beae-global-colors-primary_500: #5c5c5c;--beae-global-colors-primary_600: #171717;--beae-global-colors-primary_700: #141414;--beae-global-colors-primary_800: #121212;--beae-global-colors-primary_900: #0c0c0c;--beae-global-colors-primary_950: #070707;--beae-global-colors-secondary_50: #e6e6e6;--beae-global-colors-secondary_100: #dadada;--beae-global-colors-secondary_200: #cfcfcf;--beae-global-colors-secondary_300: #b8b8b8;--beae-global-colors-secondary_400: #8a8a8a;--beae-global-colors-secondary_500: #5c5c5c;--beae-global-colors-secondary_600: #171717;--beae-global-colors-secondary_700: #141414;--beae-global-colors-secondary_800: #121212;--beae-global-colors-secondary_900: #0c0c0c;--beae-global-colors-secondary_950: #070707;--beae-global-colors-text_50: #e6e6e6;--beae-global-colors-text_100: #dadada;--beae-global-colors-text_200: #cfcfcf;--beae-global-colors-text_300: #b8b8b8;--beae-global-colors-text_400: #8a8a8a;--beae-global-colors-text_500: #5c5c5c;--beae-global-colors-text_600: #171717;--beae-global-colors-text_700: #141414;--beae-global-colors-text_800: #121212;--beae-global-colors-text_900: #0c0c0c;--beae-global-colors-text_950: #070707;--beae-global-colors-accent_50: #fef2f2;--beae-global-colors-accent_100: #fee2e2;--beae-global-colors-accent_200: #fecaca;--beae-global-colors-accent_300: #fca5a5;--beae-global-colors-accent_400: #f87171;--beae-global-colors-accent_500: #ef4444;--beae-global-colors-accent_600: #dc2626;--beae-global-colors-accent_700: #b91c1c;--beae-global-colors-accent_800: #991b1b;--beae-global-colors-accent_900: #7f1d1d;--beae-global-colors-accent_950: #450a0a;--beae-global-colors-background_50: #fbfbfb;--beae-global-colors-background_100: #fafafa;--beae-global-colors-background_200: #f9f9f9;--beae-global-colors-background_300: #f7f7f7;--beae-global-colors-background_400: #f2f2f2;--beae-global-colors-background_500: #eeeeee;--beae-global-colors-background_600: #e7e7e7;--beae-global-colors-background_700: #dfdfdf;--beae-global-colors-background_800: #d8d8d8;--beae-global-colors-background_900: #c8c8c8;--beae-global-colors-background_950: #b9b9b9;--beae-global-colors-white: white;--beae-global-colors-black: black;--beae-global-colors-transparent: transparent;--beae-page-width: 1470px;--beae-site-margin: 30px;--beae-site-margin-mobile: 15px;--beae-pageWidth: 1200px;} .beae-btn-pr{font-size: calc(16px * var(--text-ratio, 1))  ;line-height: calc(24px * var(--text-ratio, 1))  ;letter-spacing: -0.48px;text-transform: capitalize;font-weight: 600;font-style: normal;text-decoration: none;font-family: 'Inter', sans-serif;color: var(--beae-global-colors-white);background: var(--beae-global-colors-primary_600);border-style: solid;border-color: #000000;border-width: 0px;border-radius: 6px;box-shadow: 0px 0px 0px 0px black;padding-left: 38px;padding-right: 38px;padding-top: 16px;padding-bottom: 16px;}  .beae-btn-pr:hover{color: var(--beae-global-colors-white);background: var(--beae-global-colors-primary_500);box-shadow: none;border-style: solid;border-color: #000000;border-width: 0px;border-radius: 6px;}  .beae-btn-se{color: var(--beae-global-colors-black);font-size: calc(16px * var(--text-ratio, 1))  ;line-height: calc(24px * var(--text-ratio, 1))  ;text-transform: capitalize;font-weight: 600;letter-spacing: -0.48px;font-style: normal;text-decoration: none;font-family: 'Inter', sans-serif;background: var(--beae-global-colors-background_600);border-style: solid;border-color: #000000;border-width: 0px;border-radius: 6px;box-shadow: 0px 0px 0px 0px black;padding-right: 38px;padding-left: 38px;padding-top: 16px;padding-bottom: 16px;}  .beae-btn-se:hover{color: var(--beae-global-colors-white);background: var(--beae-global-colors-black);border-style: solid;border-color: #000000;border-width: 0px;border-radius: 6px;}  .beae-btn-te{font-size: calc(16px * var(--text-ratio, 1))  ;line-height: calc(24px * var(--text-ratio, 1))  ;text-transform: capitalize;font-weight: 600;letter-spacing: -0.48px;font-style: normal;text-decoration: underline;font-family: 'Inter', sans-serif;color: var(--beae-global-colors-text_600);border-style: solid;border-width: 0px;background: var(--beae-global-colors-transparent);border-radius: 0px;box-shadow: 0px 0px 0px 0px black;}  .beae-btn-te:hover{color: var(--beae-global-colors-text_500);border-style: solid;border-color: #000000;border-width: 0px;background: var(--beae-global-colors-transparent);border-radius: 0px;}  .beae-typo-h1{font-size: calc(68px * var(--text-ratio, 1))  ;line-height: calc(80px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_600);letter-spacing:-3.36px;text-transform:none;font-weight:700;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-h2{font-size: calc(58px * var(--text-ratio, 1))  ;line-height: calc(69px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_600);text-transform:none;font-weight:700;letter-spacing:-2.88px;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-h3{font-size: calc(45px * var(--text-ratio, 1))  ;line-height: calc(54px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_600);text-transform:none;font-weight:700;letter-spacing:-2.24px;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-h4{font-size: calc(38px * var(--text-ratio, 1))  ;line-height: calc(46px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_600);text-transform:none;letter-spacing:-1.92px;font-weight:700;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-h5{line-height: calc(38px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_600);text-transform:none;font-weight:700;letter-spacing:-1.6px;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;font-size: calc(32px * var(--text-ratio, 1))  ;} .beae-typo-h6{font-size: calc(29px * var(--text-ratio, 1))  ;line-height: calc(34px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_900);font-weight:700;text-transform:none;letter-spacing:-1.44px;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-p1{font-size: calc(22px * var(--text-ratio, 1))  ;line-height: calc(31px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_500);text-transform:none;font-weight:400;letter-spacing:-0.672px;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-p2{line-height: calc(27px * var(--text-ratio, 1))  ;font-size: calc(19px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_500);font-weight:400;letter-spacing:-0.576px;text-transform:none;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} .beae-typo-p3{font-size: calc(16px * var(--text-ratio, 1))  ;line-height: calc(22px * var(--text-ratio, 1))  ;color:var(--beae-global-colors-text_500);font-weight:400;letter-spacing:-0.48px;text-transform:none;font-style:normal;text-decoration:none;font-family: 'Inter', sans-serif;} @media screen and (max-width: 768px) {
+       .beae-btn-pr{font-size: calc(14px  * var(--text-ratio, 1)) !important ;line-height: calc(20px  * var(--text-ratio, 1)) !important ;letter-spacing: -0.42px !important;font-weight: 600 !important;padding: 13px 30px 13px 30px;}  .beae-btn-se{font-size: calc(14px  * var(--text-ratio, 1)) !important ;line-height: calc(20px  * var(--text-ratio, 1)) !important ;font-weight: 600 !important;letter-spacing: -0.42px !important;padding: 13px 30px 13px 30px;}  .beae-btn-te{font-size: calc(14px  * var(--text-ratio, 1)) !important ;line-height: calc(20px  * var(--text-ratio, 1)) !important ;font-weight: 600 !important;letter-spacing: -0.42px !important;}  .beae-typo-h1{font-size: calc(51px * var(--text-ratio, 1))  ;line-height: calc(61px * var(--text-ratio, 1))  ;letter-spacing: -2.56px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-h2{font-size: calc(42px * var(--text-ratio, 1))  ;line-height: calc(50px * var(--text-ratio, 1))  ;letter-spacing: -2.08px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-h3{font-size: calc(37px * var(--text-ratio, 1))  ;line-height: calc(44px * var(--text-ratio, 1))  ;letter-spacing: -1.84px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-h4{font-size: calc(34px * var(--text-ratio, 1))  ;line-height: calc(40px * var(--text-ratio, 1))  ;letter-spacing: -1.68px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-h5{font-size: calc(29px * var(--text-ratio, 1))  ;line-height: calc(35px * var(--text-ratio, 1))  ;letter-spacing: -1.44px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-h6{font-size: calc(19px * var(--text-ratio, 1))  ;line-height: calc(26px * var(--text-ratio, 1))  ;letter-spacing: -0.576px;font-weight: 700;color: var(--beae-global-colors-text_600);} .beae-typo-p1{font-size: calc(19px * var(--text-ratio, 1))  ;line-height: calc(26px * var(--text-ratio, 1))  ;letter-spacing: -0.576px;font-weight: 400;color: var(--beae-global-colors-text_500);} .beae-typo-p2{line-height: calc(22px * var(--text-ratio, 1))  ;font-size: calc(16px * var(--text-ratio, 1))  ;letter-spacing: -0.48px;font-weight: 400;color: var(--beae-global-colors-text_500);} .beae-typo-p3{font-size: calc(13px * var(--text-ratio, 1))  ;line-height: calc(18px * var(--text-ratio, 1))  ;letter-spacing: -0.384px;font-weight: 400;color: var(--beae-global-colors-text_500);}
+  }:root {
+    --beae-global-colors-white: white;
+    --beae-global-colors-black: black;
+    --beae-global-colors-transparent: transparent;
+  --beae-global-colors-white: white;--beae-global-colors-black: black;--beae-global-colors-transparent: transparent;--be-h1-fs: 68px;--be-h1-lh: 80px;--be-h1-c: var(--beae-global-colors-text_600);--be-h1-fs-M: 51px;--be-h1-lh-M: 61px;--be-h1-ls: -3.36px;--be-h1-tt: none;--be-h1-fw: 700;--be-h1-ls-M: -2.56px;--be-h1-fst: normal;--be-h1-td: none;--be-h1-ff: 'Inter', sans-serif;--be-h1-fw-M: 700;--be-h1-c-M: var(--beae-global-colors-text_600);--be-h2-fs: 58px;--be-h2-lh: 69px;--be-h2-c: var(--beae-global-colors-text_600);--be-h2-fs-M: 42px;--be-h2-lh-M: 50px;--be-h2-tt: none;--be-h2-fw: 700;--be-h2-ls: -2.88px;--be-h2-ls-M: -2.08px;--be-h2-fst: normal;--be-h2-td: none;--be-h2-ff: 'Inter', sans-serif;--be-h2-fw-M: 700;--be-h2-c-M: var(--beae-global-colors-text_600);--be-h3-fs: 45px;--be-h3-lh: 54px;--be-h3-fs-M: 37px;--be-h3-lh-M: 44px;--be-h3-c: var(--beae-global-colors-text_600);--be-h3-tt: none;--be-h3-fw: 700;--be-h3-ls: -2.24px;--be-h3-ls-M: -1.84px;--be-h3-fst: normal;--be-h3-td: none;--be-h3-ff: 'Inter', sans-serif;--be-h3-fw-M: 700;--be-h3-c-M: var(--beae-global-colors-text_600);--be-h4-fs: 38px;--be-h4-lh: 46px;--be-h4-fs-M: 34px;--be-h4-lh-M: 40px;--be-h4-c: var(--beae-global-colors-text_600);--be-h4-tt: none;--be-h4-ls: -1.92px;--be-h4-fw: 700;--be-h4-ls-M: -1.68px;--be-h4-fst: normal;--be-h4-td: none;--be-h4-ff: 'Inter', sans-serif;--be-h4-fw-M: 700;--be-h4-c-M: var(--beae-global-colors-text_600);--be-h5-lh: 38px;--be-h5-fs-M: 29px;--be-h5-lh-M: 35px;--be-h5-c: var(--beae-global-colors-text_600);--be-h5-tt: none;--be-h5-fw: 700;--be-h5-ls: -1.6px;--be-h5-ls-M: -1.44px;--be-h5-fst: normal;--be-h5-td: none;--be-h5-ff: 'Inter', sans-serif;--be-h5-fw-M: 700;--be-h5-c-M: var(--beae-global-colors-text_600);--be-h5-fs: 32px;--be-h6-fs: 29px;--be-h6-lh: 34px;--be-h6-fs-M: 19px;--be-h6-lh-M: 26px;--be-h6-c: var(--beae-global-colors-text_900);--be-h6-fw: 700;--be-h6-tt: none;--be-h6-ls: -1.44px;--be-h6-ls-M: -0.576px;--be-h6-fst: normal;--be-h6-td: none;--be-h6-ff: 'Inter', sans-serif;--be-h6-fw-M: 700;--be-h6-c-M: var(--beae-global-colors-text_600);--be-p1-fs: 22px;--be-p1-lh: 31px;--be-p1-fs-M: 19px;--be-p1-lh-M: 26px;--be-p1-c: var(--beae-global-colors-text_500);--be-p1-tt: none;--be-p1-fw: 400;--be-p1-ls-M: -0.576px;--be-p1-ls: -0.672px;--be-p1-fst: normal;--be-p1-td: none;--be-p1-ff: 'Inter', sans-serif;--be-p1-fw-M: 400;--be-p1-c-M: var(--beae-global-colors-text_500);--be-p2-lh: 27px;--be-p2-lh-M: 22px;--be-p2-fs: 19px;--be-p2-fs-M: 16px;--be-p2-c: var(--beae-global-colors-text_500);--be-p2-fw: 400;--be-p2-ls-M: -0.48px;--be-p2-ls: -0.576px;--be-p2-tt: none;--be-p2-fst: normal;--be-p2-td: none;--be-p2-ff: 'Inter', sans-serif;--be-p2-fw-M: 400;--be-p2-c-M: var(--beae-global-colors-text_500);--be-p3-fs: 16px;--be-p3-lh: 22px;--be-p3-fs-M: 13px;--be-p3-lh-M: 18px;--be-p3-c: var(--beae-global-colors-text_500);--be-p3-fw: 400;--be-p3-ls-M: -0.384px;--be-p3-ls: -0.48px;--be-p3-tt: none;--be-p3-fst: normal;--be-p3-td: none;--be-p3-ff: 'Inter', sans-serif;--be-p3-fw-M: 400;--be-p3-c-M: var(--beae-global-colors-text_500); --be-btn-pr-fs: 16px;
+--be-btn-pr-lh: 24px;
+--be-btn-pr-ls: -0.48px;
+--be-btn-pr-tt: capitalize;
+--be-btn-pr-fw: 600;
+--be-btn-pr-fst: normal;
+--be-btn-pr-td: none;
+--be-btn-pr-ff: 'Inter', sans-serif;
+--be-btn-pr-c: var(--beae-global-colors-white);
+--be-btn-pr-b: var(--beae-global-colors-primary_600);
+--be-btn-pr-bst: solid;
+--be-btn-pr-bc: #000000;
+--be-btn-pr-bw: 0px;
+--be-btn-pr-br: 6px;
+--be-btn-pr-bs: 0px 0px 0px 0px black;
+--be-btn-pr-pl: 38px;
+--be-btn-pr-pr: 38px;
+--be-btn-pr-pt: 16px;
+--be-btn-pr-pb: 16px;  --be-btn-pr-cH: var(--beae-global-colors-white);
+--be-btn-pr-bH: var(--beae-global-colors-primary_500);
+--be-btn-pr-bsH: none;
+--be-btn-pr-bstH: solid;
+--be-btn-pr-bcH: #000000;
+--be-btn-pr-bwH: 0px;
+--be-btn-pr-brH: 6px;  --be-btn-pr-fs-M: 14px !important;
+--be-btn-pr-lh-M: 20px !important;
+--be-btn-pr-ls-M: -0.42px !important;
+--be-btn-pr-fw-M: 600 !important;
+--be-btn-pr-p-M: 13px 30px 13px 30px;  --be-btn-se-c: var(--beae-global-colors-black);
+--be-btn-se-fs: 16px;
+--be-btn-se-lh: 24px;
+--be-btn-se-tt: capitalize;
+--be-btn-se-fw: 600;
+--be-btn-se-ls: -0.48px;
+--be-btn-se-fst: normal;
+--be-btn-se-td: none;
+--be-btn-se-ff: 'Inter', sans-serif;
+--be-btn-se-b: var(--beae-global-colors-background_600);
+--be-btn-se-bst: solid;
+--be-btn-se-bc: #000000;
+--be-btn-se-bw: 0px;
+--be-btn-se-br: 6px;
+--be-btn-se-bs: 0px 0px 0px 0px black;
+--be-btn-se-pr: 38px;
+--be-btn-se-pl: 38px;
+--be-btn-se-pt: 16px;
+--be-btn-se-pb: 16px;  --be-btn-se-cH: var(--beae-global-colors-white);
+--be-btn-se-bH: var(--beae-global-colors-black);
+--be-btn-se-bstH: solid;
+--be-btn-se-bcH: #000000;
+--be-btn-se-bwH: 0px;
+--be-btn-se-brH: 6px;  --be-btn-se-fs-M: 14px !important;
+--be-btn-se-lh-M: 20px !important;
+--be-btn-se-fw-M: 600 !important;
+--be-btn-se-ls-M: -0.42px !important;
+--be-btn-se-p-M: 13px 30px 13px 30px;  --be-btn-te-fs: 16px;
+--be-btn-te-lh: 24px;
+--be-btn-te-tt: capitalize;
+--be-btn-te-fw: 600;
+--be-btn-te-ls: -0.48px;
+--be-btn-te-fst: normal;
+--be-btn-te-td: underline;
+--be-btn-te-ff: 'Inter', sans-serif;
+--be-btn-te-c: var(--beae-global-colors-text_600);
+--be-btn-te-bst: solid;
+--be-btn-te-bw: 0px;
+--be-btn-te-b: var(--beae-global-colors-transparent);
+--be-btn-te-br: 0px;
+--be-btn-te-bs: 0px 0px 0px 0px black;  --be-btn-te-cH: var(--beae-global-colors-text_500);
+--be-btn-te-bstH: solid;
+--be-btn-te-bcH: #000000;
+--be-btn-te-bwH: 0px;
+--be-btn-te-bH: var(--beae-global-colors-transparent);
+--be-btn-te-brH: 0px;  --be-btn-te-fs-M: 14px !important;
+--be-btn-te-lh-M: 20px !important;
+--be-btn-te-fw-M: 600 !important;
+--be-btn-te-ls-M: -0.42px !important; }</style>
