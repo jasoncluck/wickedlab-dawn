@@ -1,17 +1,15 @@
 
-            {% assign beae_root_url = routes.root_url %}
-            {% if beae_root_url != '/'%}
-                {% assign beae_root_url = routes.root_url | append: '/' %}
+                {% assign beae_root_url = routes.root_url %}
+                {% if beae_root_url != '/'%}
+                    {% assign beae_root_url = routes.root_url | append: '/' %}
+                {% endif %}
+            <link rel="stylesheet" id="beae-vendors-slider_css" href="https://cdn.beae.com/vendors/css/beae-swiper-bundle.min.css" media="all" /><link rel="stylesheet" id="beae-vendors-popup_css" href="https://cdn.beae.com/vendors/css/beaepopup.css" media="all" />{%capture section_id %}beae-shop-by-collection{% endcapture%}{% if section_id == section.id %}{% if shop.metafields.beae.global_css %}
+                <!--BEAE-EMBED-->
+                <link href="data:text/css;base64,{{-shop.metafields.beae.global_css-}}" rel="stylesheet" id="beae-global-css"/>
+                <!--/BEAE-EMBED-->
             {% endif %}
-        <link rel="stylesheet" id="beae-vendors-slider_css" href="https://cdn.beae.com/vendors/css/beae-swiper-bundle.min.css" media="all" /><link rel="stylesheet" id="beae-vendors-popup_css" href="https://cdn.beae.com/vendors/css/beaepopup.css" media="all" />{%capture section_id %}beae-shop-by-collection{% endcapture%}{% if section_id == section.id %}{% if shop.metafields.beae.global_css %}
-            <!--BEAE-EMBED-->
-            <link href="data:text/css;base64,{{-shop.metafields.beae.global_css-}}" rel="stylesheet" id="beae-global-css"/>
-            <!--/BEAE-EMBED-->
-        {% endif %}
-
-{% render 'beae_header', BEAE_THEME: true %}{% endif %}<link rel="stylesheet" id="beae-exported-page-css" media="all" href="{{"beae-6606e2837ee09f19e10a4142.css" | asset_url}}"><div class="beae-builder-v1 beae-builder">
-            <script type="text/javascript" src="https://cdn.beae.com/vendors/js-v2/jquery.min.js" defer></script>
-            <div class="beae-sections"><style type="text/css">.beae-bg-lazy{background-image: url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==') !important;background-repeat: repeat !important;background-color: #fafafa !important;}.beae-swiper-container:not(.beae-swiper-interactived){visibility: hidden;}</style>
+{{ content_for_header }}
+{% render 'beae_header', BEAE_THEME: true %}{% endif %}<link rel="stylesheet" media="all" href="{{"beae-6606e2837ee09f19e10a4142.css" | asset_url}}"><div class="beae-builder"><div class="beae-sections"><style type="text/css">.beae-bg-lazy{background-image: url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==') !important;background-repeat: repeat !important;background-color: #fafafa !important;}.beae-swiper-container:not(.beae-swiper-interactived){visibility: hidden;}</style>
             <script type="text/javascript">
             (function(){let f=Element.prototype.appendChild;Element.prototype.appendChild=function(){if(arguments[0].tagName=='SCRIPT'){arguments[0].removeAttribute('async');arguments[0].setAttribute('defer','')}return f.apply(this,arguments)};let resizeImgs=[],beaeLazy=(selector)=>{let lazys=[].slice.call(document.querySelectorAll(selector));if("IntersectionObserver"in window){let lazyObserver=new IntersectionObserver(function(entries,observer){entries.forEach(function(entry){if(entry.isIntersecting){if(entry.target.classList.contains('beae-bg-lazy')){entry.target.classList.remove("beae-bg-lazy");lazyObserver.unobserve(entry.target)}if(entry.target.classList.contains('beae-img-lazy')){entry.target.removeAttribute("loading");entry.target.classList.remove("beae-img-lazy");if(entry.target.getAttribute('data-src')){entry.target.setAttribute('src',entry.target.getAttribute('data-src'));entry.target.removeAttribute("data-src")}if(entry.target.getAttribute('data-srcset')){entry.target.setAttribute('srcset',entry.target.getAttribute('data-srcset'));entry.target.removeAttribute("data-srcset");if(entry.target.getAttribute('sizes')=='0px'){buildLazy(entry.target)}}lazyObserver.unobserve(entry.target)}if(entry.target.classList.contains('beae-iframe-lazy')){entry.target.classList.remove("beae-iframe-lazy");entry.target.setAttribute('src',entry.target.getAttribute('data-src'));entry.target.removeAttribute('data-src')}}})});lazys.forEach(function(lazy){if(lazy.tagName=='IMG'||lazy.tagName=='SOURCE'&&lazy.getAttribute('data-src')){buildLazy(lazy);resizeImgs.push(lazy)}if(!lazy.inited){lazyObserver.observe(lazy);lazy.inited=true}})}},buildLazy=(lazy)=>{let size=lazy.tagName=='IMG'?lazy.offsetWidth:lazy.parentNode.offsetWidth,prx=lazy.classList.contains('beae-img-lazy')?'data-':'',src=lazy.getAttribute(prx+'src'),ratio=1,height=src.match(/height=([\d]+)/)?src.match(/height=([\d]+)/)[1]:'',width=src.match(/width=([\d]+)/)?src.match(/width=([\d]+)/)[1]:'',crop=src.match(/crop=([\w]+)/)?'&crop='+src.match(/crop=([\w]+)/)[1]:'',srcset='';if(size==0){function getVisible(child){try{var node=child.parentNode;while(node!=null){if(window.getComputedStyle(node).display=='none'){return node}node=node.parentNode}}catch(error){}return null}const parent=getVisible(lazy);if(parent){let oldDisplay=parent.style.display;parent.style.display='block';size=lazy.tagName=='IMG'?lazy.offsetWidth:lazy.parentNode.offsetWidth;parent.style.display=oldDisplay}if(size==0){size=500}}src=src.replace(/(https:\/\/via.placeholder.com\/[\d]*x[\d]*)([\s\S]*)/,"$1").replace(/_([\d]*x[\d]*)\.(jpg|png|gif|svg|webp|jpeg)/,".$2").split('?')[0];if(height&&width){if(width<size){size=width}ratio=height/width;srcset=src+'?width='+size+'&height='+size*ratio+crop+' 1x, '+src+'?width='+(size*2)+'&height='+(size*ratio*2)+crop+' 2x'}else{srcset=src+'?width='+size+crop+' 1x, '+src+'?width='+(size*2)+crop+' 2x'}lazy.setAttribute('sizes',size+'px');lazy.setAttribute(prx+'srcset',srcset)},interactive=()=>{window.removeEventListener('scroll',interactive);document.removeEventListener('mousemove',interactive);if(window.innerWidth<=767){beaeLazy(".beae-bg-lazy, .beae-img-lazy, .beae-iframe-lazy")}else{beaeLazy(".beae-iframe-lazy")}};{% if request.design_mode %} if(!window.beaeLazy) { window.beaeLazy = beaeLazy; document.querySelectorAll('.beae-swiper-container').forEach(sw => {sw.classList.add('beae-swiper-interactived')});};{% endif %};document.addEventListener("DOMContentLoaded",function(){window.addEventListener('scroll',interactive);document.addEventListener('mousemove',interactive);beaeLazy(".beae-img-lazy, .beae-bg-lazy");window.beaeLazy=beaeLazy;document.querySelectorAll('.beae-swiper-container').forEach(sw=>{sw.classList.add('beae-swiper-interactived')})});let deboundTimer;window.addEventListener('resize',()=>{clearTimeout(deboundTimer);deboundTimer=setTimeout(()=>{if(resizeImgs.length){resizeImgs.forEach(img=>buildLazy(img))}},250)})})()
             </script>
@@ -868,60 +866,60 @@
 
                             {% assign collection = tmp_collection %}
                         </div></div><div class="beae-products__actions--view-more-wrapper" data-button-align="tr" data-pos="bot" style="display: none;"><div class="beae-core core__microelement mce--button core__micro--button_view_more"><div class="mce--wrp" data-beaeis="micro"><a id="" href="https://thefungiftstore.com/collections/nursing" class="beae-mce__button beae__element--button beae-products__actions--view-more beae-view-all"><span class="beae__element--button-icon-text beae-button-text-content">{{ 'sections.beae-shop-by-collection.viewall_title_1hq5br8w_html' | t }}</span></a></div></div></div></div></div></div></div></div></div></div></div></section><!---This page has been built by Beae Builder (www.beae.com)--->
-</div></div>{% if section_id == section.id %}{% endif%}<script type="text/javascript" id="beae-vendors-section_helper" src="https://cdn.beae.com/vendors/js/section-helper.js" async></script>
-<script id="beae-exported-page-js" src="{{'beae-6606e2837ee09f19e10a4142.js'  | asset_url }}" defer></script>
+</div></div>{% if section_id == section.id %}{% endif%}<script  type="text/javascript" id="beae-vendors-section_helper" src="https://cdn.beae.com/vendors/js/section-helper.js" async></script>
+<script src="{{'beae-6606e2837ee09f19e10a4142.js'  | asset_url }}" defer></script>
 
 {% schema %}
 {
-  "name": "BEAE BUILDER APP",
-  "locales": {
-    "en": {
-      "heading_zkgiiy7g_html": "Teachers",
-      "viewall_title_zkgiiy7g_html": "View all",
-      "heading_7920hmox_html": "Fishing",
-      "viewall_title_7920hmox_html": "View all",
-      "heading_ieumae55_html": "Patriots",
-      "viewall_title_ieumae55_html": "View all",
-      "heading_1hq5br8w_html": "Nursing",
-      "viewall_title_1hq5br8w_html": "View all",
-      "sold-text_zkgiiy7g_html": "Sold out",
-      "sale-text_zkgiiy7g_html": "Save {sale}",
-      "no_product_item_zkgiiy7g_html": "There are no product yet!",
-      "sold-text_7920hmox_html": "Sold out",
-      "sale-text_7920hmox_html": "Save {sale}",
-      "no_product_item_7920hmox_html": "There are no product yet!",
-      "sold-text_ieumae55_html": "Sold out",
-      "sale-text_ieumae55_html": "Save {sale}",
-      "no_product_item_ieumae55_html": "Products coming soon!",
-      "sold-text_1hq5br8w_html": "Sold out",
-      "sale-text_1hq5br8w_html": "Save {sale}",
-      "no_product_item_1hq5br8w_html": "Products coming soon!",
-      "product_single_sale_text_zkgiiy7g_html": "Save {}",
-      "product_single_sold_text_zkgiiy7g_html": "Sold out",
-      "product_single_sale_text_7920hmox_html": "Save {}",
-      "product_single_sold_text_7920hmox_html": "Sold out",
-      "product_single_sale_text_ieumae55_html": "Save {}",
-      "product_single_sold_text_ieumae55_html": "Sold out",
-      "product_single_sale_text_1hq5br8w_html": "Save {}",
-      "product_single_sold_text_1hq5br8w_html": "Sold out"
-    }
-  },
-  "settings": [
-    {
-      "type": "header",
-      "content": "The section was generated by BEAE BUILDER",
-      "info": "\n                        Beae is a flexible page builder app on Shopify AppStore.\n                        It provides 100+ Shopify Elements and pre-built templates library, \n                        so you can build unlimited pages that you can imagine with it.\n                    "
+    "name": "BEAE BUILDER APP",
+    "locales": {
+        "en": {
+            "heading_zkgiiy7g_html": "Teachers",
+            "viewall_title_zkgiiy7g_html": "View all",
+            "heading_7920hmox_html": "Fishing",
+            "viewall_title_7920hmox_html": "View all",
+            "heading_ieumae55_html": "Patriots",
+            "viewall_title_ieumae55_html": "View all",
+            "heading_1hq5br8w_html": "Nursing",
+            "viewall_title_1hq5br8w_html": "View all",
+            "sold-text_zkgiiy7g_html": "Sold out",
+            "sale-text_zkgiiy7g_html": "Save {sale}",
+            "no_product_item_zkgiiy7g_html": "There are no product yet!",
+            "sold-text_7920hmox_html": "Sold out",
+            "sale-text_7920hmox_html": "Save {sale}",
+            "no_product_item_7920hmox_html": "There are no product yet!",
+            "sold-text_ieumae55_html": "Sold out",
+            "sale-text_ieumae55_html": "Save {sale}",
+            "no_product_item_ieumae55_html": "Products coming soon!",
+            "sold-text_1hq5br8w_html": "Sold out",
+            "sale-text_1hq5br8w_html": "Save {sale}",
+            "no_product_item_1hq5br8w_html": "Products coming soon!",
+            "product_single_sale_text_zkgiiy7g_html": "Save {}",
+            "product_single_sold_text_zkgiiy7g_html": "Sold out",
+            "product_single_sale_text_7920hmox_html": "Save {}",
+            "product_single_sold_text_7920hmox_html": "Sold out",
+            "product_single_sale_text_ieumae55_html": "Save {}",
+            "product_single_sold_text_ieumae55_html": "Sold out",
+            "product_single_sale_text_1hq5br8w_html": "Save {}",
+            "product_single_sold_text_1hq5br8w_html": "Sold out"
+        }
     },
-    {
-      "type": "header",
-      "content": "[EDIT WITH BEAE APP →](https://wicked-stickerz.myshopify.com/admin/apps/3db283686bdf064c04e98e5cf61875ee/app/editor/v1/list-collections/6606e2837ee09f19e10a4142)",
-      "info": "(*You must install the app to start editing this section [Learn more](https://docs.beae.com/en/article/quick-start-guide-dkoesy/))"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "@app"
-    }
-  ]
+    "settings": [
+        {
+            "type": "header",
+            "content": "The section was generated by BEAE BUILDER",
+            "info": "\n                            Beae is a flexible page builder app on Shopify AppStore.\n                            It provides 100+ Shopify Elements and pre-built templates library, \n                            so you can build unlimited pages that you can imagine with it.\n                        "
+        },
+        {
+            "type": "header",
+            "content": "[EDIT WITH BEAE APP \u2192](https:\/\/wicked-stickerz.myshopify.com\/admin\/apps\/beae-flexible-page-builder\/next\/classic\/list-collections\/6606e2837ee09f19e10a4142)",
+            "info": "(*You must install the app to start editing this section [Learn more](https:\/\/docs.beae.com\/en\/article\/quick-start-guide-dkoesy\/))"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "@app"
+        }
+    ]
 }
 {% endschema %}
