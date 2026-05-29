@@ -38,9 +38,8 @@
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                         href="{{ childlink.url }}"
                         class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
+                        {% if childlink.current %}aria-current="page"{% endif %}
+                        {% if childlink.type == 'http_link' %}target="_blank" rel="noopener noreferrer"{% endif %}
                       >
                         {{ childlink.title | escape }}
                       </a>
@@ -63,9 +62,8 @@
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
                                 class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
+                                {% if grandchildlink.current %}aria-current="page"{% endif %}
+                                {% if grandchildlink.type == 'http_link' %}target="_blank" rel="noopener noreferrer"{% endif %}
                               >
                                 {{ grandchildlink.title | escape }}
                               </a>
@@ -84,9 +82,8 @@
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
             class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}
-              aria-current="page"
-            {% endif %}
+            {% if link.current %}aria-current="page"{% endif %}
+            {% if link.type == 'http_link' %}target="_blank" rel="noopener noreferrer"{% endif %}
           >
             <span
               {%- if link.current %}

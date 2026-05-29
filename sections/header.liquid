@@ -304,6 +304,7 @@
                 <a
                   href="{{ section.settings[url_key] | default: '#' }}"
                   class="header__menu-item link link--text focus-inset"
+                  {% if section.settings[url_key] contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}
                 >
                   {{- section.settings[label_key] | escape -}}
                 </a>
