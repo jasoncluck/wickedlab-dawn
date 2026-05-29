@@ -14,7 +14,7 @@
       "name": "WL Hero",
       "settings": {
         "hero_logo": "TWL_shopify_logo.svg",
-        "hero_logo_height": 200,
+        "hero_logo_height": 180,
         "eyebrow": "York, PA · In-house printing since 2015",
         "heading_line1": "Every gift,",
         "heading_line2": "made just for you",
@@ -23,10 +23,10 @@
         "btn_primary_url": "/collections/all-products",
         "btn_secondary_label": "",
         "btn_secondary_url": "",
-        "trust_1": "No minimum order",
-        "trust_2": "Ships in 5–7 days",
-        "trust_3": "In-house printed",
-        "trust_4": ""
+        "trust_1": "No set-up fee",
+        "trust_2": "No minimum order",
+        "trust_3": "Ships in 5–7 days",
+        "trust_4": "In-house printed"
       }
     },
     "wl_feat_carousel_6tJWVV": {
